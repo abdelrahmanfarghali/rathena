@@ -1,4 +1,5 @@
 userid: username
 passwd: password
+server_name: Red Velvet
 login_ip: 127.0.0.1
 char_ip: 127.0.0.1
