@@ -1,4 +1,4 @@
-userid: username
-passwd: password
+userid: rathena
+passwd: changegm
 login_ip: 127.0.0.1
 char_ip: 127.0.0.1

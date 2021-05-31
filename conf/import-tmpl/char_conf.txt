@@ -1,5 +1,5 @@
-userid: username
-passwd: password
-server_name: Red Velvet
+userid: rathena
+passwd: changegm
+server_name: rAthena
 login_ip: 127.0.0.1
 char_ip: 127.0.0.1
