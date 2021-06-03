@@ -53,11 +53,11 @@ aldeba_in,96,181,4	script	Kafra Service	113,{
 		close2;
 		break;
 	case 2:
-		if (Zeny < 20) {
+		if (Zeny < 0) {
 			mes "[Kafra Leilah]";
 			mes "Excuse me, but it";
 			mes "seems that you don't";
-			mes "have the 20 zeny to pay";
+			mes "have the 0 zeny to pay";
 			mes "the Storage access fee...";
 			close;
 		}
@@ -68,7 +68,7 @@ aldeba_in,96,181,4	script	Kafra Service	113,{
 		mes "and administrative functions,";
 		mes "I'll access your Storage for you.";
 		next;
-		set Zeny, Zeny-20;
+		//set Zeny, Zeny-20;
 		set RESRVPTS, RESRVPTS + (20/5);
 		mes "[Kafra Leilah]";
 		mes "In the future, please";
@@ -241,7 +241,57 @@ prontera,152,326,3	script	Kafra Employee::kaf_prontera	112,{
 	mes "you. So how can I be";
 	mes "of service today?";
 	callfunc "F_Kafra",5,0,0,40,800;
-	savepoint "prontera",157,327,1,1;
+	savepoint "prontera",155,324,1,1;
+	callfunc "F_KafEnd",0,1,"in the city of Prontera";
+}
+prontera,155,179,3	script	Kafra Employee::kaf_prontera	112,{
+	cutin "kafra_06",2;
+	callfunc "F_KafSet";
+	mes "[Kafra Employee]";
+	mes "Welcome to the";
+	mes "Kafra Corporation~";
+	mes "The Kafra Services are";
+	mes "always here to support";
+	mes "you. So how can I be";
+	mes "of service today?";
+	callfunc "F_Kafra",5,0,0,40,800;
+	savepoint "prontera",155,172,0,0;
+	callfunc "F_KafEnd",0,1,"in the city of Prontera";
+}
+//rewards npc
+prontera,150,170,3	script	Rewards Employee::kaf_prontera	116,{
+	cutin "kafra_05",2;
+	//callfunc "F_KafSet";
+	mes "^333333[Kafra Employee]";
+	mes "Welcome to the";
+	mes "Kafra Corporation~";
+	mes "The Kafra Services are";
+	mes "to give you your rewards";
+	//mes "you. So how can I be";
+	//mes "of service today?";
+	setarray .@itemreward1$[0],999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999,999;
+	goto rewards;
+	close;
+rewards:
+	switch(select("Armor:Costume:MVP Drop:Weapon:Zeny")) {
+		case 0:
+			getitem .@itemreward1$[rand(0, 20)],1;
+			break;
+		case 1:
+			getitem .@itemreward2$[rand(21, 40)],1;
+			break;
+		case 2:
+			getitem .@itemreward3$[rand(41, 50)],1;
+			break;
+		case 3:
+			getitem .@itemreward4$[rand(51, 60)],1;
+			break;
+		case 4:
+			set Zeny,(Zeny + rand(100000, 9000000));
+			break;
+	}
+	//callfunc "F_Kafra",5,0,0,40,800;
+	savepoint "prontera",155,172,0,0;
 	callfunc "F_KafEnd",0,1,"in the city of Prontera";
 }
 
@@ -296,7 +346,7 @@ prontera,146,89,6	script	Kafra Employee::kaf_prontera5	117,{
 	mes "are always on your side.";
 	mes "How may I assist you?";
 	callfunc "F_Kafra",5,0,0,40,800;
-	savepoint "prontera",116,73,1,1;
+	savepoint "prontera",157,172,1,1;
 	callfunc "F_KafEnd",0,1,"in the city of Prontera";
 }
 

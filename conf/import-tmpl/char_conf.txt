@@ -1,5 +1,7 @@
-userid: rathena
-passwd: changegm
-server_name: rAthena
-login_ip: 127.0.0.1
-char_ip: 127.0.0.1
+userid: ragnarok
+passwd: ragnarok
+pincode_enabled: no
+pincode_force: no
+server_name: Red Velvet
+char_moves_unlimited: yes
+start_point: izlude,192,210:izlude_a,192,210:izlude_b,192,210:izlude_c,192,210

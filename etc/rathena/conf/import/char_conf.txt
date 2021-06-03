@@ -1,0 +1,6 @@
+userid: ragnarok
+passwd: ragnarok
+pincode_enabled: no
+pincode_force: no
+server_name: Red Velvet
+char_moves_unlimited: yes
