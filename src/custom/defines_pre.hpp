@@ -12,3 +12,7 @@
 
 
 #endif /* CONFIG_CUSTOM_DEFINES_PRE_HPP */
+
+// Configured PACKETVER
+#undef PACKETVER
+#define PACKETVER 20220406
