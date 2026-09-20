@@ -1,0 +1,32 @@
+-	script	Balance175	-1,{
+OnInit:
+	// ---- CONFIG (all values are %) ----
+	.pc_atk       = -10;   // physical damage dealt (bAtkRate)
+	.pc_matk      = -10;   // magic damage dealt (bMatkRate)
+	.vs_mob_dealt = -8;    // extra reduction on damage dealt to monsters (acts as mob defense boost)
+	.taken_mob    = 12;    // damage RESISTANCE vs monsters (acts as monster damage reduction)
+	.taken_pc     = 15;    // damage RESISTANCE vs players (PvP)
+	.flat_def     = 20;    // flat DEF added
+	.flat_mdef    = 10;    // flat MDEF added
+	.dur          = 31536000;   // seconds; re-applied at every login
+	// Mode rates (100 = unchanged). Names must exist in your conf/battle/*.conf
+	setarray .rate_keys$, "gvg_short_damage_rate", "gvg_long_damage_rate", "gvg_magic_damage_rate", "gvg_misc_damage_rate",
+	                      "bg_short_damage_rate",  "bg_long_damage_rate",  "bg_magic_damage_rate",  "bg_misc_damage_rate";
+	setarray .rate_vals, 80, 80, 80, 80, 80, 80, 80, 80;
+	// -----------------------------------
+	for (.@i = 0; .@i < getarraysize(.rate_keys$); .@i++)
+		setbattleflag .rate_keys$[.@i], .rate_vals[.@i];
+	.script$ =
+		"bonus bAtkRate," + .pc_atk + ";" +
+		"bonus bMatkRate," + .pc_matk + ";" +
+		"bonus2 bAddRace,RC_All," + .vs_mob_dealt + ";" +
+		"bonus2 bSubRace,RC_All," + .taken_mob + ";" +
+		"bonus2 bSubRace,RC_DemiHuman," + .taken_pc + ";" +
+		"bonus bDef," + .flat_def + ";" +
+		"bonus bMdef," + .flat_mdef + ";";
+	end;
+
+OnPCLoginEvent:
+	bonus_script .script$, .dur, BSF_REM_ON_LOGOUT;
+	end;
+}

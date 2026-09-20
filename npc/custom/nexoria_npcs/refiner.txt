@@ -1,0 +1,79 @@
+// ============================================================
+// Tao Gunka Exchanger (sprite 1833 = Tao Gunka)
+// ============================================================
+prontera,155,185,4	script	Tao Gunka Exchanger	1833,{
+	// ---------- Config (data-driven) ----------
+	.@gem      = 7300;   // <-- TODO: Tao Gunka Gemstone item ID (verify with @iteminfo)
+	.@cap_hrs  = 72;  // max AFK hours that can accumulate
+	.@price    = 5;   // gemstones per ticket, per refine level (+N costs N * price)
+
+	// Ticket item IDs indexed by target refine level 1..20
+	// TODO: fill from your item_db (verify each with @iteminfo)
+	setarray .@tk[1], 6231,6235,6230,6234,6229,6233,6228,6232,6993,6994,6238,6239,6584,6585,6870,6876,6871,6877,6872,6878,6873,6879,6874,6880,6875,6881,6864,6865;
+    
+    //+6/+7/+8/+9/+10/+11/+12/+13/+14/+15/+16/+17/+18/+19 tickets below
+    //weapon tickets: 6231, 6230, 6229, 6228, 6993, 6238, 6584, 6870, 6871, 6872, 6873, 6874, 6875, 6864;
+    //armor tickets : 6235, 6234, 6233, 6232, 6994, 6239, 6585, 6876, 6877, 6878, 6879, 6880, 6881, 6865;
+	
+    // ---------- AFK accrual ----------
+	.@now = gettimetick(2);
+	if (!TG_LAST) TG_LAST = .@now;
+	.@hrs = min((.@now - TG_LAST) / 3600, .@cap_hrs);
+
+	mes "[Tao Gunka]";
+	mes "Gemstones: ^0000FF" + countitem(.@gem) + "^000000";
+	mes "AFK reward ready: ^00AA00" + .@hrs + "^000000 (+1 per hour)";
+	next;
+	switch (select("Claim AFK gemstones:Exchange gemstones for tickets:Refine with tickets:Cancel")) {
+
+	case 1:
+		if (.@hrs < 1) { mes "[Tao Gunka]"; mes "Come back later."; close; }
+		TG_LAST += .@hrs * 3600;   // keep the remainder
+		getitem .@gem, .@hrs;
+		mes "[Tao Gunka]";
+		mes "Received " + .@hrs + " gemstone(s).";
+		close;
+
+	case 2:
+		.@menu$ = "";
+		for (.@i = 1; .@i <= 20; .@i++)
+			.@menu$ += "+" + .@i + " Ticket (" + (.@i * .@price) + " gems):";
+		.@lv = select(.@menu$);
+		if (!.@tk[.@lv]) { mes "This ticket is not available."; close; }
+		.@cost = .@lv * .@price;
+		if (countitem(.@gem) < .@cost) { mes "Not enough gemstones."; close; }
+		delitem .@gem, .@cost;
+		getitem .@tk[.@lv], 1;
+		close;
+
+	case 3:
+		setarray .@parts[0], EQI_HEAD_TOP, EQI_ARMOR, EQI_HAND_R, EQI_HAND_L, EQI_GARMENT, EQI_SHOES;
+		.@menu$ = "";
+		for (.@i = 0; .@i < getarraysize(.@parts); .@i++)
+			.@menu$ += (getequipisequiped(.@parts[.@i]) ? getequipname(.@parts[.@i]) : "-") + ":";
+		.@p = .@parts[select(.@menu$) - 1];
+
+		if (!getequipisequiped(.@p) || !getequipisenableref(.@p)) { mes "Cannot refine that."; close; }
+		.@id  = getequipid(.@p);
+		.@cnt = getequiprefinerycnt(.@p);
+		.@to  = .@cnt + 1;
+		if (.@to > 20) { mes "Already at maximum."; close; }
+
+		// Ticket cost: weapons Lv1-3 = 1, Lv4 = 2; armor normal = 1, higher = 2
+		if (.@p == EQI_HAND_R && getequipweaponlv(.@p))
+			.@amt = (getequipweaponlv(.@p) >= 4) ? 2 : 1;
+		else
+			.@amt = (getiteminfo(.@id, ITEMINFO_ARMORLEVEL) >= 2) ? 2 : 1;
+
+		if (countitem(.@tk[.@to]) < .@amt) {
+			mes "You need " + .@amt + "x +" + .@to + " Refine Ticket.";
+			close;
+		}
+		delitem .@tk[.@to], .@amt;
+		successrefitem .@p;
+		close;
+
+	case 4:
+		close;
+	}
+}

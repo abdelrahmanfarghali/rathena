@@ -1,0 +1,104 @@
+// ============ Bomb Arena ============
+// Arena map flags
+pvp_y_1-1	mapflag	pvp
+pvp_y_1-1	mapflag	nopenalty
+pvp_y_1-1	mapflag	nosave	SavePoint
+pvp_y_1-1	mapflag	noteleport
+pvp_y_1-1	mapflag	nowarp
+pvp_y_1-1	mapflag	nowarpto
+pvp_y_1-1	mapflag	noreturn
+pvp_y_1-1	mapflag	nomemo
+
+// Entry NPC
+prontera,155,185,4	script	Zero Blow PVP Master	4_M_KID1,{
+	mes "[Zero Blow PVP Master]";
+	mes "Enter the Zero Blow PVP?";
+	mes "You will be slowed. Use ^0000FF@leavepvp^000000 to escape.";
+	next;
+	if (select("Enter:Cancel") == 2) close;
+	.@spd = getarraysize(getvariableofnpc(.spd, "BombArena")) ? 0 : 0; // placeholder-free; see config below
+	sc_start SC_WALKSPEED, 86400000, getvariableofnpc(.walk_speed, "BombArena");
+	warp getvariableofnpc(.map$, "BombArena"), 0, 0;   // 0,0 = random cell
+	end;
+}
+
+// Hidden effect carrier
+-	script	BombFx	-1,{ end; }
+
+// Engine
+-	script	BombArena	-1,{
+OnInit:
+	// ---- CONFIG ----
+	.map$        = "pvp_y_1-1";
+	.walk_speed  = 300;      // ms per cell (default 150, higher = slower)
+	.bombs       = 6;        // bombs per wave
+	.warn_ms     = 2500;     // warning time before detonation
+	.wave_ms     = 3000;     // pause between waves
+	.min_x = 20; .max_x = 80;
+	.min_y = 20; .max_y = 80;
+	.fx_warn     = EF_BLASTMINE;
+	.fx_boom     = EF_EXPLOSION;
+	// ----------------
+	bindatcmd "leavepvp", strnpcinfo(0) + "::OnLeave";
+
+	while (1) {
+		if (getmapusers(.map$) < 1) { sleep 2000; continue; }
+
+		// pick centers, keep 1 cell from the edge
+		deletearray .@bx; deletearray .@by;
+		for (.@i = 0; .@i < .bombs; .@i++) {
+			.@bx[.@i] = rand(.min_x, .max_x);
+			.@by[.@i] = rand(.min_y, .max_y);
+		}
+
+		// warning phase: draw the 3x3 danger area
+		for (.@i = 0; .@i < .bombs; .@i++)
+			for (.@dx = -1; .@dx <= 1; .@dx++)
+				for (.@dy = -1; .@dy <= 1; .@dy++) {
+					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
+					specialeffect .fx_warn, AREA, "BombFx";
+				}
+		sleep .warn_ms;
+
+		// detonation: effect + kill
+		for (.@i = 0; .@i < .bombs; .@i++)
+			for (.@dx = -1; .@dx <= 1; .@dx++)
+				for (.@dy = -1; .@dy <= 1; .@dy++) {
+					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
+					specialeffect .fx_boom, AREA, "BombFx";
+				}
+
+		.@n = getmapunits(BL_PC, .map$, .@gids);
+		for (.@p = 0; .@p < .@n; .@p++) {
+			if (!attachrid(.@gids[.@p])) continue;
+			getmapxy .@m$, .@x, .@y, BL_PC;
+			for (.@i = 0; .@i < .bombs; .@i++)
+				if (abs(.@x - .@bx[.@i]) <= 1 && abs(.@y - .@by[.@i]) <= 1) {
+					percentheal -100, -100;   // swap for unitkill getcharid(3) if immunity blocks it
+					break;
+				}
+			detachrid;
+		}
+		sleep .wave_ms;
+	}
+	end;
+
+OnLeave:
+	if (strcharinfo(3) != .map$) end;
+	sc_end SC_WALKSPEED;
+	delitem .exit_item, countitem(.exit_item);
+	warp "SavePoint", 0, 0;
+	end;
+
+OnPCDieEvent:
+	if (strcharinfo(3) != getvariableofnpc(.map$, "BombArena")) end;
+	sc_end SC_WALKSPEED;
+	delitem getvariableofnpc(.exit_item, "BombArena"), countitem(getvariableofnpc(.exit_item, "BombArena"));
+	end;
+
+// Restore speed on death (global PC event)
+-	script	BombArenaCleanup	-1,{
+OnPCDieEvent:
+	if (strcharinfo(3) == getvariableofnpc(.map$, "BombArena")) sc_end SC_WALKSPEED;
+	end;
+}

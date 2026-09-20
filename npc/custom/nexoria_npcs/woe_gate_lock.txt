@@ -1,0 +1,22 @@
+-	script	WoeGateLock	-1,{
+OnInit:
+	.lock_sec = 15;
+	setarray .prefix$, "aldeg", "gefg", "payg", "prtg";   // add arug/schg etc. if used
+	for (.@i = 0; .@i < getarraysize(.prefix$); .@i++)
+		for (.@f = 1; .@f <= 5; .@f++)
+			setmapflag sprintf("%s_cas%02d", .prefix$[.@i], .@f), mf_loadevent;
+	end;
+
+OnPCDieEvent:
+	if (!agitcheck() && !agitcheck2()) end;
+	if (!getmapflag(strcharinfo(3), mf_gvg_castle)) end;
+	@woe_gate_until = gettimetick(2) + .lock_sec;
+	end;
+
+OnPCLoadMapEvent:
+	.@left = @woe_gate_until - gettimetick(2);
+	if (.@left <= 0) end;
+	dispbottom "Castle gates are locked for " + .@left + "s after your death.";
+	warp "SavePoint", 0, 0;
+	end;
+}

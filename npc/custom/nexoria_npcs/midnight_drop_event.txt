@@ -1,0 +1,231 @@
+// ====================================================================
+// Daily Time-Based Event System
+//
+// MIDNIGHT (00:00 - 06:00) — Dungeon Surge
+//   - Doubles ALL drop rates server-wide (Bubble Gum effect)
+//   - Hot-spot dungeon announced
+//
+// MORNING  (06:00 - 12:00) — Field Rush
+//   - Boosts BASE and JOB EXP rates server-wide
+//   - Drop rates restored to baseline
+//
+// Visible NPC in Prontera lets players check the current active boost.
+// Both windows restore all rates at their respective end time.
+// ====================================================================
+
+// ====================================================================
+// SECTION 1: Invisible controller (no sprite, no map position)
+// ====================================================================
+-	script	Daily_Event_Controller	-1,{
+
+OnInit:
+    // ----------------------------------------------------------------
+    // 1. DUNGEON MAPS  (midnight window)
+    // ----------------------------------------------------------------
+    setarray .DungeonMaps$[0],
+        "gl_dun01",   // Glast Heim Dungeon 1
+        "gl_dun02",   // Glast Heim Dungeon 2
+        "mag_dun01",  // Magma Dungeon 1
+        "mag_dun02",  // Magma Dungeon 2
+        "tur_dun01",  // Turtle Dungeon 1
+        "tur_dun04",  // Turtle Dungeon 4
+        "abbey01",    // Nameless Island Abbey 1
+        "abbey02",    // Nameless Island Abbey 2
+        "ra_san01",   // Schwartzwald Dungeon 1
+        "gon_dun02",  // Gonryun Dungeon
+        "lhz_dun01",  // Lighthalzen Biolab 1
+        "lhz_dun02",  // Lighthalzen Biolab 2
+        "abyss_01",   // Abyss Lake 1
+        "abyss_03",   // Abyss Lake 3
+        "niflheim";   // Niflheim
+
+    // ----------------------------------------------------------------
+    // 2. FIELD MAPS  (morning window)
+    // ----------------------------------------------------------------
+    setarray .FieldMaps$[0],
+        "prt_fild08", // Prontera Field
+        "gef_fild10", // Orc Village
+        "moc_fild22", // Sograt Desert
+        "cmd_fild02", // Comodo Field
+        "ve_fild07",  // Rachel Field
+        "yuno_fild04",// Yuno Field
+        "ra_fild12",  // Schwartzwald Field
+        "lhz_fild01"; // Lighthalzen Field
+
+    // ----------------------------------------------------------------
+    // 3. RATE CONFIGURATION
+    // ----------------------------------------------------------------
+    // Drop boost multiplier as % of baseline. 200 = x2 (Bubble Gum).
+    .DropBoostPct = 200;
+
+    // Flat EXP bonus added to base/job rate during morning rush.
+    // e.g. server baseline 7500 (75x) + 5000 = 12500 (125x)
+    .ExpBoostFlat = 5000;
+
+    // ----------------------------------------------------------------
+    // 4. SNAPSHOT BASELINE RATES (so we can restore them cleanly)
+    // ----------------------------------------------------------------
+    .BaseDropCommon = getbattleflag("item_rate_common");
+    .BaseDropHeal   = getbattleflag("item_rate_heal");
+    .BaseDropEquip  = getbattleflag("item_rate_equip");
+    .BaseDropCard   = getbattleflag("item_rate_card");
+    .BaseExpBase    = getbattleflag("base_exp_rate");
+    .BaseExpJob     = getbattleflag("job_exp_rate");
+
+    // ----------------------------------------------------------------
+    // 5. RESUME IN-PROGRESS WINDOW after server restart
+    // ----------------------------------------------------------------
+    .h = gettime(3);
+    if (.h >= 0 && .h < 6) {
+        if ($ActiveDungeon$ == "")
+            $ActiveDungeon$ = .DungeonMaps$[rand(getarraysize(.DungeonMaps$))];
+        $EventMode = 1; // midnight
+        callsub L_ApplyDropBoost;
+    } else if (.h >= 6 && .h < 12) {
+        if ($ActiveField$ == "")
+            $ActiveField$ = .FieldMaps$[rand(getarraysize(.FieldMaps$))];
+        if ($ActiveField2$ == "")
+            $ActiveField2$ = .FieldMaps$[rand(getarraysize(.FieldMaps$))];
+        $EventMode = 2; // morning
+        callsub L_ApplyExpBoost;
+    } else {
+        $EventMode = 0; // off-peak
+    }
+    end;
+
+// ====================================================================
+// MIDNIGHT 00:00 — Begin Dungeon Surge
+// ====================================================================
+OnClock0000:
+    $ActiveDungeon$ = .DungeonMaps$[rand(getarraysize(.DungeonMaps$))];
+    $ActiveField$   = "";
+    $ActiveField2$  = "";
+    $EventMode      = 1;
+
+    callsub L_ApplyDropBoost;
+
+    announce "[ Midnight Surge ]: Darkness floods the dungeons!", bc_all, 0xFF4500;
+    announce "[ Midnight Surge ]: Drop rates DOUBLED server-wide until 06:00! Tonight's hot-spot: [ " + $ActiveDungeon$ + " ]", bc_all, 0xFFD700;
+    end;
+
+// ====================================================================
+// 06:00 — End Dungeon Surge, Begin Morning Field Rush
+// ====================================================================
+OnClock0600:
+    callsub L_RestoreDropRates;
+
+    $ActiveField$   = .FieldMaps$[rand(getarraysize(.FieldMaps$))];
+    $ActiveField2$  = .FieldMaps$[rand(getarraysize(.FieldMaps$))];
+    $ActiveDungeon$ = "";
+    $EventMode      = 2;
+
+    callsub L_ApplyExpBoost;
+
+    announce "[ Morning Rush ]: Dawn breaks! EXP rates BOOSTED on all fields until 12:00!", bc_all, 0x00BFFF;
+    announce "[ Morning Rush ]: Today's hot-spots: [ " + $ActiveField$ + " ] & [ " + $ActiveField2$ + " ]", bc_all, 0x90EE90;
+    end;
+
+// ====================================================================
+// 12:00 — End Morning Rush, restore all rates
+// ====================================================================
+OnClock1200:
+    callsub L_RestoreExpRates;
+    $ActiveField$  = "";
+    $ActiveField2$ = "";
+    $EventMode     = 0;
+
+    announce "[ Event System ]: The Morning Rush has ended. Rates returned to normal. See you tonight!", bc_all, 0xAAAAAA;
+    end;
+
+// ====================================================================
+// SUBROUTINES
+// ====================================================================
+L_ApplyDropBoost:
+    setbattleflag "item_rate_common", (.BaseDropCommon * .DropBoostPct / 100), true;
+    setbattleflag "item_rate_heal",   (.BaseDropHeal   * .DropBoostPct / 100), true;
+    setbattleflag "item_rate_equip",  (.BaseDropEquip  * .DropBoostPct / 100), true;
+    setbattleflag "item_rate_card",   (.BaseDropCard   * .DropBoostPct / 100), true;
+    return;
+
+L_RestoreDropRates:
+    setbattleflag "item_rate_common", .BaseDropCommon, true;
+    setbattleflag "item_rate_heal",   .BaseDropHeal,   true;
+    setbattleflag "item_rate_equip",  .BaseDropEquip,  true;
+    setbattleflag "item_rate_card",   .BaseDropCard,   true;
+    return;
+
+L_ApplyExpBoost:
+    setbattleflag "base_exp_rate", (.BaseExpBase + .ExpBoostFlat), true;
+    setbattleflag "job_exp_rate",  (.BaseExpJob  + .ExpBoostFlat), true;
+    return;
+
+L_RestoreExpRates:
+    setbattleflag "base_exp_rate", .BaseExpBase, true;
+    setbattleflag "job_exp_rate",  .BaseExpJob,  true;
+    return;
+
+}
+
+// ====================================================================
+// SECTION 2: Visible NPC — Event Board
+// Located in Prontera near the center (adjust coords as needed).
+// Sprite 111 = Board / sign post NPC
+// ====================================================================
+prontera,160,182,5	script	Event Board	111,{
+
+    // Read the current event state from the global variable set by controller
+    .@mode = $EventMode;
+
+    // --- Determine current live rates for display ---
+    .@cur_drop_common = getbattleflag("item_rate_common");
+    .@cur_exp_base    = getbattleflag("base_exp_rate");
+    .@cur_exp_job     = getbattleflag("job_exp_rate");
+
+    mes "[ ^FF6600Daily Event Board^0000 ]";
+    mes "^888888---------------------------------^0000";
+
+    if (.@mode == 1) {
+        // ---- MIDNIGHT DUNGEON SURGE ----
+        mes "^FF4500[ MIDNIGHT SURGE — ACTIVE ]^0000";
+        mes " ";
+        mes "^FFD700Dungeon Hot-Spot:^0000";
+        mes "  ^0055FF" + $ActiveDungeon$ + "^0000";
+        mes " ";
+        mes "^FFD700Drop Rate Boost:^0000";
+        mes "  Common  : ^00AA00" + .@cur_drop_common + "%^0000";
+        mes "  Heal    : ^00AA00" + getbattleflag("item_rate_heal") + "%^0000";
+        mes "  Equip   : ^00AA00" + getbattleflag("item_rate_equip") + "%^0000";
+        mes "  Cards   : ^00AA00" + getbattleflag("item_rate_card") + "%^0000";
+        mes " ";
+        mes "^888888Ends at: 06:00^0000";
+
+    } else if (.@mode == 2) {
+        // ---- MORNING FIELD RUSH ----
+        mes "^00BFFF[ MORNING RUSH — ACTIVE ]^0000";
+        mes " ";
+        mes "^90EE90EXP Hot-Spots:^0000";
+        mes "  ^0055FF" + $ActiveField$ + "^0000";
+        mes "  ^0055FF" + $ActiveField2$ + "^0000";
+        mes " ";
+        mes "^90EE90EXP Rate Boost:^0000";
+        mes "  Base EXP: ^00AA00" + .@cur_exp_base + "%^0000";
+        mes "  Job EXP : ^00AA00" + .@cur_exp_job + "%^0000";
+        mes " ";
+        mes "^888888Ends at: 12:00^0000";
+
+    } else {
+        // ---- NO ACTIVE EVENT ----
+        mes "^AAAAAA[ NO EVENT ACTIVE ]^0000";
+        mes " ";
+        mes "Current rates are at server baseline.";
+        mes " ";
+        mes "^FFD700Upcoming Events:^0000";
+        mes "  ^FF4500Midnight Surge^0000 — 00:00 to 06:00";
+        mes "  ^00BFFFMorning Rush^0000  — 06:00 to 12:00";
+        mes " ";
+        mes "Check back later!";
+    }
+
+    mes "^888888---------------------------------^0000";
+    close;
+}

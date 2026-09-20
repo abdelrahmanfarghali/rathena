@@ -1,0 +1,73 @@
+// ====================================================================
+// Cash Point Exchanger - E-Sport Zero Friction Edition
+// SQL-backed cash balance (global_acc_reg_num) for reliable persistence
+// ====================================================================
+prontera,182,185,4	script	Cash Exchanger	433,{
+
+    // --- Configuration ---
+    .@CoinID = 671;          // Item ID for Gold Coin (Change if using a custom coin)
+    .@CashPerCoin = 100;     // How many Cash Points 1 Gold Coin gives
+    // ---------------------
+
+    // --- Read current cash balance directly from DB (authoritative source) ---
+    .@acc_id = getcharid(3);
+    query_sql("SELECT `value` FROM `global_acc_reg_num` WHERE `account_id` = " + .@acc_id + " AND `key` = '#CASHPOINTS' AND `index` = 0", .@cur_cash);
+    // If no row exists yet, .@cur_cash[0] is 0 (default) — that's correct.
+
+    mes "[ ^FFD700Cash Exchanger^0000 ]";
+    mes "Ahlan! Want to turn your hard-earned ^FF0000" + getitemname(.@CoinID) + "s^0000 into Cash Points?";
+    mes "Current Rate: ^0055FF1 Coin = " + .@CashPerCoin + " Cash Points^0000.";
+    mes " ";
+    mes "Your Coins: ^00AA00" + countitem(.@CoinID) + "^0000";
+    mes "Your Cash Points: ^FF0000" + .@cur_cash[0] + "^0000";
+    next;
+
+    if (countitem(.@CoinID) == 0) {
+        mes "[ ^FFD700Cash Exchanger^0000 ]";
+        mes "You don't have any coins to exchange right now.";
+        mes "Come back when you've farmed some more!";
+        close;
+    }
+
+    // "Exchange All" is placed first for maximum efficiency (Zero Friction)
+    switch(select("Exchange All:Input Amount:Cancel")) {
+        case 1:
+            .@amt = countitem(.@CoinID);
+            break;
+            
+        case 2:
+            mes "[ ^FFD700Cash Exchanger^0000 ]";
+            mes "How many coins do you want to exchange?";
+            input .@amt;
+            
+            if (.@amt <= 0 || .@amt > countitem(.@CoinID)) {
+                mes "[ ^FFD700Cash Exchanger^0000 ]";
+                mes "Invalid amount. Please try again.";
+                close;
+            }
+            break;
+            
+        case 3:
+            close;
+    }
+
+    // --- Process the transaction ---
+    delitem .@CoinID, .@amt;
+    .@TotalCash = (.@amt * .@CashPerCoin);
+    .@new_balance = .@cur_cash[0] + .@TotalCash;
+
+    // Upsert: insert a new row or increment the existing value atomically
+    query_sql("INSERT INTO `global_acc_reg_num` (`account_id`, `key`, `index`, `value`) VALUES (" + .@acc_id + ", '#CASHPOINTS', 0, " + .@TotalCash + ") ON DUPLICATE KEY UPDATE `value` = `value` + " + .@TotalCash);
+
+    // Sync the in-memory account variable so the client HUD stays accurate
+    #CASHPOINTS = .@new_balance;
+
+    // Trigger a visual effect on the player for satisfaction
+    specialeffect2 50;
+
+    mes "[ ^FFD700Cash Exchanger^0000 ]";
+    mes "Mabrouk! Transaction complete.";
+    mes "Added ^00AA00" + .@TotalCash + " Cash Points^0000 to your account.";
+    mes "New Balance: ^FF0000" + .@new_balance + "^0000";
+    close;
+}
