@@ -37880,9 +37880,6 @@ Body:
           Amount: 60
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Device_M_Book
-          Amount: 0
   - Id: 5298
     Name: MT_A_MACHINE
     Description: Attack Machine
@@ -37916,9 +37913,6 @@ Body:
           Amount: 69
         - Level: 5
           Amount: 72
-      ItemCost:
-        - Item: Device_Capsule
-          Amount: 1
   - Id: 5299
     Name: MT_D_MACHINE
     Description: Defense Machine
@@ -37955,9 +37949,6 @@ Body:
           Amount: 52
         - Level: 5
           Amount: 55
-      ItemCost:
-        - Item: Device_Capsule
-          Amount: 1
     Status: D_Machine
   - Id: 5300
     Name: MT_TWOAXEDEF
@@ -38002,9 +37993,6 @@ Body:
           Amount: 50
         - Level: 4
           Amount: 60
-      ItemCost:
-        - Item: Auto_Battle_Capsule
-          Amount: 1
     Status: Abr_Battle_Warior
   - Id: 5303
     Name: MT_SUMMON_ABR_DUAL_CANNON
@@ -38041,9 +38029,6 @@ Body:
           Amount: 50
         - Level: 4
           Amount: 60
-      ItemCost:
-        - Item: Auto_Battle_Capsule
-          Amount: 1
     Status: Abr_Dual_Cannon
   - Id: 5304
     Name: MT_SUMMON_ABR_MOTHER_NET
@@ -38080,9 +38065,6 @@ Body:
           Amount: 50
         - Level: 4
           Amount: 60
-      ItemCost:
-        - Item: Auto_Battle_Capsule
-          Amount: 1
     Status: Abr_Mother_Net
   - Id: 5305
     Name: MT_SUMMON_ABR_INFINITY
@@ -38127,9 +38109,6 @@ Body:
           Amount: 140
         - Level: 4
           Amount: 120
-      ItemCost:
-        - Item: Auto_Battle_Capsule
-          Amount: 5
     Status: Abr_Infinity
   - Id: 5306
     Name: AG_DESTRUCTIVE_HURRICANE_CLIMAX
@@ -38686,9 +38665,6 @@ Body:
     AfterCastActDelay: 500
     Requires:
       SpCost: 5
-      ItemCost:
-        - Item: Hawk_Pipe
-          Amount: 0
   - Id: 5328
     Name: WH_CALAMITYGALE
     Description: Calamity Gale
@@ -39195,9 +39171,6 @@ Body:
           Amount: 340
         - Level: 5
           Amount: 380
-      ItemCost:
-        - Item: High_Coating_Bottle
-          Amount: 3
   - Id: 5339
     Name: BO_ADVANCE_PROTECTION
     Description: Advance Protection
@@ -39238,9 +39211,6 @@ Body:
           Amount: 140
         - Level: 4
           Amount: 150
-      ItemCost:
-        - Item: High_Coating_Bottle
-          Amount: 1
     Status: ProtectShadowEquip
   - Id: 5340
     Name: BO_ACIDIFIED_ZONE_WATER
@@ -39303,9 +39273,6 @@ Body:
           Amount: 60
         - Level: 5
           Amount: 63
-      ItemCost:
-        - Item: Icicle_Acid_Bottle
-          Amount: 2
     Unit:
       Id: Acidified_Zone_Water
       Interval: 500
@@ -39374,9 +39341,6 @@ Body:
           Amount: 60
         - Level: 5
           Amount: 63
-      ItemCost:
-        - Item: Earth_Acid_Bottle
-          Amount: 2
     Unit:
       Id: Acidified_Zone_Ground
       Interval: 500
@@ -39445,9 +39409,6 @@ Body:
           Amount: 60
         - Level: 5
           Amount: 63
-      ItemCost:
-        - Item: Gale_Acid_Bottle
-          Amount: 2
     Unit:
       Id: Acidified_Zone_Wind
       Interval: 500
@@ -39516,9 +39477,6 @@ Body:
           Amount: 60
         - Level: 5
           Amount: 63
-      ItemCost:
-        - Item: Flame_Acid_Bottle
-          Amount: 2
     Unit:
       Id: Acidified_Zone_Fire
       Interval: 500
@@ -39563,9 +39521,6 @@ Body:
           Amount: 160
         - Level: 5
           Amount: 180
-      ItemCost:
-        - Item: High_Plant_Bottle
-          Amount: 2
     Status: Bionic_WoodenWarrior
   - Id: 5345
     Name: BO_WOODEN_FAIRY
@@ -39604,9 +39559,6 @@ Body:
           Amount: 205
         - Level: 5
           Amount: 230
-      ItemCost:
-        - Item: High_Plant_Bottle
-          Amount: 2
     Status: Bionic_Wooden_Fairy
   - Id: 5346
     Name: BO_CREEPER
@@ -39645,9 +39597,6 @@ Body:
           Amount: 128
         - Level: 5
           Amount: 144
-      ItemCost:
-        - Item: High_Plant_Bottle
-          Amount: 1
     Status: Bionic_Creeper
   - Id: 5347
     Name: BO_RESEARCHREPORT
@@ -39704,9 +39653,6 @@ Body:
           Amount: 70
         - Level: 5
           Amount: 60
-      ItemCost:
-        - Item: High_Plant_Bottle
-          Amount: 3
     Status: Bionic_HellTree
   - Id: 5349
     Name: TR_STAGE_MANNER
@@ -40585,9 +40531,6 @@ Body:
     FixedCastTime: 3000
     Requires:
       SpCost: 100
-      ItemCost:
-        - Item: Flame_Stone_4th
-          Amount: 1
     Status: Summon_Elemental_Ardor
   - Id: 5376
     Name: EM_SUMMON_ELEMENTAL_DILUVIO
@@ -40605,9 +40548,6 @@ Body:
     FixedCastTime: 3000
     Requires:
       SpCost: 100
-      ItemCost:
-        - Item: Ice_Stone_4th
-          Amount: 1
     Status: Summon_Elemental_Diluvio
   - Id: 5377
     Name: EM_SUMMON_ELEMENTAL_PROCELLA
@@ -40625,9 +40565,6 @@ Body:
     FixedCastTime: 3000
     Requires:
       SpCost: 100
-      ItemCost:
-        - Item: Wind_Stone_4th
-          Amount: 1
     Status: Summon_Elemental_Procella
   - Id: 5378
     Name: EM_SUMMON_ELEMENTAL_TERREMOTUS
@@ -40645,9 +40582,6 @@ Body:
     FixedCastTime: 3000
     Requires:
       SpCost: 100
-      ItemCost:
-        - Item: Earth_Stone_4th
-          Amount: 1
     Status: Summon_Elemental_Terremotus
   - Id: 5379
     Name: EM_SUMMON_ELEMENTAL_SERPENS
@@ -40665,9 +40599,6 @@ Body:
     FixedCastTime: 3000
     Requires:
       SpCost: 100
-      ItemCost:
-        - Item: Poison_Stone_4th
-          Amount: 1
     Status: Summon_Elemental_Serpens
   - Id: 5380
     Name: EM_ELEMENTAL_BUSTER
@@ -41633,9 +41564,6 @@ Body:
           Amount: 54
         - Level: 5
           Amount: 60
-      ItemCost:
-        - Item: Nw_Grenade
-          Amount: 1
   - Id: 5411
     Name: NW_HASTY_FIRE_IN_THE_HOLE
     Description: Hasty Fire in the Hole
@@ -41664,9 +41592,6 @@ Body:
           Amount: 59
         - Level: 5
           Amount: 62
-      ItemCost:
-        - Item: Nw_Grenade
-          Amount: 3
   - Id: 5412
     Name: NW_GRENADES_DROPPING
     Description: Grenades Dropping
@@ -41705,9 +41630,6 @@ Body:
           Amount: 78
         - Level: 5
           Amount: 84
-      ItemCost:
-        - Item: Nw_Grenade
-          Amount: 15
     Duration1: 4000
     Duration2: 100
     Unit:
@@ -41796,9 +41718,6 @@ Body:
     Requires:
       SpCost: 100
       ApCost: 35
-      ItemCost:
-        - Item: Nw_Grenade
-          Amount: 15
     Duration1: 10000
     Unit:
       Id: Mission_Bombard
@@ -41866,9 +41785,6 @@ Body:
           Amount: 65
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: Talisman_of_Protection
   - Id: 5419
     Name: SOA_TALISMAN_OF_WARRIOR
@@ -41909,9 +41825,6 @@ Body:
           Amount: 65
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: Talisman_of_Warrior
   - Id: 5420
     Name: SOA_TALISMAN_OF_MAGICIAN
@@ -41952,9 +41865,6 @@ Body:
           Amount: 65
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: Talisman_of_Magician
   - Id: 5421
     Name: SOA_SOUL_GATHERING
@@ -42029,9 +41939,6 @@ Body:
           Amount: 124
         - Level: 5
           Amount: 140
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 10
     Unit:
       Id: Totem_Of_Tutelary
       Range:
@@ -42088,9 +41995,6 @@ Body:
           Amount: 65
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 5
     Status: Talisman_of_five_Elements
   - Id: 5424
     Name: SOA_TALISMAN_OF_SOUL_STEALING
@@ -42107,9 +42011,6 @@ Body:
     FixedCastTime: 1500
     Requires:
       SpCost: 84
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
   - Id: 5425
     Name: SOA_EXORCISM_OF_MALICIOUS_SOUL
     Description: Exorcism Of Malicious Soul
@@ -42186,9 +42087,6 @@ Body:
           Amount: 66
         - Level: 5
           Amount: 70
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: T_First_God
   - Id: 5427
     Name: SOA_TALISMAN_OF_WHITE_TIGER
@@ -42239,9 +42137,6 @@ Body:
           Amount: 116
         - Level: 5
           Amount: 118
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: T_Second_God
   - Id: 5428
     Name: SOA_TALISMAN_OF_RED_PHOENIX
@@ -42293,9 +42188,6 @@ Body:
           Amount: 84
         - Level: 5
           Amount: 88
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Status: T_Third_God
   - Id: 5429
     Name: SOA_TALISMAN_OF_BLACK_TORTOISE
@@ -42337,9 +42229,6 @@ Body:
           Amount: 87
         - Level: 5
           Amount: 92
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 1
     Unit:
       Id: Dummyskill
       Range:
@@ -42397,9 +42286,6 @@ Body:
           Amount: 92
         - Level: 5
           Amount: 94
-      ItemCost:
-        - Item: Soa_Charm
-          Amount: 3
   - Id: 5431
     Name: SOA_CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS
     Description: Circle Of Directions And Elementals
@@ -44259,9 +44145,6 @@ Body:
           Amount: 77
         - Level: 10
           Amount: 80
-      ItemCost:
-        - Item: SS_Charm_F
-          Amount: 1
   - Id: 5489
     Name: SS_REIKETSUHOU
     Description: Cold Blooded Cannon
@@ -44321,9 +44204,6 @@ Body:
           Amount: 84
         - Level: 10
           Amount: 88
-      ItemCost:
-        - Item: SS_Charm_W
-          Amount: 1
   - Id: 5490
     Name: SS_RAIDENPOU
     Description: Thundering Cannon
@@ -44384,9 +44264,6 @@ Body:
           Amount: 77
         - Level: 10
           Amount: 80
-      ItemCost:
-        - Item: SS_Charm_L
-          Amount: 1
   - Id: 5491
     Name: SS_KINRYUUHOU
     Description: Golden Dragon Cannon
@@ -44446,9 +44323,6 @@ Body:
           Amount: 63
         - Level: 10
           Amount: 65
-      ItemCost:
-        - Item: SS_Charm_G
-          Amount: 1
   - Id: 5492
     Name: SS_ANTENPOU
     Description: Darkening Cannon
@@ -44509,9 +44383,6 @@ Body:
           Amount: 88
         - Level: 10
           Amount: 94
-      ItemCost:
-        - Item: SS_Charm
-          Amount: 1
     Status: Nightmare
   - Id: 5493
     Name: SS_KAGEAKUMU

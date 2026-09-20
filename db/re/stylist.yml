@@ -135,34 +135,6 @@ Body:
             Price: 100000
         CostsDoram:
             Price: 100000
-      - Index: 7
-        Value: 7
-        CostsHuman:
-            Price: 100000
-        CostsDoram:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
-      - Index: 8
-        Value: 8
-        CostsHuman:
-            Price: 100000
-        CostsDoram:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
-      - Index: 9
-        Value: 9
-        CostsHuman:
-            Price: 100000
-        CostsDoram:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
-      - Index: 10
-        Value: 10
-        CostsHuman:
-            Price: 100000
-        CostsDoram:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
       - Index: 11
         Value: 11
         CostsHuman:
@@ -215,46 +187,6 @@ Body:
         Value: 23
         CostsHuman:
             Price: 100000
-      - Index: 24
-        Value: 24
-        CostsHuman:
-            RequiredItem: New_Style_Coupon
-            RequiredItemBox: C_New_Style_Box
-      - Index: 25
-        Value: 25
-        CostsHuman:
-            RequiredItem: New_Style_Coupon
-            RequiredItemBox: C_New_Style_Box
-      - Index: 26
-        Value: 26
-        CostsHuman:
-            RequiredItem: New_Style_Coupon
-            RequiredItemBox: C_New_Style_Box
-      - Index: 27
-        Value: 27
-        CostsHuman:
-            RequiredItem: New_Style_Coupon
-            RequiredItemBox: C_New_Style_Box
-      - Index: 28
-        Value: 28
-        CostsHuman:
-            RequiredItem: J_Shop_Coupon
-            RequiredItemBox: J_Shop_Coupon_Box
-      - Index: 29
-        Value: 29
-        CostsHuman:
-            RequiredItem: J_Shop_Coupon
-            RequiredItemBox: J_Shop_Coupon_Box
-      - Index: 30
-        Value: 30
-        CostsHuman:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
-      - Index: 31
-        Value: 31
-        CostsHuman:
-            RequiredItem: J_Shop_Coupon2
-            RequiredItemBox: J_Shop_Coupon2
       - Index: 32
         Value: 32
         CostsHuman:
@@ -299,52 +231,6 @@ Body:
         Value: 42
         CostsHuman:
             Price: 3000000
-  - Look: Clothes_Color
-    Options:
-      - Index: 1
-        Value: 0
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon2
-            RequiredItemBox: CCloth_Dye_Coupon2_Box
-        CostsDoram:
-            RequiredItem: Clothing_Dye_Coupon2
-            RequiredItemBox: CCloth_Dye_Coupon2_Box
-      - Index: 2
-        Value: 2
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-        CostsDoram:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-      - Index: 3
-        Value: 3
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-        CostsDoram:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-      - Index: 4
-        Value: 4
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-      - Index: 5
-        Value: 5
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-      - Index: 6
-        Value: 6
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
-      - Index: 7
-        Value: 7
-        CostsHuman:
-            RequiredItem: Clothing_Dye_Coupon
-            RequiredItemBox: CCloth_Dye_Coupon_Box
   - Look: Head_Top
     Options:
       - Index: 1
@@ -417,13 +303,3 @@ Body:
             Price: 5000
         CostsDoram:
             Price: 5000
-  - Look: Body2
-    Options:
-      - Index: 1
-        Value: 0
-        CostsHuman:
-            RequiredItem: Costume_Ticket
-      - Index: 2
-        Value: 1
-        CostsHuman:
-            RequiredItem: Costume_Ticket

@@ -10852,6 +10852,9 @@ bool pc_jobchange(map_session_data *sd,int32 job, char upper)
 	if (job < 0)
 		return false;
 
+	if ((job >= JOB_DRAGON_KNIGHT && job <= JOB_SPIRIT_HANDLER) || job == JOB_SKY_EMPEROR2) // Ep16.2: no 4th jobs
+		return false;
+
 	//Normalize job.
 	uint64 b_class = pc_jobid2mapid(job);
 	if (b_class == -1)
