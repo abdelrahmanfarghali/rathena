@@ -2,7 +2,7 @@
 // Cash Point Exchanger - E-Sport Zero Friction Edition
 // SQL-backed cash balance (global_acc_reg_num) for reliable persistence
 // ====================================================================
-prontera,182,185,4	script	Cash Exchanger	433,{
+prontera,140,170,4	script	Cash Exchanger	837,{
 
     // --- Configuration ---
     .@CoinID = 671;          // Item ID for Gold Coin (Change if using a custom coin)

@@ -171,7 +171,7 @@ L_RestoreExpRates:
 // Located in Prontera near the center (adjust coords as needed).
 // Sprite 111 = Board / sign post NPC
 // ====================================================================
-prontera,160,182,5	script	Event Board	111,{
+prontera,169,203,5	script	Event Board	837,{
 
     // Read the current event state from the global variable set by controller
     .@mode = $EventMode;

@@ -1,0 +1,95 @@
+// ================= Balance profile (edit here only) =================
+function	script	F_RebornBalance	{
+	if (!reborn_flag) return;
+	.@b$ = "bonus bMaxHPrate,10; bonus bMaxSPrate,10;";   // baseline
+
+	switch (getarg(0, Class)) {
+	case Job_Assassin_Cross:
+		.@b$ += "bonus2 bSkillCooldown,AS_SONICBLOW,-1000;"
+		      + "bonus2 bSkillDelay,AS_SONICBLOW,-1500;"
+		      + "bonus bDelayrate,-10;";
+		break;
+	case Job_Lord_Knight:
+	case Job_Paladin:
+		.@b$ += "bonus bMaxHPrate,5; bonus bDelayrate,-10;"; break;
+	case Job_High_Wizard:
+	case Job_Professor:
+		.@b$ += "bonus bCastrate,-10; bonus2 bSkillFixedCast,WZ_STORMGUST,-500;"; break;
+	case Job_Sniper:
+		.@b$ += "bonus bAspdRate,5; bonus bDelayrate,-10;"; break;
+	}
+	bonus_script_clear();
+	bonus_script .@b$, 2000000000, 0, 0, 0;
+	return;
+}
+
+// ================= Path table (data-driven) =================
+function	script	F_RebornPath	{
+	setarray .@first, Job_Swordman_High, Job_Mage_High, Job_Archer_High, Job_Acolyte_High, Job_Merchant_High, Job_Thief_High;
+	setarray .@t2a,   Job_Lord_Knight,   Job_High_Wizard, Job_Sniper,    Job_High_Priest,  Job_Whitesmith,    Job_Assassin_Cross;
+	setarray .@t2b,   Job_Paladin,       Job_Professor,   Job_Clown,     Job_Champion,     Job_Creator,       Job_Stalker;
+	.@i = inarray(.@first, Class);
+	if (.@i < 0) return "";
+	return .@t2a[.@i] + "," + .@t2b[.@i];
+}
+
+// ================= Rebirth Master (opt-in flag) =================
+prontera,182,208,4	script	Rebirth Master	4_M_SAGE_A,{
+	mes "[Rebirth Master]";
+	if (reborn_flag) { mes "You are already a reborn character."; close; }
+
+	mes "Do you wish to become a reborn character?";
+	mes "This cannot be undone.";
+	next;
+	if (select("Yes, I choose rebirth:No") == 2) close;
+
+	// Eligibility: Novice, Base Lv 1, Job Lv 1
+	if (Class != Job_Novice || BaseLevel != 1 || JobLevel != 1) {
+		mes "[Rebirth Master]";
+		mes "Only a fresh Novice (Base Lv 1 / Job Lv 1) may choose rebirth.";
+		close;
+	}
+
+	reborn_flag = 1;                       // per-character, stored in char_reg_num
+	jobchange Job_Novice_High;
+	callfunc("F_RebornBalance", Class);
+	mes "[Rebirth Master]";
+	mes "You are now a reborn character.";
+	close;
+
+OnPCLoginEvent:
+	if (reborn_flag) callfunc("F_RebornBalance", Class);
+	end;
+}
+
+// ================= Reborn Job Master =================
+prontera,180,210,4	script	Reborn Job Master	4_M_SAGE_A,{
+	mes "[Reborn Job Master]";
+	if (!reborn_flag) { mes "Not a reborn character."; close; }
+
+	// Stage 1: Novice High -> High first job
+	if (Class == Job_Novice_High) {
+		if (JobLevel < 10) { mes "Reach Job Lv 10 first."; close; }
+		setarray .@first, Job_Swordman_High, Job_Mage_High, Job_Archer_High, Job_Acolyte_High, Job_Merchant_High, Job_Thief_High;
+		.@menu$ = "";
+		for (.@i = 0; .@i < getarraysize(.@first); .@i++)
+			.@menu$ += jobname(.@first[.@i]) + ":";
+		.@s = select(.@menu$ + "Cancel") - 1;
+		if (.@s >= getarraysize(.@first)) close;
+		jobchange .@first[.@s];
+		callfunc("F_RebornBalance", Class);
+		close;
+	}
+
+	// Stage 2: High first job -> restricted trans classes
+	.@allowed$ = callfunc("F_RebornPath");
+	if (.@allowed$ == "") { mes "No advancement available."; close; }
+	if (JobLevel < 40) { mes "Reach Job Lv 40 first."; close; }
+	explode(.@j$, .@allowed$, ",");
+	.@a = atoi(.@j$[0]); .@b = atoi(.@j$[1]);
+	.@s = select(jobname(.@a) + ":" + jobname(.@b) + ":Cancel");
+	if (.@s == 3) close;
+	jobchange (.@s == 1 ? .@a : .@b);
+	callfunc("F_RebornBalance", Class);
+	close;
+}

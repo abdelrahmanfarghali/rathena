@@ -16,10 +16,12 @@
 //= 2.0 Added 4th class [Lemongrass]
 //============================================================
 
-prontera,153,193,6	script	Job Master	123,{
+//prontera,153,193,6	script	Job Master	123,{
+prontera,146,170,4	script	Job Master	21360,{
 function Get_Job_Equip;
 // Checks if the Player has the required level.
 // closes if not, returns if yes
+if (reborn_flag) return;
 function	Require_Level	{
 	if (BaseLevel < getarg(0) || JobLevel < getarg(1)) {
 		.@blvl = getarg(0) - BaseLevel;

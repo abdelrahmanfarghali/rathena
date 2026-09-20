@@ -21,10 +21,11 @@
 // 1. The Zero-Friction Core (Spawn & Instant Deployment)
 // ====================================================================
 // Kafra Storage: 1-click storage access, standard Prontera Kafra sprite (113)
-prontera,156,193,4	script	Kafra Storage	113,{ mes "Welcome."; close2; openstorage; end; }
+prontera,156,193,4	script	Kafra Storage	113,{ openstorage; end; }
+prontera,157,187,4	script	Kafra Save Point	113,{OnTouch: getmapxy(.@map$, .@x, .@y); savepoint .@map$, .@x, .@y; message strcharinfo(0), "Your save point has been updated.";}
 
 // FIXED: real template in npc/custom/healer.txt, sprite 909
-prontera,150,193,4	duplicate(Healer)	The Grand Healer	909
+//prontera,148,187,4	duplicate(Healer)	The Grand Healer	21317
 
 // FIXED: real template in npc/custom/warper.txt, sprite 811 identical to all official warper duplicates
 //prontera,162,193,4	duplicate(Gatekeeper)	Warper	811
@@ -175,151 +176,83 @@ prontera,174,179,4	shop	Supply Dealer	89,501:50,502:200,503:600,504:1200,505:500
 prontera,142,185,4	duplicate(Hollgrehenn)	Master Refiner	85
 
 // FIXED: real template in npc/custom/card_remover.txt, sprite 78
-prontera,138,185,4	duplicate(Wise Old Woman#eAcustom)	Card Remover	78
+prontera,142,181,4	duplicate(Wise Old Woman#eAcustom)	Card Remover	78
 
 // FIXED: real official template in npc/merchants/refine.txt line 1200, sprite 86
-prontera,134,185,4	duplicate(Repairman#prt)	Repairman	86
+prontera,138,179,4	duplicate(Repairman#prt)	Repairman	86
 
 // ====================================================================
 // 4. The Avenue of Prestige (North Path)
 // ====================================================================
 // IMPLEMENTED: PvP Leaderboard, Personal Combat Stats & Arena Warp Dispatch
-prontera,150,205,4	script	PvP Leaderboard	125,{
-	mes "[PvP Leaderboard]";
-	mes "Welcome to the Midgard Combat Rankings.";
-	mes "Test your might against the realm's fiercest warriors.";
-	next;
-	switch(select("Check My PvP Statistics:View Top Combatants:Enter PvP Arena:Cancel")) {
-	case 1:
-		mes "[PvP Statistics]";
-		mes "Player: ^0055FF" + strcharinfo(0) + "^000000";
-		mes "Total PvP Kills: ^008800" + pvp_kills + "^000000";
-		mes "Total PvP Deaths: ^FF0000" + pvp_deaths + "^000000";
-		.@kd = (pvp_deaths > 0) ? (pvp_kills * 100 / pvp_deaths) : (pvp_kills * 100);
-		mes "K/D Ratio: ^3355FF" + (.@kd / 100) + "." + ((.@kd % 100 < 10) ? "0" : "") + (.@kd % 100) + "^000000";
-		mes "Current Streak: ^FF8800" + pvp_streak + "^000000";
-		close;
-	case 2:
-		mes "[PvP Top Combatants]";
-		mes "Top combatants registered in combat logs:";
-		mes " ";
-		if ($pvp_top_count > 0) {
-			for (.@i = 0; .@i < $pvp_top_count && .@i < 5; .@i++) {
-				mes (.@i + 1) + ". ^0055FF" + $pvp_top_name$[.@i] + "^000000 - ^008800" + $pvp_top_kills[.@i] + " Kills^000000";
-			}
-		} else {
-			mes "^7777771. Grand Master - 50 Kills^000000";
-			mes "^7777772. Gladiator - 35 Kills^000000";
-			mes "^7777773. Berserker - 20 Kills^000000";
-			mes " ";
-			mes "Step into the arena to claim your spot on the ladder!";
-		}
-		close;
-	case 3:
-		if (BaseLevel < 31) {
-			mes "[PvP Leaderboard]";
-			mes "You must be at least Base Level 31 to enter the PvP Arena.";
-			close;
-		}
-		mes "[PvP Leaderboard]";
-		mes "Select your battlefield:";
-		next;
-		switch(select("PvP Yoyo Arena (Free-For-All):Izlude Combat Arena:Cancel")) {
-		case 1:
-			warp "guild_vs3", 50, 50;
-			end;
-		case 2:
-			warp "prt_are_in", 94, 15;
-			end;
-		case 3:
-			close;
-		}
-	case 4:
-		close;
-	}
-}
+
 
 // IMPLEMENTED: WoE Real-Time Status, Realm Castle Ownership & Direct Gate Warps
-prontera,162,205,4	script	Castle Manager	734,{
-	mes "[Castle Manager]";
-	mes "Hail, warrior. I oversee castle affairs and War of Emperium operations.";
-	next;
-	switch(select("War of Emperium Status:Castle Ownership Overview:Warp to Castle Gates:Cancel")) {
-	case 1:
-		mes "[WoE Status]";
-		if (agitcheck() || agitcheck2() || agitcheck3()) {
-			mes "The War of Emperium is currently ^00AA00ACTIVE^000000!";
-			mes "Castles are contested across Midgard.";
-		} else {
-			mes "The War of Emperium is currently ^777777INACTIVE^000000.";
-			mes "Check server schedule for the next scheduled siege.";
-		}
-		close;
-	case 2:
-		mes "[Castle Ownership Overview]";
-		mes "^FF5500[Valkyrie Realm - Prontera]^000000";
-		for (.@i = 1; .@i <= 5; .@i++) {
-			.@cas$ = "prtg_cas0" + .@i;
-			.@gid = getcastledata(.@cas$, 1);
-			mes " " + getcastlename(.@cas$) + ": " + (.@gid ? "^0055FF" + getguildname(.@gid) + "^000000" : "^777777[Unoccupied]^000000");
-		}
-		next;
-		mes "[Castle Ownership Overview]";
-		mes "^FF5500[Greenwood Lake - Payon]^000000";
-		for (.@i = 1; .@i <= 5; .@i++) {
-			.@cas$ = "payg_cas0" + .@i;
-			.@gid = getcastledata(.@cas$, 1);
-			mes " " + getcastlename(.@cas$) + ": " + (.@gid ? "^0055FF" + getguildname(.@gid) + "^000000" : "^777777[Unoccupied]^000000");
-		}
-		next;
-		mes "[Castle Ownership Overview]";
-		mes "^FF5500[Britoniah - Geffen]^000000";
-		for (.@i = 1; .@i <= 5; .@i++) {
-			.@cas$ = "gefg_cas0" + .@i;
-			.@gid = getcastledata(.@cas$, 1);
-			mes " " + getcastlename(.@cas$) + ": " + (.@gid ? "^0055FF" + getguildname(.@gid) + "^000000" : "^777777[Unoccupied]^000000");
-		}
-		next;
-		mes "[Castle Ownership Overview]";
-		mes "^FF5500[Luina - Aldebaran]^000000";
-		for (.@i = 1; .@i <= 5; .@i++) {
-			.@cas$ = "aldeg_cas0" + .@i;
-			.@gid = getcastledata(.@cas$, 1);
-			mes " " + getcastlename(.@cas$) + ": " + (.@gid ? "^0055FF" + getguildname(.@gid) + "^000000" : "^777777[Unoccupied]^000000");
-		}
-		close;
-	case 3:
-		mes "[Castle Gates]";
-		mes "Choose which realm gates to deploy to:";
-		next;
-		switch(select("Valkyrie Realm (Prontera):Greenwood Lake (Payon):Britoniah (Geffen):Luina (Aldebaran):Cancel")) {
-		case 1: warp "prt_gld", 154, 38; end;
-		case 2: warp "pay_gld", 205, 165; end;
-		case 3: warp "gef_fild13", 190, 205; end;
-		case 4: warp "alde_gld", 145, 115; end;
-		case 5: close;
-		}
-	case 4:
-		close;
+
+// ---------------------------------------------------------------
+// MVP Ladder Tracker: records MVP kills, rewards top 3 at 00:00
+// ---------------------------------------------------------------
+-	script	MVPLadderTracker	-1,{
+OnInit:
+	.reward_item = 671;                 // reward item ID
+	setarray .reward_amt[0], 3, 2, 1;   // amount for rank 1, 2, 3
+	.reset_daily = 1;                   // 1 = wipe ladder after payout
+	end;
+
+OnNPCKillEvent:
+	if (getmonsterinfo(killedrid, MOB_MVPEXP) <= 0) end;   // MVPs only
+	.@cid = getcharid(0);
+	.@n = getarraysize($mvp_cid);
+	for (.@i = 0; .@i < .@n; .@i++)
+		if ($mvp_cid[.@i] == .@cid) break;
+	if (.@i == .@n) {                   // first MVP kill: new entry
+		$mvp_cid[.@i] = .@cid;
+		$mvp_kills[.@i] = 0;
 	}
+	$mvp_name$[.@i] = strcharinfo(0);   // keeps name current after renames
+	$mvp_kills[.@i]++;
+	// bubble the entry up to keep the ladder sorted (descending)
+	while (.@i > 0 && $mvp_kills[.@i] > $mvp_kills[.@i - 1]) {
+		.@j = .@i - 1;
+		.@c = $mvp_cid[.@i];     $mvp_cid[.@i] = $mvp_cid[.@j];       $mvp_cid[.@j] = .@c;
+		.@k = $mvp_kills[.@i];   $mvp_kills[.@i] = $mvp_kills[.@j];   $mvp_kills[.@j] = .@k;
+		.@s$ = $mvp_name$[.@i];  $mvp_name$[.@i] = $mvp_name$[.@j];   $mvp_name$[.@j] = .@s$;
+		.@i--;
+	}
+	end;
+
+OnClock0000:
+	.@n = getarraysize($mvp_cid);
+	if (.@n <= 0) end;
+	for (.@i = 0; .@i < 3 && .@i < .@n; .@i++)
+		$mvp_claim[$mvp_cid[.@i]] += .reward_amt[.@i];   // pending, works for offline players
+	announce "[MVP Ladder] Daily winner: " + $mvp_name$[0] + " (" + $mvp_kills[0] + " MVPs)! Top 3 can claim rewards at the Statue of the MVP.", bc_all;
+	if (.reset_daily) {
+		cleararray $mvp_cid[0], 0, .@n;
+		cleararray $mvp_kills[0], 0, .@n;
+		cleararray $mvp_name$[0], "", .@n;
+	}
+	end;
 }
 
-// IMPLEMENTED: MVP Monument, Hall of Fame & Champion's Blessing
-// Sprite 119: 2_M_SWORDMASTER (Midgard hero monument statue)
-prontera,156,212,4	script	Statue of the MVP	119,{
+// ---------------------------------------------------------------
+// Statue
+// ---------------------------------------------------------------
+prontera,140,165,4	script	Statue of the MVP	1751,{
 	mes "[Statue of the MVP]";
 	mes "A majestic stone monument sculpted in honor of Midgard's greatest monster hunters.";
 	next;
-	switch(select("Pay Respects (Receive Blessing):View Hall of Fame:Inspect Inscription:Cancel")) {
+	switch(select("Pay Respects (Receive Blessing):View MVP Ladder:Claim Ladder Reward:Inspect Inscription:Cancel")) {
 	case 1:
-		if (@mvp_blessing_cooldown > gettimetick(2)) {
+		.@now = gettimetick(2);
+		if (mvp_blessing_cooldown > .@now) {
+			.@sec = mvp_blessing_cooldown - .@now;
 			mes "[Statue of the MVP]";
-			.@sec = @mvp_blessing_cooldown - gettimetick(2);
 			mes "You have already received the monument's blessing.";
-			mes "Return in " + (.@sec / 60) + " minutes.";
+			mes "Return in " + (.@sec / 60) + " minute(s) and " + (.@sec % 60) + " second(s).";
 			close;
 		}
-		@mvp_blessing_cooldown = gettimetick(2) + 3600;
+		mvp_blessing_cooldown = .@now + 3600;
 		specialeffect2 EF_BLESSING;
 		sc_start SC_BLESSING, 1800000, 10;
 		specialeffect2 EF_INCAGILITY;
@@ -330,27 +263,42 @@ prontera,156,212,4	script	Statue of the MVP	119,{
 		mes "Received ^008800Blessing^000000 and ^008800Increase AGI^000000 (30 mins).";
 		close;
 	case 2:
-		mes "[MVP Hall of Fame]";
-		mes "Legendary MVP slayers of Midgard:";
+		mes "[MVP Ladder]";
+		mes "Today's top MVP slayers:";
 		mes " ";
-		if ($mvp_top_count > 0) {
-			for (.@i = 0; .@i < $mvp_top_count && .@i < 5; .@i++) {
-				mes (.@i + 1) + ". ^0055FF" + $mvp_top_name$[.@i] + "^000000 - ^FF8800" + $mvp_top_kills[.@i] + " MVPs^000000";
-			}
-		} else {
-			mes "^7777771. Sir Richard - 142 MVPs^000000";
-			mes "^7777772. Valkyrie Freyja - 98 MVPs^000000";
-			mes "^7777773. Archmage Iris - 74 MVPs^000000";
-			mes " ";
-			mes "Slay MVPs across Midgard to see your name carved upon this stone!";
+		.@n = getarraysize($mvp_cid);
+		if (.@n <= 0) {
+			mes "^777777No MVP has been slain yet.^000000";
+			mes "Slay an MVP to carve your name upon this stone!";
+			close;
 		}
+		for (.@i = 0; .@i < .@n && .@i < 10; .@i++)
+			mes (.@i + 1) + ". ^0055FF" + $mvp_name$[.@i] + "^000000 - ^FF8800" + $mvp_kills[.@i] + " MVPs^000000";
 		close;
 	case 3:
+		.@cid = getcharid(0);
+		.@amt = $mvp_claim[.@cid];
+		mes "[Statue of the MVP]";
+		if (.@amt <= 0) {
+			mes "You have no pending rewards.";
+			mes "Finish in the top 3 before midnight to earn one.";
+			close;
+		}
+		if (checkweight(671, .@amt) == 0) {
+			mes "You cannot carry that much. Free some weight and return.";
+			close;
+		}
+		$mvp_claim[.@cid] = 0;
+		getitem 671, .@amt;
+		mes "The monument rewards your glory!";
+		mes "Received ^008800" + getitemname(671) + " x" + .@amt + "^000000.";
+		close;
+	case 4:
 		mes "[Statue Inscription]";
 		mes "^555555'To those who face the darkness with unyielding resolve,";
 		mes "May your blades strike true and your courage never falter.'^000000";
 		close;
-	case 4:
+	case 5:
 		close;
 	}
 }
@@ -374,25 +322,25 @@ prontera,145,135,4	duplicate(Guardian Nidhogg#epeom01)	Temple of Demon God	4_F_N
 // Right Wing: Farming & Mid-Tier
 // ====================================================================
 // CONFIRMED: npc/re/instances/HorrorToyFactory.txt line 11, entrance object "Catherine Jet Johnson", sprite 4_F_SKULL06GIRL
-prontera,167,150,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
+//prontera,165,141,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
 
 // CONFIRMED: npc/custom/official/GeffenMagicTournament.txt line 683, entrance object "Emmitt White", sprite 4_M_KHKYEL
-prontera,167,145,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
+//prontera,165,144,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
 
 // CONFIRMED: npc/re/instances/CharlestonCrisis.txt line 10, entrance object "Charleston#mcd", sprite 4_F_CHARLESTON02
-prontera,167,140,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
+//prontera,165,147,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
 
 // CONFIRMED: npc/re/instances/CentralLaboratory.txt line 48, entrance object "Civilization Explorer#pa0829_01", sprite 4_LGTSCIENCE
-prontera,167,135,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE
+//prontera,165,138,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE
 
 // ====================================================================
 // 6. The Center Anchor (Utility & Cooldowns)
 // ====================================================================
 // IMPLEMENTED: Cooldown Tracker & Quest Playtime Dashboard for Memorial Dungeons
-prontera,154,188,4	script	Instance Cooldowns	87,{
+prontera,165,159,4	script	Instance Cooldowns	837,{
 	mes "[Instance Cooldowns]";
 	mes "Greetings, adventurer!";
-	mes "I track the temporal stability and cooldowns for all major memorial dungeons.";
+	mes "I track the temporal stability and cooldowns for all major memorial dungeons. you can reset using item ^FF0000"+ getitemname(671);
 	next;
 	mes "[Memorial Dungeon Status]";
 	function check_cooldown {
@@ -425,10 +373,11 @@ prontera,154,188,4	script	Instance Cooldowns	87,{
 	check_cooldown(12310, "Sara's Memory");
 	check_cooldown(12313, "Ghost Palace");
 	next;
-	if (getgmlevel() >= 99) {
+	if (getgmlevel() >= 80 || countitem(671) >= 5) {
 		mes "[GM Cooldown Reset]";
 		mes "You possess GM privileges. Would you like to reset your instance cooldowns for testing?";
 		if (select("Keep Cooldowns:Reset All My Cooldowns") == 2) {
+			if (getgmlevel() < 80) delitem(671, 5);
 			erasequest 60200; erasequest 60201;
 			erasequest 12317; erasequest 12322;
 			erasequest 12325;
@@ -448,7 +397,7 @@ prontera,154,188,4	script	Instance Cooldowns	87,{
 
 // IMPLEMENTED: Active Party Notice Board & Party Booking System
 // Sprite 837: JT_BULLETIN_BOARD (identical to official bulletin boards in npc/other/bulletin_boards.txt)
-prontera,156,188,4	script	Party Recruiter Board	837,{
+prontera,165,153,4	script	Party Recruiter Board	837,{
 	mes "[Party Recruiter Board]";
 	mes "Connecting adventurers for party expeditions & instances.";
 	next;

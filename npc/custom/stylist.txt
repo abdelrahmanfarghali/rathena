@@ -1,51 +1,92 @@
 //===== rAthena Script =======================================
-//= Stylist
-//===== By: ==================================================
-//= Euphy
-//===== Current Version: =====================================
-//= 1.1
-//===== Compatible With: =====================================
-//= rAthena Project
-//===== Description: =========================================
-//= Changes your hair style, hair color, and cloth color.
-//===== Additional Comments: =================================
-//= 1.0 Initial script.
-//= 1.1 Switched to 'getbattleflag', credits to Saithis. [Euphy]
+//= Stylist (v2.1)
+//= Changes hair style, hair color, cloth color, and alternative outfit.
+//= Live preview, confirm/cancel flow, auto-revert on close, Zeny costs.
 //============================================================
 
-prontera,170,180,1	script	Stylist#custom_stylist	122,{
-	setarray .@Styles[1],
-		getbattleflag("max_cloth_color"),
-		getbattleflag("max_hair_style"),
-		getbattleflag("max_hair_color");
-	setarray .@Look[1],
-		LOOK_CLOTHES_COLOR,
-		LOOK_HAIR,
-		LOOK_HAIR_COLOR;
-	set .@s, select(" ~ Cloth color: ~ Hairstyle: ~ Hair color");
-	set .@Revert, getlook(.@Look[.@s]);
-	set .@Style,1;
-	while(1) {
-		setlook .@Look[.@s], .@Style;
-		message strcharinfo(0),"This is style #"+.@Style+".";
-		set .@menu$, " ~ Next (^0055FF"+((.@Style!=.@Styles[.@s])?.@Style+1:1)+"^000000): ~ Previous (^0055FF"+((.@Style!=1)?.@Style-1:.@Styles[.@s])+"^000000): ~ Jump to...: ~ Revert to original (^0055FF"+.@Revert+"^000000)";
-		switch(select(.@menu$)) {
-		case 1:
-			set .@Style, ((.@Style != .@Styles[.@s]) ? .@Style+1 : 1);
-			break;
-		case 2:
-			set .@Style, ((.@Style != 1) ? .@Style-1 : .@Styles[.@s]);
-			break;
+prontera,167,192,4	script	Stylist#custom_stylist	864,{
+
+	// ---- Data-driven config (1-based, parallel arrays) ----
+	setarray .@Look[1], LOOK_CLOTHES_COLOR, LOOK_HAIR, LOOK_HAIR_COLOR, LOOK_BODY2;
+	setarray .@Label$[1], "Cloth color", "Hairstyle", "Hair color", "Alternative outfit";
+	setarray .@Max[1], getbattleflag("max_cloth_color"),
+	                   getbattleflag("max_hair_style"),
+	                   getbattleflag("max_hair_color"), 1;
+	setarray .@Cost[1], .Cost, .Cost, .Cost, .AltCost;
+
+	mes "[Stylist]";
+	mes "What would you like to change?";
+	mes "Cloth/hair: ^0055FF" + F_InsertComma(.Cost) + "z^000000";
+	mes "Alternative outfit: ^0055FF" + F_InsertComma(.AltCost) + "z^000000";
+	.@t = select("Cloth color:Hairstyle:Hair color:Alternative outfit");
+
+	.@orig = getlook(.@Look[.@t]);
+	.@cur  = .@orig;
+	.@max  = .@Max[.@t];
+
+	// ---- Alternative outfit: simple toggle ----
+	if (.@t == 4) {
+		setlook LOOK_BODY2, !.@orig;   // live preview
+		.@m = prompt("Keep (^0055FF" + F_InsertComma(.AltCost) + "z^000000)", "Revert");
+		if (.@m != 1) {
+			setlook LOOK_BODY2, .@orig;
+			message strcharinfo(0), "Cancelled. Original outfit restored.";
+			end;
+		}
+		if (Zeny < .AltCost) {
+			setlook LOOK_BODY2, .@orig;
+			message strcharinfo(0), "You need " + F_InsertComma(.AltCost) + "z.";
+			end;
+		}
+		Zeny -= .AltCost;
+		message strcharinfo(0), "Outfit applied.";
+		end;
+	}
+
+	// ---- Style browser: cloth color / hairstyle / hair color ----
+	while (true) {
+		setlook .@Look[.@t], .@cur;
+		.@next = (.@cur % .@max) + 1;
+		.@prev = ((.@cur + .@max - 2) % .@max) + 1;
+
+		message strcharinfo(0), .@Label$[.@t] + ": #" + .@cur + " / " + .@max;
+
+		.@m = prompt(
+			"Next (^0055FF" + .@next + "^000000)",
+			"Previous (^0055FF" + .@prev + "^000000)",
+			"Jump to...",
+			"Random",
+			"Revert (^0055FF" + .@orig + "^000000)",
+			"^00AA00Confirm^000000"
+		);
+
+		switch (.@m) {
+		case 1: .@cur = .@next; break;
+		case 2: .@cur = .@prev; break;
 		case 3:
-			message strcharinfo(0),"Choose a style between 1 - "+.@Styles[.@s]+".";
-			input .@Style,0,.@Styles[.@s];
-			if (!.@Style)
-				set .@Style, rand(1,.@Styles[.@s]);
+			message strcharinfo(0), "Choose a style between 1 - " + .@max + ".";
+			input .@in, 1, .@max;
+			if (.@in) .@cur = .@in;
 			break;
-		case 4:
-			set .@Style, .@Revert;
-			setlook .@Look[.@s], .@Revert;
-			break;
+		case 4: .@cur = rand(1, .@max); break;
+		case 5: .@cur = .@orig; break;
+		case 6:
+			if (Zeny < .@Cost[.@t]) {
+				message strcharinfo(0), "You need " + F_InsertComma(.@Cost[.@t]) + "z.";
+				break;
+			}
+			Zeny -= .@Cost[.@t];
+			message strcharinfo(0), "Style applied.";
+			end;
+		default: // 255 = window closed / cancelled
+			setlook .@Look[.@t], .@orig;
+			message strcharinfo(0), "Cancelled. Original style restored.";
+			end;
 		}
 	}
+
+OnInit:
+	.Cost    = 0;         // Zeny per confirmed cloth/hair change (0 = free)
+	.AltCost = 10000000;  // Zeny for alternative outfit (10m)
+	end;
 }

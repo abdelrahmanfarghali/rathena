@@ -1,21 +1,20 @@
 // ============================================================
-// Tao Gunka Exchanger (sprite 1833 = Tao Gunka)
+// Tao Gunka Exchanger
 // ============================================================
-prontera,155,185,4	script	Tao Gunka Exchanger	1833,{
-	// ---------- Config (data-driven) ----------
-	.@gem      = 7300;   // <-- TODO: Tao Gunka Gemstone item ID (verify with @iteminfo)
-	.@cap_hrs  = 72;  // max AFK hours that can accumulate
-	.@price    = 5;   // gemstones per ticket, per refine level (+N costs N * price)
+prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
+	// ---------- Config ----------
+	.@gem     = 671;   // Gemstone item ID
+	.@cap_hrs = 72;    // max AFK hours that can accumulate
+	.@min_lv  = 6;     // lowest ticket level
+	.@max_lv  = 19;    // highest ticket level
+	.@base    = 15;    // cost at .@min_lv
+	.@step    = 5;     // added cost per level
 
-	// Ticket item IDs indexed by target refine level 1..20
-	// TODO: fill from your item_db (verify each with @iteminfo)
-	setarray .@tk[1], 6231,6235,6230,6234,6229,6233,6228,6232,6993,6994,6238,6239,6584,6585,6870,6876,6871,6877,6872,6878,6873,6879,6874,6880,6875,6881,6864,6865;
-    
-    //+6/+7/+8/+9/+10/+11/+12/+13/+14/+15/+16/+17/+18/+19 tickets below
-    //weapon tickets: 6231, 6230, 6229, 6228, 6993, 6238, 6584, 6870, 6871, 6872, 6873, 6874, 6875, 6864;
-    //armor tickets : 6235, 6234, 6233, 6232, 6994, 6239, 6585, 6876, 6877, 6878, 6879, 6880, 6881, 6865;
-	
-    // ---------- AFK accrual ----------
+	// Ticket IDs indexed by refine level (+6..+19)
+	setarray .@tkw[6], 6231,6230,6229,6228,6993,6238,6584,6870,6871,6872,6873,6874,6875,6864;
+	setarray .@tka[6], 6235,6234,6233,6232,6994,6239,6585,6876,6877,6878,6879,6880,6881,6865;
+
+	// ---------- AFK accrual ----------
 	.@now = gettimetick(2);
 	if (!TG_LAST) TG_LAST = .@now;
 	.@hrs = min((.@now - TG_LAST) / 3600, .@cap_hrs);
@@ -36,14 +35,16 @@ prontera,155,185,4	script	Tao Gunka Exchanger	1833,{
 
 	case 2:
 		.@menu$ = "";
-		for (.@i = 1; .@i <= 20; .@i++)
-			.@menu$ += "+" + .@i + " Ticket (" + (.@i * .@price) + " gems):";
-		.@lv = select(.@menu$);
-		if (!.@tk[.@lv]) { mes "This ticket is not available."; close; }
-		.@cost = .@lv * .@price;
+		for (.@i = .@min_lv; .@i <= .@max_lv; .@i++)
+			.@menu$ += "+" + .@i + " Ticket (" + (.@base + (.@i - .@min_lv) * .@step) + " gems):";
+		.@lv   = .@min_lv - 1 + select(.@menu$);
+		.@cost = .@base + (.@lv - .@min_lv) * .@step;
 		if (countitem(.@gem) < .@cost) { mes "Not enough gemstones."; close; }
+		mes "[Tao Gunka]";
+		mes "Weapon or armor ticket?";
+		.@type = select("Weapon:Armor");
 		delitem .@gem, .@cost;
-		getitem .@tk[.@lv], 1;
+		getitem (.@type == 1 ? .@tkw[.@lv] : .@tka[.@lv]), 1;
 		close;
 
 	case 3:
@@ -54,23 +55,54 @@ prontera,155,185,4	script	Tao Gunka Exchanger	1833,{
 		.@p = .@parts[select(.@menu$) - 1];
 
 		if (!getequipisequiped(.@p) || !getequipisenableref(.@p)) { mes "Cannot refine that."; close; }
-		.@id  = getequipid(.@p);
 		.@cnt = getequiprefinerycnt(.@p);
-		.@to  = .@cnt + 1;
-		if (.@to > 20) { mes "Already at maximum."; close; }
+		.@isw = (.@p == EQI_HAND_R && getequipweaponlv(.@p) > 0);
 
-		// Ticket cost: weapons Lv1-3 = 1, Lv4 = 2; armor normal = 1, higher = 2
-		if (.@p == EQI_HAND_R && getequipweaponlv(.@p))
+		// Ticket amount: weapons Lv1-3 = 1, Lv4 = 2; armor normal = 1, higher = 2
+		if (.@isw)
 			.@amt = (getequipweaponlv(.@p) >= 4) ? 2 : 1;
 		else
-			.@amt = (getiteminfo(.@id, ITEMINFO_ARMORLEVEL) >= 2) ? 2 : 1;
+			.@amt = (getiteminfo(getequipid(.@p), ITEMINFO_ARMORLEVEL) >= 2) ? 2 : 1;
 
-		if (countitem(.@tk[.@to]) < .@amt) {
-			mes "You need " + .@amt + "x +" + .@to + " Refine Ticket.";
+		// Build ticket menu from inventory
+		.@menu$ = "";
+		.@n = 0;
+		for (.@i = .@min_lv; .@i <= .@max_lv; .@i++) {
+			if (.@i == .@cnt) continue;
+			.@tid = .@isw ? .@tkw[.@i] : .@tka[.@i];
+			if (countitem(.@tid) < .@amt) continue;
+			.@lvs[.@n] = .@i;
+			.@n++;
+			.@menu$ += "+" + .@i + " Ticket (" + countitem(.@tid) + " owned)"
+			         + (.@i < .@cnt ? " ^FF0000[Downgrade]^000000" : "") + ":";
+		}
+		if (!.@n) {
+			mes "[Tao Gunka]";
+			mes "You have no usable ticket for this item (" + .@amt + "x needed).";
 			close;
 		}
-		delitem .@tk[.@to], .@amt;
-		successrefitem .@p;
+		.@to  = .@lvs[select(.@menu$) - 1];
+		.@tid = .@isw ? .@tkw[.@to] : .@tka[.@to];
+
+		// Critical confirmation for downgrades
+		if (.@to < .@cnt) {
+			mes "[Tao Gunka]";
+			mes "^FF0000WARNING:^000000 this will set your";
+			mes getequipname(.@p);
+			mes "from ^FF0000+" + .@cnt + "^000000 DOWN to ^FF0000+" + .@to + "^000000.";
+			mes "This cannot be undone.";
+			next;
+			if (select("Yes, downgrade it:Cancel") != 1) close;
+			// Re-validate after the prompt
+			if (!getequipisequiped(.@p) || getequiprefinerycnt(.@p) != .@cnt) { mes "Item changed. Aborted."; close; }
+		}
+		if (countitem(.@tid) < .@amt) { mes "Ticket missing."; close; }
+
+		delitem .@tid, .@amt;
+		while (getequiprefinerycnt(.@p) < .@to) successrefitem .@p;
+		while (getequiprefinerycnt(.@p) > .@to) downrefitem .@p;
+		mes "[Tao Gunka]";
+		mes "Done. Your item is now ^0000FF+" + getequiprefinerycnt(.@p) + "^000000.";
 		close;
 
 	case 4:

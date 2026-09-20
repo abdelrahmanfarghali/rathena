@@ -1,0 +1,43 @@
+//===== rAthena Script =======================================
+//= Web GM Panel — Command Queue Bridge
+//===== Description: ==========================================
+//= Polls gm_command_queue (written by the Node backend) once a
+//= second, attaches to the submitting GM's live session, and
+//= executes the queued command via the atcommand script command.
+//= Requires no C++/source changes — pure NPC script + SQL.
+//==============================================================
+-	script	GMQueueBridge	-1,{
+OnInit:
+	initnpctimer;
+	end;
+
+OnTimer1000:
+	// Grab up to 5 oldest pending commands
+	.@rows = query_sql(
+		"SELECT id, account_id, char_id, command FROM gm_command_queue WHERE status='pending' ORDER BY id ASC LIMIT 5",
+		.@id, .@aid, .@cid, .@cmd$
+	);
+
+	for (.@i = 0; .@i < .@rows; .@i++) {
+		.@ok = 0;
+		.@msg$ = "Failed: GM character is not online.";
+
+		if (attachrid(.@aid[.@i])) {
+			if (.@cid[.@i] > 0 && getcharid(0) != .@cid[.@i]) {
+				.@msg$ = "Failed: the character logged in (" + strcharinfo(0) + ") is not the one selected in the panel.";
+			} else {
+				.@ok = atcommand(.@cmd$[.@i]);
+				.@msg$ = .@ok ? ("Executed: " + .@cmd$[.@i]) : ("Command rejected by server: " + .@cmd$[.@i]);
+			}
+			detachrid;
+		}
+
+		if (.@ok)
+			query_sql("UPDATE gm_command_queue SET status='done', result='" + escape_sql(.@msg$) + "' WHERE id=" + .@id[.@i]);
+		else
+			query_sql("UPDATE gm_command_queue SET status='error', result='" + escape_sql(.@msg$) + "' WHERE id=" + .@id[.@i]);
+	}
+
+	initnpctimer;
+	end;
+}

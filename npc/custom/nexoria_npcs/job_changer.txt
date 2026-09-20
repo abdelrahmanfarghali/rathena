@@ -1,22 +1,33 @@
-prontera,150,180,4	script	Job Master	4_M_JOB_KNIGHT,{
-	.@t = 0;
-	for (.@i = 1; .@i <= 3; .@i++)
-		if (inarray(getd(".t" + .@i), Class) >= 0) .@t = .@i;
+prontera,146,170,4	script	Job Master	21360,{
+	.@t = -1;
+	for (.@i = 0; .@i <= 3; .@i++) {
+		.@n = getarraysize(getd(".t" + .@i));
+		for (.@j = 0; .@j < .@n; .@j++)
+			if (getd(".t" + .@i + "[" + .@j + "]") == Class) .@t = .@i;
+	}
 
 	mes "[Job Master]";
-	if (!.@t) {
-		mes "I only serve first, second and third jobs.";
+	if (.@t < 0) {
+		mes "I only serve novice, first, second and third jobs.";
 		close;
 	}
 	mes "Tier: ^0000FF" + .@t + "^000000 | Base Lv " + BaseLevel + " | Job Lv " + JobLevel;
 	next;
 	switch (select("Change job:Change outfit:Cancel")) {
 	case 1:
-		.@n = getarraysize(getd(".t" + .@t));
-		copyarray .@l[0], getd(".t" + .@t + "[0]"), .@n;
+		// Novice picks from the first-job pool; other tiers switch within their own
+		.@pool = (.@t == 0) ? 1 : .@t;
+		if (.@t == 0 && JobLevel < .novice_jlv) {
+			mes "[Job Master]";
+			mes "Novice needs Job Lv " + .novice_jlv + " to change job.";
+			close;
+		}
+		.@n = getarraysize(getd(".t" + .@pool));
 		.@menu$ = "";
-		for (.@i = 0; .@i < .@n; .@i++)
+		for (.@i = 0; .@i < .@n; .@i++) {
+			.@l[.@i] = getd(".t" + .@pool + "[" + .@i + "]");
 			.@menu$ += (.@l[.@i] == Class ? "(current)" : jobname(.@l[.@i])) + ":";
+		}
 		.@s = select(.@menu$) - 1;
 		if (.@l[.@s] == Class) close;
 		.@cost = .cost[.@t];
@@ -33,6 +44,10 @@ prontera,150,180,4	script	Job Master	4_M_JOB_KNIGHT,{
 		close;
 	case 2:
 		mes "[Job Master]";
+		if (.@t == 0) {
+			mes "Novices cannot change outfit.";
+			close;
+		}
 		if (BaseLevel < .max_blv || JobLevel < .max_jlv[.@t]) {
 			mes "Outfit change requires Base Lv " + .max_blv + " and Job Lv " + .max_jlv[.@t] + ".";
 			close;
@@ -51,14 +66,15 @@ prontera,150,180,4	script	Job Master	4_M_JOB_KNIGHT,{
 
 OnInit:
 	// ---- CONFIG ----
-	// Job pools per tier (same-tier switching only)
 	setarray .outfit$, "Default outfit", "Alternative outfit";   // index = LOOK_BODY2 value
+	setarray .t0, Job_Novice;
 	setarray .t1, Job_Swordman, Job_Mage, Job_Archer, Job_Acolyte, Job_Merchant, Job_Thief;
 	setarray .t2, Job_Knight, Job_Crusader, Job_Wizard, Job_Sage, Job_Hunter, Job_Bard, Job_Assassin, Job_Rogue, Job_Priest, Job_Monk, Job_Blacksmith, Job_Alchemist;
 	setarray .t3, Job_Rune_Knight, Job_Royal_Guard, Job_Warlock, Job_Sorcerer, Job_Ranger, Job_Minstrel, Job_Guillotine_Cross, Job_Shadow_Chaser, Job_Arch_Bishop, Job_Sura, Job_Mechanic, Job_Genetic;
-	setarray .cost, 0, 50000, 500000, 2000000;   // index = tier
+	setarray .cost, 0, 0, 500000, 2000000;       // index = tier (0 = novice)
 	setarray .max_jlv, 0, 10, 50, 50;            // index = tier
-	.max_blv = 185;
+	.novice_jlv = 10;                            // Job Lv required for Novice -> first job
+	.max_blv = 175;
 	// ----------------
 	end;
 }

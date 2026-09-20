@@ -1,24 +1,26 @@
-// Map, X, Y, Facing | script | NPC Name | SpriteID, TouchX, TouchY
-prontera,156,130,0	script	Instance Plaza Portal	45,3,3,{
+// ====================================================================
+// Instance Plaza Portal (data-driven registry)
+// S_Reg args: "<instance name>", <category>, <gateX>, <gateY>
+//   gateX/gateY = 0,0 -> generic instance (create/enter via this portal)
+//   gateX/gateY > 0   -> NPC-managed instance (warp to its gate NPC)
+// ====================================================================
+prontera,165,167,0	script	Instance Plaza Portal	PORTAL,{
 
 OnTouch:
-    // 1. Fast-fail check: Must be in a party
     if (!getcharid(1)) {
         message strcharinfo(0), "You must form a party to enter the Instance Plaza.";
         end;
     }
 
-    // 2. Check if the party already has an active instance running
-    if (instance_id(1) > 0) {
-        .@active_name$ = instance_live_info(ILI_NAME, instance_id(1));
+    // Party already has an active instance: enter or destroy
+    if (instance_id(IM_PARTY) > 0) {
+        .@active$ = instance_live_info(ILI_NAME, instance_id(IM_PARTY));
         mes "[ ^FF6600Instance Manager^0000 ]";
         mes "Your party already has an active instance running:";
-        mes "^0055FF" + (.@active_name$ != "" ? .@active_name$ : "Active Instance") + "^0000";
-        mes "What would you like to do?";
+        mes "^0055FF" + (.@active$ != "" ? .@active$ : "Active Instance") + "^0000";
         next;
         switch (select("Enter Instance:Destroy Instance:Cancel")) {
         case 1:
-            close2;
             callsub L_Enter;
             end;
         case 2:
@@ -27,7 +29,7 @@ OnTouch:
                 mes "Only the ^FF0000Party Leader^0000 can destroy the active instance.";
                 close;
             }
-            instance_destroy instance_id(1);
+            instance_destroy instance_id(IM_PARTY);
             mes "[ ^FF6600Instance Manager^0000 ]";
             mes "Instance destroyed. You may now generate a new one.";
             close;
@@ -36,315 +38,225 @@ OnTouch:
         }
     }
 
-    // 3. Category Selection Menu
+    // Category menu
     mes "[ ^FF6600Instance Manager^0000 ]";
     mes "Select an instance category to browse:";
     next;
-    switch (select(" ~ Classic & Iconic Dungeons: ~ Heroes' Trails & Dimensional Gap: ~ Episode 16 & 17 (Banquet / OS): ~ Episode 18 & High-End Raids: ~ Special & Event Dungeons:Cancel")) {
-    case 1: goto Menu_Classic;
-    case 2: goto Menu_HeroesTrails;
-    case 3: goto Menu_Ep16_17;
-    case 4: goto Menu_Ep18_Raid;
-    case 5: goto Menu_Special;
-    case 6: close;
+    .@menu$ = "";
+    for (.@i = 0; .@i < getarraysize(.cat_name$); .@i++)
+        .@menu$ += .cat_name$[.@i] + ":";
+    .@c = select(.@menu$ + "Cancel");
+    if (.@c > getarraysize(.cat_name$)) close;
+
+    // Instance menu for the chosen category
+    .@menu$ = "";
+    .@n = 0;
+    for (.@i = 0; .@i < getarraysize(.inst_name$); .@i++) {
+        if (.inst_cat[.@i] != .@c) continue;
+        .@idx[.@n] = .@i;
+        .@menu$ += .inst_name$[.@i] + ":";
+        .@n++;
+    }
+    mes "[ ^FF6600Instance Manager^0000 ]";
+    mes "Select: ^0055FF" + .cat_name$[.@c - 1] + "^0000";
+    next;
+    .@s = select(.@menu$ + "Back to Categories") - 1;
+    if (.@s >= .@n) goto OnTouch;
+    .@inst = .@idx[.@s];
+    .@inst_name$ = .inst_name$[.@inst];
+
+    // ---------------- Entrance choice ----------------
+    // NPC-managed: warp to its gate NPC
+    if (.inst_gx[.@inst] > 0) {
+        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "^0055FF" + .@inst_name$ + "^0000";
+        mes "This instance is started by its own gate NPC.";
+        next;
+        switch (select("Go to the gate:Back to categories:Cancel")) {
+        case 1:
+            close2;
+            warp "prontera", .inst_gx[.@inst], .inst_gy[.@inst];
+            end;
+        case 2:
+            goto OnTouch;
+        case 3:
+            close;
+        }
+    }
+
+    // Generic: create (leader) / enter (members)
+    mes "[ ^FF6600Instance Manager^0000 ]";
+    mes "^0055FF" + .@inst_name$ + "^0000";
+    next;
+    switch (select("Create instance (Party Leader):Enter instance:Back to categories:Cancel")) {
+    case 1:
+        if (!is_party_leader()) {
+            mes "[ ^FF6600Instance Manager^0000 ]";
+            mes "Only the ^FF0000Party Leader^0000 can generate a new instance.";
+            close;
+        }
+        if (instance_create(.@inst_name$, getcharid(1), IM_PARTY) < 0) {
+            mes "[ ^FF6600Instance Manager^0000 ]";
+            mes "^FF0000Failed to create instance.^0000";
+            mes "The server might be full, or your party is still on cooldown.";
+            close;
+        }
+        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "^00AA00Instance reserved!^0000 All party members may now touch the portal to enter.";
+        close;
+    case 2:
+        callsub L_Enter;
+        end;
+    case 3:
+        goto OnTouch;
+    case 4:
+        close;
     }
     end;
 
-// ====================================================================
-// Category 1: Classic & Iconic Dungeons
-// ====================================================================
-Menu_Classic:
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select a Classic Instance:";
-    next;
-    switch (select(
-        "Endless Tower",
-        "Old Glast Heim",
-        "Old Glast Heim (Beginner)",
-        "Old Glast Heim (Challenge Mode)",
-        "Fall of Glast Heim (Normal)",
-        "Fall of Glast Heim (Advanced)",
-        "Sealed Catacomb",
-        "Orc's Memory",
-        "Nidhoggur's Nest",
-        "Culvert (Malangdo)",
-        "Octopus Cave",
-        "Mistwood Maze",
-        "Eclage Interior",
-        "Wolfchev's Laboratory",
-        "Bakonawa Lake",
-        "Bangungot Hospital 2F",
-        "Buwaya Cave",
-        "Back to Categories"
-    )) {
-    case 1: .@inst_name$ = "Endless Tower"; break;
-    case 2: .@inst_name$ = "Old Glast Heim"; break;
-    case 3: .@inst_name$ = "Old Glast Heim (Beginner)"; break;
-    case 4: .@inst_name$ = "Old Glast Heim (Challenge Mode)"; break;
-    case 5: .@inst_name$ = "Fall of Glast Heim (Normal)"; break;
-    case 6: .@inst_name$ = "Fall of Glast Heim (Advanced)"; break;
-    case 7: .@inst_name$ = "Sealed Catacomb"; break;
-    case 8: .@inst_name$ = "Orc's Memory"; break;
-    case 9: .@inst_name$ = "Nidhoggur's Nest"; break;
-    case 10: .@inst_name$ = "Culvert"; break;
-    case 11: .@inst_name$ = "Octopus Cave"; break;
-    case 12: .@inst_name$ = "Mistwood Maze"; break;
-    case 13: .@inst_name$ = "Eclage Interior"; break;
-    case 14: .@inst_name$ = "Wolfchev's Laboratory"; break;
-    case 15: .@inst_name$ = "Bakonawa Lake"; break;
-    case 16: .@inst_name$ = "Bangungot Hospital 2F"; break;
-    case 17: .@inst_name$ = "Buwaya Cave"; break;
-    case 18: goto OnTouch;
-    }
-    goto GenerateInstance;
-
-// ====================================================================
-// Category 2: Heroes' Trails & Dimensional Gap (Ep 14)
-// ====================================================================
-Menu_HeroesTrails:
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select a Heroes' Trails / Dimensional Gap Instance:";
-    next;
-    switch (select(
-        "Sara's Memories",
-        "Geffen Magic Tournament",
-        "Ghost Palace",
-        "Devil's Tower",
-        "Faceworm's Nest",
-        "Horror Toy Factory",
-        "Fenrir and Sarah",
-        "Assault on the Airship",
-        "Nightmarish Jitterbug",
-        "Isle of Bios",
-        "Morse's Cave",
-        "Temple of the Demon God",
-        "Central Laboratory",
-        "Last room",
-        "Charleston in Distress",
-        "Infinite Space",
-        "Back to Categories"
-    )) {
-    case 1: .@inst_name$ = "Sara's Memories"; break;
-    case 2: .@inst_name$ = "Geffen Magic Tournament"; break;
-    case 3: .@inst_name$ = "Ghost Palace"; break;
-    case 4: .@inst_name$ = "Devil's Tower"; break;
-    case 5: .@inst_name$ = "Faceworm's Nest"; break;
-    case 6: .@inst_name$ = "Horror Toy Factory"; break;
-    case 7: .@inst_name$ = "Fenrir and Sarah"; break;
-    case 8: .@inst_name$ = "Assault on the Airship"; break;
-    case 9: .@inst_name$ = "Nightmarish Jitterbug"; break;
-    case 10: .@inst_name$ = "Isle of Bios"; break;
-    case 11: .@inst_name$ = "Morse's Cave"; break;
-    case 12: .@inst_name$ = "Temple of the Demon God"; break;
-    case 13: .@inst_name$ = "Central Laboratory"; break;
-    case 14: .@inst_name$ = "Last room"; break;
-    case 15: .@inst_name$ = "Charleston in Distress"; break;
-    case 16: .@inst_name$ = "Infinite Space"; break;
-    case 17: goto OnTouch;
-    }
-    goto GenerateInstance;
-
-// ====================================================================
-// Category 3: Episode 16 & 17 (Banquet / OS / Cor)
-// ====================================================================
-Menu_Ep16_17:
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select an Episode 16 or 17 Instance:";
-    next;
-    switch (select(
-        "Ritual of Blessing",
-        "Room of Consciousness",
-        "Sky Fortress Invasion",
-        "Heart Hunter War Base 1",
-        "Heart Hunter War Base 2",
-        "Werner Laboratory central room#1",
-        "Werner Laboratory central room#2",
-        "Regenschirm",
-        "Sealed OS",
-        "OS Occupation",
-        "2nd OS Search",
-        "Cor Memorial",
-        "Half Moon In The Daylight",
-        "Back to Categories"
-    )) {
-    case 1: .@inst_name$ = "Ritual of Blessing"; break;
-    case 2: .@inst_name$ = "Room of Consciousness"; break;
-    case 3: .@inst_name$ = "Sky Fortress Invasion"; break;
-    case 4: .@inst_name$ = "Heart Hunter War Base 1"; break;
-    case 5: .@inst_name$ = "Heart Hunter War Base 2"; break;
-    case 6: .@inst_name$ = "Werner Laboratory central room#1"; break;
-    case 7: .@inst_name$ = "Werner Laboratory central room#2"; break;
-    case 8: .@inst_name$ = "Regenschirm"; break;
-    case 9: .@inst_name$ = "Sealed OS"; break;
-    case 10: .@inst_name$ = "OS Occupation"; break;
-    case 11: .@inst_name$ = "2nd OS Search"; break;
-    case 12: .@inst_name$ = "Cor Memorial"; break;
-    case 13: .@inst_name$ = "Half Moon In The Daylight"; break;
-    case 14: goto OnTouch;
-    }
-    goto GenerateInstance;
-
-// ====================================================================
-// Category 4: Episode 18 & High-End Raids
-// ====================================================================
-Menu_Ep18_Raid:
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select a High-End Raid / Episode 18 Instance:";
-    next;
-    switch (select(
-        "Thanatos Tower",
-        "Constellation Tower",
-        "Sunken Tower",
-        "Tomb of Remorse",
-        "Geffen Night Arena",
-        "Airship Crash",
-        "Airship Destruction",
-        "Simulation Battle",
-        "Oz Labyrinth",
-        "Thor Military Base",
-        "Wolves Gathering Place",
-        "Sanctuary Purification",
-        "High Priest's Villa",
-        "Villa of Deception",
-        "Villa of Deception Advanced",
-        "Bagot Laboratory",
-        "Confused Snake's Nest",
-        "Iwin Patrol",
-        "Deep Forest",
-        "Water Garden",
-        "Water Garden Hard",
-        "Hidden Flower Garden",
-        "Security Area 1",
-        "Security Area 2",
-        "Twilight Garden",
-        "Hey! Sweety",
-        "Farm Lost in Time",
-        "Back to Categories"
-    )) {
-    case 1: .@inst_name$ = "Thanatos Tower"; break;
-    case 2: .@inst_name$ = "Constellation Tower"; break;
-    case 3: .@inst_name$ = "Sunken Tower"; break;
-    case 4: .@inst_name$ = "Tomb of Remorse"; break;
-    case 5: .@inst_name$ = "Geffen Night Arena"; break;
-    case 6: .@inst_name$ = "Airship Crash"; break;
-    case 7: .@inst_name$ = "Airship Destruction"; break;
-    case 8: .@inst_name$ = "Simulation Battle"; break;
-    case 9: .@inst_name$ = "Oz Labyrinth"; break;
-    case 10: .@inst_name$ = "Thor Military Base"; break;
-    case 11: .@inst_name$ = "Wolves Gathering Place"; break;
-    case 12: .@inst_name$ = "Sanctuary Purification"; break;
-    case 13: .@inst_name$ = "High Priest's Villa"; break;
-    case 14: .@inst_name$ = "Villa of Deception"; break;
-    case 15: .@inst_name$ = "Villa of Deception Advanced"; break;
-    case 16: .@inst_name$ = "Bagot Laboratory"; break;
-    case 17: .@inst_name$ = "Confused Snake's Nest"; break;
-    case 18: .@inst_name$ = "Iwin Patrol"; break;
-    case 19: .@inst_name$ = "Deep Forest"; break;
-    case 20: .@inst_name$ = "Water Garden"; break;
-    case 21: .@inst_name$ = "Water Garden Hard"; break;
-    case 22: .@inst_name$ = "Hidden Flower Garden"; break;
-    case 23: .@inst_name$ = "Security Area 1"; break;
-    case 24: .@inst_name$ = "Security Area 2"; break;
-    case 25: .@inst_name$ = "Twilight Garden"; break;
-    case 26: .@inst_name$ = "Hey! Sweety"; break;
-    case 27: .@inst_name$ = "Farm Lost in Time"; break;
-    case 28: goto OnTouch;
-    }
-    goto GenerateInstance;
-
-// ====================================================================
-// Category 5: Special & Event Dungeons
-// ====================================================================
-Menu_Special:
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select a Special / Event Instance:";
-    next;
-    switch (select(
-        "Poring Village",
-        "Friday Dungeon",
-        "Weekend Dungeon",
-        "Wave Mode - Forest",
-        "Wave Mode - Sky",
-        "Back to Categories"
-    )) {
-    case 1: .@inst_name$ = "Poring Village"; break;
-    case 2: .@inst_name$ = "Friday Dungeon"; break;
-    case 3: .@inst_name$ = "Weekend Dungeon"; break;
-    case 4: .@inst_name$ = "Wave Mode - Forest"; break;
-    case 5: .@inst_name$ = "Wave Mode - Sky"; break;
-    case 6: goto OnTouch;
-    }
-    goto GenerateInstance;
-
-// ====================================================================
-// Instance Generation & Entry Engine
-// Two-phase flow (mirrors official rAthena):
-//   Phase 1 (leader only): instance_create  -> reserves the instance,
-//                           triggers OnInstanceInit inside the instance script
-//                           which spawns all NPCs and mobs.
-//   Phase 2 (all members): instance_enter   -> warps player into the
-//                           already-initialised instance map.
-// ====================================================================
-GenerateInstance:
-    // --- PHASE 2: Party member entry (instance already exists) ---
-    // Non-leaders, or anyone touching the portal after the leader created it,
-    // skip straight to entry.
-    if (instance_id(1) > 0) {
-        mes "[ ^FF6600Instance Manager^0000 ]";
-        mes "An instance is ready. Entering ^0055FF" + instance_live_info(ILI_NAME, instance_id(1)) + "^0000...";
-        close2;
-        callsub L_Enter;
-        end;
-    }
-
-    // --- PHASE 1: Only the leader can create a fresh instance ---
-    if (!is_party_leader()) {
-        mes "[ ^FF6600Instance Manager^0000 ]";
-        mes "Only the ^FF0000Party Leader^0000 can generate a new instance.";
-        mes "Ask your leader to touch the portal first to create it.";
-        mes "Once created, touch it again to enter.";
-        close;
-    }
-
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Generating ^0055FF" + .@inst_name$ + "^0000...";
-    mes "After creation, touch the portal again to enter.";
-
-    if (instance_create(.@inst_name$) < 0) {
-        mes " ";
-        mes "^FF0000Failed to create instance.^0000";
-        mes "The server might be full, or your party is still on cooldown.";
-        close;
-    }
-
-    // Instance created successfully. OnInstanceInit inside the instance
-    // script will now run automatically, spawning all NPCs and mobs.
-    mes " ";
-    mes "^00AA00Instance reserved!^0000 All party members may now touch the portal to enter.";
-    close;
-
-// ====================================================================
-// Entry subroutine — handles all IE_* error codes from instance_enter
-// ====================================================================
+// --------------------------------------------------------------------
+// Entry subroutine (instance name read from the party's live instance)
+// --------------------------------------------------------------------
 L_Enter:
-    switch (instance_enter(.@inst_name$)) {
+    if (instance_id(IM_PARTY) <= 0) {
+        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "No instance exists yet.";
+        mes "The ^FF0000Party Leader^0000 must create one first.";
+        close;
+    }
+    switch (instance_enter(instance_live_info(ILI_NAME, instance_id(IM_PARTY)))) {
     case IE_OK:
-        end;
+        close;
     case IE_NOINSTANCE:
         mes "[ ^FF6600Instance Manager^0000 ]";
         mes "No instance exists yet.";
-        mes "The ^FF0000Party Leader^0000 must touch the portal first to generate one.";
         close;
     case IE_NOMEMBER:
         mes "[ ^FF6600Instance Manager^0000 ]";
         mes "You must be in a party to enter.";
         close;
-    case IE_OTHER:
     default:
         mes "[ ^FF6600Instance Manager^0000 ]";
         mes "^FF0000An unknown error occurred while entering.^0000";
         mes "Please try again or contact a GM.";
         close;
     }
+    end;
+
+// --------------------------------------------------------------------
+// Registry helper
+// --------------------------------------------------------------------
+S_Reg:
+    .@k = getarraysize(.inst_name$);
+    .inst_name$[.@k] = getarg(0);
+    .inst_cat[.@k]   = getarg(1);
+    .inst_gx[.@k]    = getarg(2);
+    .inst_gy[.@k]    = getarg(3);
     return;
+
+OnInit:
+    setarray .cat_name$[0],
+        "Classic & Iconic Dungeons",
+        "Heroes' Trails & Dimensional Gap",
+        "Episode 16 & 17 (Banquet / OS)",
+        "Episode 18 & High-End Raids",
+        "Special & Event Dungeons";
+
+    // Category 1
+    callsub S_Reg, "Endless Tower", 1, 0, 0;
+    callsub S_Reg, "Old Glast Heim", 1, 0, 0;
+    callsub S_Reg, "Old Glast Heim (Beginner)", 1, 0, 0;
+    callsub S_Reg, "Old Glast Heim (Challenge Mode)", 1, 0, 0;
+    callsub S_Reg, "Fall of Glast Heim (Normal)", 1, 0, 0;
+    callsub S_Reg, "Fall of Glast Heim (Advanced)", 1, 0, 0;
+    callsub S_Reg, "Sealed Catacomb", 1, 0, 0;
+    callsub S_Reg, "Orc's Memory", 1, 0, 0;
+    callsub S_Reg, "Nidhoggur's Nest", 1, 0, 0;
+    callsub S_Reg, "Culvert", 1, 0, 0;
+    callsub S_Reg, "Octopus Cave", 1, 0, 0;
+    callsub S_Reg, "Mistwood Maze", 1, 0, 0;
+    callsub S_Reg, "Eclage Interior", 1, 0, 0;
+    callsub S_Reg, "Wolfchev's Laboratory", 1, 0, 0;
+    callsub S_Reg, "Bakonawa Lake", 1, 0, 0;
+    callsub S_Reg, "Bangungot Hospital 2F", 1, 0, 0;
+    callsub S_Reg, "Buwaya Cave", 1, 0, 0;
+
+    // Category 2 (gate coords = 2 cells west of each duplicate NPC)
+    callsub S_Reg, "Sara's Memories", 2, 0, 0;
+    callsub S_Reg, "Geffen Magic Tournament", 2, 163, 144;
+    callsub S_Reg, "Ghost Palace", 2, 0, 0;
+    callsub S_Reg, "Devil's Tower", 2, 0, 0;
+    callsub S_Reg, "Faceworm's Nest", 2, 0, 0;
+    callsub S_Reg, "Horror Toy Factory", 2, 163, 141;
+    callsub S_Reg, "Fenrir and Sarah", 2, 0, 0;
+    callsub S_Reg, "Assault on the Airship", 2, 0, 0;
+    callsub S_Reg, "Nightmarish Jitterbug", 2, 0, 0;
+    callsub S_Reg, "Isle of Bios", 2, 0, 0;
+    callsub S_Reg, "Morse's Cave", 2, 0, 0;
+    callsub S_Reg, "Temple of the Demon God", 2, 0, 0;
+    callsub S_Reg, "Central Laboratory", 2, 163, 138;
+    callsub S_Reg, "Last room", 2, 0, 0;
+    callsub S_Reg, "Charleston in Distress", 2, 0, 0;
+    callsub S_Reg, "Infinite Space", 2, 0, 0;
+
+    // Category 3
+    callsub S_Reg, "Ritual of Blessing", 3, 0, 0;
+    callsub S_Reg, "Room of Consciousness", 3, 0, 0;
+    callsub S_Reg, "Sky Fortress Invasion", 3, 0, 0;
+    callsub S_Reg, "Heart Hunter War Base 1", 3, 0, 0;
+    callsub S_Reg, "Heart Hunter War Base 2", 3, 0, 0;
+    callsub S_Reg, "Werner Laboratory central room#1", 3, 0, 0;
+    callsub S_Reg, "Werner Laboratory central room#2", 3, 0, 0;
+    callsub S_Reg, "Regenschirm", 3, 0, 0;
+    callsub S_Reg, "Sealed OS", 3, 0, 0;
+    callsub S_Reg, "OS Occupation", 3, 0, 0;
+    callsub S_Reg, "2nd OS Search", 3, 0, 0;
+    callsub S_Reg, "Cor Memorial", 3, 0, 0;
+    callsub S_Reg, "Half Moon In The Daylight", 3, 0, 0;
+
+    // Category 4
+    callsub S_Reg, "Thanatos Tower", 4, 0, 0;
+    callsub S_Reg, "Constellation Tower", 4, 0, 0;
+    callsub S_Reg, "Sunken Tower", 4, 0, 0;
+    callsub S_Reg, "Tomb of Remorse", 4, 0, 0;
+    callsub S_Reg, "Geffen Night Arena", 4, 0, 0;
+    callsub S_Reg, "Airship Crash", 4, 0, 0;
+    callsub S_Reg, "Airship Destruction", 4, 0, 0;
+    callsub S_Reg, "Simulation Battle", 4, 0, 0;
+    callsub S_Reg, "Oz Labyrinth", 4, 0, 0;
+    callsub S_Reg, "Thor Military Base", 4, 0, 0;
+    callsub S_Reg, "Wolves Gathering Place", 4, 0, 0;
+    callsub S_Reg, "Sanctuary Purification", 4, 0, 0;
+    callsub S_Reg, "High Priest's Villa", 4, 0, 0;
+    callsub S_Reg, "Villa of Deception", 4, 0, 0;
+    callsub S_Reg, "Villa of Deception Advanced", 4, 0, 0;
+    callsub S_Reg, "Bagot Laboratory", 4, 0, 0;
+    callsub S_Reg, "Confused Snake's Nest", 4, 0, 0;
+    callsub S_Reg, "Iwin Patrol", 4, 0, 0;
+    callsub S_Reg, "Deep Forest", 4, 0, 0;
+    callsub S_Reg, "Water Garden", 4, 0, 0;
+    callsub S_Reg, "Water Garden Hard", 4, 0, 0;
+    callsub S_Reg, "Hidden Flower Garden", 4, 0, 0;
+    callsub S_Reg, "Security Area 1", 4, 0, 0;
+    callsub S_Reg, "Security Area 2", 4, 0, 0;
+    callsub S_Reg, "Twilight Garden", 4, 0, 0;
+    callsub S_Reg, "Hey! Sweety", 4, 0, 0;
+    callsub S_Reg, "Farm Lost in Time", 4, 0, 0;
+
+    // Category 5
+    callsub S_Reg, "Poring Village", 5, 0, 0;
+    callsub S_Reg, "Friday Dungeon", 5, 0, 0;
+    callsub S_Reg, "Weekend Dungeon", 5, 0, 0;
+    callsub S_Reg, "Wave Mode - Forest", 5, 0, 0;
+    callsub S_Reg, "Wave Mode - Sky", 5, 0, 0;
+    end;
 }
+
+// ====================================================================
+// Gate NPCs (originals must stay loaded)
+// ====================================================================
+prontera,165,141,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
+prontera,165,144,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
+prontera,165,147,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
+prontera,165,149,4	duplicate(Machine#mcd)	Charleston Crisis	PORTAL
+prontera,165,138,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE

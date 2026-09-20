@@ -1,0 +1,369 @@
+// ============ Bomb Arena ============
+// Arena map flags
+pvp_n_8-5	mapflag	pvp
+pvp_n_8-5	mapflag	nopenalty
+pvp_n_8-5	mapflag	nosave	SavePoint
+pvp_n_8-5	mapflag	noteleport
+pvp_n_8-5	mapflag	nowarp
+pvp_n_8-5	mapflag	nowarpto
+pvp_n_8-5	mapflag	noreturn
+pvp_n_8-5	mapflag	nomemo
+pvp_n_8-5	mapflag	nobranch
+
+// Hidden effect carrier
+-	script	BombFx	-1,{ end; }
+
+// Engine
+-	script	BombArena	-1,{
+OnInit:
+	// ---- CONFIG ----
+	.map$        = "pvp_n_8-5";
+	.bombs       = 6;        // bombs per wave
+	.warn_ms     = 2500;     // warning time before detonation
+	.wave_ms     = 3000;     // pause between waves
+	.min_x = 20; .max_x = 80;
+	.min_y = 20; .max_y = 80;
+	
+	.radius      = 2;        // 2 cells = 5x5 AoE (Matches Heaven's Drive)
+	.bombring_id = 1904;     // Mob ID for Bombring (1142 is Marine Sphere, change if custom)
+	
+	// ---- EFFECTS ----
+	.fx_warn_center = 333;   // EF_MAGICMAKER: Magic cast circle at the epicenter
+	.fx_warn_grid   = 245;   // EF_COV_MARK: Small red crosshairs for the 5x5 danger zone
+	.fx_boom        = 301;   // EF_HEAVENDRIVE: Earth spikes for the actual blast
+	// ----------------
+	
+	
+	// The ', 0, 100' syntax sets the minimum and maximum group levels.
+	// 0 ensures standard players can use the command.
+	//bindatcmd "leavepvp", "BombArena::OnLeave", 0, 100;
+
+	// ... (rest of your existing OnInit loop) ...
+	// Spawn 3 Bombrings randomly on the map that respawn every 3 minutes (180,000 ms)
+	for (.@i = 0; .@i < 3; .@i++)
+		monster .map$, 0, 0, "--ja--", .bombring_id, 1, strnpcinfo(0) + "::OnBombringDead";
+
+	while (1) {
+		if (getmapusers(.map$) < 1) { sleep 2000; continue; }
+
+		// Pick centers
+		deletearray .@bx; deletearray .@by;
+		for (.@i = 0; .@i < .bombs; .@i++) {
+			.@try = 0;
+			do {
+				.@x = rand(.min_x, .max_x);
+				.@y = rand(.min_y, .max_y);
+			} while (!checkcell(.map$, .@x, .@y, cell_chkpass) && ++.@try < 50);
+			.@bx[.@i] = .@x;
+			.@by[.@i] = .@y;
+		}
+
+		// Warning Phase: 5x5 Ground Area 
+		for (.@i = 0; .@i < .bombs; .@i++) {
+			// Center cast circle
+			unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i], .@by[.@i];
+			specialeffect .fx_warn_center, AREA, "BombFx";
+			
+			// Outline the 5x5 grid danger zone
+			for (.@dx = -.radius; .@dx <= .radius; .@dx++) {
+				for (.@dy = -.radius; .@dy <= .radius; .@dy++) {
+					if (!checkcell(.map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy, cell_chkpass)) continue;
+
+					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
+					specialeffect .fx_warn_grid, AREA, "BombFx";
+				}
+			}
+		}
+		sleep .warn_ms;
+
+		// Detonation Phase: Heaven's Drive Effect + Kill
+		for (.@i = 0; .@i < .bombs; .@i++) {
+			for (.@dx = -.radius; .@dx <= .radius; .@dx++) {
+				for (.@dy = -.radius; .@dy <= .radius; .@dy++) {
+					if (!checkcell(.map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy, cell_chkpass)) continue;
+
+					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
+					specialeffect .fx_boom, AREA, "BombFx";
+				}
+			}
+		}
+
+		// Process Kills
+		.@n = getmapunits(BL_PC, .map$, .@gids);
+		for (.@p = 0; .@p < .@n; .@p++) {
+			if (!attachrid(.@gids[.@p])) continue;
+			if (Hp <= 0) { detachrid; continue; }
+			getmapxy .@m$, .@x, .@y, BL_PC;
+			for (.@i = 0; .@i < .bombs; .@i++) {
+				if (abs(.@x - .@bx[.@i]) <= .radius && abs(.@y - .@by[.@i]) <= .radius) {
+					percentheal -100, -100;
+					break;
+				}
+			}
+			detachrid;
+		}
+		sleep .wave_ms;
+	}
+	end;
+OnBombringDead:
+	sleep 60000;
+	monster .map$, 0, 0, "--ja--", .bombring_id, 1, strnpcinfo(0) + "::OnBombringDead";
+	end;
+OnPCLoginEvent:
+	sc_end SC_WALKSPEED;
+	end;
+OnPCDieEvent:
+OnPCLogoutEvent:
+	if (strcharinfo(3) != .map$) end;
+	sc_end SC_WALKSPEED;
+	
+	// Capture the dead player's exact coordinates
+	getmapxy(.@m$, .@x, .@y, 0);
+
+	// Spawn 1 Bombring directly on the corpse (No respawn timer, it dies permanently once killed)
+	monster .map$, .@x, .@y, "--ja--", .bombring_id, 1;
+	
+	end;
+}
+
+pvp_n_8-5,90,110,4	script	Inner PvP Manager	-1,{
+OnLeave:
+	if (!getmapflag(strcharinfo(3), mf_pvp)) {
+		dispbottom "You can only use this command inside a PvP arena.";
+		end;
+	}
+	
+	dispbottom "Leaving PvP arena in 5 seconds...";
+	
+	// Use sleep2 to pause the script for 5000ms while keeping the player RID attached
+	sleep2 5000;
+	
+	// Re-verify the player is still on a PvP map instead of checking an empty .map$ variable
+	if (!getmapflag(strcharinfo(3), mf_pvp)) end;
+
+	sc_end SC_WALKSPEED;
+	warp "SavePoint", 0, 0;
+	end;
+
+OnInit:
+	// Binds the @leavepvp command to trigger the exact logic above
+	bindatcmd "leavepvp", strnpcinfo(3) + "::OnLeave", 0, 100;
+	end;
+}
+
+// Entry NPC
+prontera,137,202,4	script	Zero Blow PvP Manager	21377,{
+	mes "[Zero Blow PVP Master]";
+	mes "Enter the Zero Blow PVP?";
+	mes "Your movement will be slowed. Type ^0000FF@leavepvp^000000 to escape.";
+	next;
+	if (select("Enter:Cancel") == 2) close;
+	
+	if (.walk_speed != 0) {
+		sc_start SC_WALKSPEED, 86400000, .walk_speed;
+	}
+	
+	warp .map$, 0, 0;
+	end;
+
+OnInit:
+	.map$ = "pvp_n_8-5";
+	.walk_speed = 30; 
+	end;
+}
+// ==============================================================================
+// Ranked PvP Manager & Ladder
+// Features: Entry portal, Score tracking, SQL Top 10 Ladder, On-Kill Point System
+// ==============================================================================
+
+// --- PvP Map Flags ---
+// Replace 'guild_vs1' with your designated PvP map.
+guild_vs1	mapflag	pvp	on
+guild_vs1	mapflag	nowarp
+guild_vs1	mapflag	nowarpto
+guild_vs1	mapflag	noteleport
+guild_vs1	mapflag	nomemo
+guild_vs1	mapflag	nopenalty
+guild_vs1	mapflag	nobranch
+guild_vs1	mapflag	nomob
+guild_vs1	mapflag	gvg	off
+
+// --- Main NPC Manager ---
+prontera,135,200,4	script	Ranked PvP Manager	20358,{
+    mes "[Ranked PvP Manager]";
+    mes "Welcome to the Ranked PvP arena.";
+    mes "Test your mettle and climb the ladder!";
+    next;
+    switch(select("Enter Arena:My PvP Stats:Top 10 Ladder:Cancel")) {
+        case 1:
+            mes "[Ranked PvP Manager]";
+            mes "Prepare yourself. Good luck!";
+            close2;
+            warp "guild_vs1", 0, 0;
+            end;
+            
+        case 2:
+            mes "[Ranked PvP Manager]";
+            mes "Here is your current combat record:";
+            mes "--------------------------------";
+            mes "Rank Points : ^0000FF" + pvp_score + "^000000";
+            mes "Total Kills : ^00AA00" + pvp_kills + "^000000";
+            mes "Total Deaths: ^FF0000" + pvp_deaths + "^000000";
+            close;
+            
+        case 3:
+            mes "[Ranked PvP Ladder]";
+            mes "Fetching the top warriors...";
+            mes "--------------------------------";
+            
+            // Query the char_reg_num table for the custom 'pvp_score' variable
+            .@query$ = "SELECT `c`.`name`, `r`.`value` FROM `char_reg_num` `r` " +
+                       "LEFT JOIN `char` `c` ON `r`.`char_id` = `c`.`char_id` " +
+                       "WHERE `r`.`key` = 'pvp_score' " +
+                       "ORDER BY CAST(`r`.`value` AS SIGNED) DESC LIMIT 10";
+                       
+            query_sql(.@query$, .@names$, .@scores);
+            
+            if (getarraysize(.@names$) == 0) {
+                mes "The ladder is currently empty.";
+                close;
+            }
+            
+            for (set .@i, 0; .@i < getarraysize(.@names$); set .@i, .@i + 1) {
+                mes (.@i + 1) + ". ^0000FF" + .@names$[.@i] + "^000000 - " + .@scores[.@i] + " Points";
+            }
+            close;
+            
+        case 4:
+            close;
+    }
+}
+
+// --- Kill/Death Scoring Event ---
+-	script	PvP_Scoring_System	-1,{
+OnPCKillEvent:
+    // Ensure the kill happened in the designated PvP map
+    if (strcharinfo(3) != "guild_vs1") end;
+
+    // Prevent farming by checking if they killed themselves (homunculus/reflect) or same IP (optional)
+    if (killedrid == getcharid(3)) end; 
+
+    // --- Killer Rewards ---
+    pvp_kills = pvp_kills + 1;
+    pvp_score = pvp_score + 10; // Points gained per kill
+    dispbottom "PvP: You gained 10 Rank Points! Total: " + pvp_score;
+
+    // --- Victim Penalties ---
+    if (attachrid(killedrid)) {
+        pvp_deaths = pvp_deaths + 1;
+        pvp_score = pvp_score - 5; // Points lost per death
+        
+        // Prevent negative scores
+        if (pvp_score < 0) {
+            pvp_score = 0;
+        }
+        dispbottom "PvP: You were defeated and lost 5 Rank Points. Total: " + pvp_score;
+    }
+    end;
+}
+// ==============================================================================
+// Ranked PvP Manager & Ladder (Reborn Only)
+// Requires char variable: reborn_flag
+// ==============================================================================
+
+// --- PvP Map Flags ---
+guild_vs2	mapflag	pvp	on
+guild_vs2	mapflag	nowarp
+guild_vs2	mapflag	nowarpto
+guild_vs2	mapflag	noteleport
+guild_vs2	mapflag	nomemo
+guild_vs2	mapflag	nopenalty
+guild_vs2	mapflag	nobranch
+guild_vs2	mapflag	nomob
+guild_vs2	mapflag	gvg	off
+
+// --- Main NPC Manager ---
+prontera,133,198,4	script	Reborn PvP Manager	20357,{
+	mes "[Rebirth Jobs PvP Manager]";
+	mes "Welcome to the Ranked PvP arena.";
+	mes "Test your mettle and climb the ladder!";
+	next;
+	switch (select("Enter Arena:My PvP Stats:Top 10 Ladder:Cancel")) {
+	case 1:
+		mes "[Ranked PvP Manager]";
+		if (!reborn_flag) {
+			mes "This arena is for reborn characters only.";
+			close;
+		}
+		mes "Prepare yourself. Good luck!";
+		close2;
+		warp "guild_vs2", 0, 0;
+		end;
+
+	case 2:
+		mes "[Ranked PvP Manager]";
+		if (!reborn_flag) {
+			mes "Only reborn characters have a ranked record.";
+			close;
+		}
+		mes "Here is your current combat record:";
+		mes "--------------------------------";
+		mes "Rank Points : ^0000FF" + pvp_score + "^000000";
+		mes "Total Kills : ^00AA00" + pvp_kills + "^000000";
+		mes "Total Deaths: ^FF0000" + pvp_deaths + "^000000";
+		close;
+
+	case 3:
+		mes "[Ranked PvP Ladder]";
+		mes "Fetching the top reborn warriors...";
+		mes "--------------------------------";
+
+		.@query$ = "SELECT `c`.`name`, `r`.`value` FROM `char_reg_num` `r` " +
+		           "LEFT JOIN `char` `c` ON `r`.`char_id` = `c`.`char_id` " +
+		           "INNER JOIN `char_reg_num` `f` ON `f`.`char_id` = `r`.`char_id` " +
+		           "AND `f`.`key` = 'reborn_flag' AND `f`.`value` = 1 " +
+		           "WHERE `r`.`key` = 'pvp_score' " +
+		           "ORDER BY CAST(`r`.`value` AS SIGNED) DESC LIMIT 10";
+
+		query_sql(.@query$, .@names$, .@scores);
+
+		if (getarraysize(.@names$) == 0) {
+			mes "The ladder is currently empty.";
+			close;
+		}
+		for (.@i = 0; .@i < getarraysize(.@names$); .@i++)
+			mes (.@i + 1) + ". ^0000FF" + .@names$[.@i] + "^000000 - " + .@scores[.@i] + " Points";
+		close;
+
+	case 4:
+		close;
+	}
+}
+
+// --- Kill/Death Scoring Event ---
+-	script	PvP_Scoring_System	-1,{
+OnPCKillEvent:
+	if (strcharinfo(3) != "guild_vs2") end;
+	if (killedrid == getcharid(3)) end;      // self-kill guard
+	if (!reborn_flag) end;                   // killer must be reborn
+
+	.@killer = getcharid(3);
+	if (!attachrid(killedrid)) end;          // switch to victim
+	.@victim_ok = reborn_flag;               // victim must be reborn
+	attachrid(.@killer);                     // back to killer
+	if (!.@victim_ok) end;
+
+	// --- Killer Rewards ---
+	pvp_kills++;
+	pvp_score += 10;
+	dispbottom "PvP: You gained 10 Rank Points! Total: " + pvp_score;
+
+	// --- Victim Penalties ---
+	if (attachrid(killedrid)) {
+		pvp_deaths++;
+		pvp_score -= 5;
+		if (pvp_score < 0) pvp_score = 0;
+		dispbottom "PvP: You were defeated and lost 5 Rank Points. Total: " + pvp_score;
+	}
+	end;
+}

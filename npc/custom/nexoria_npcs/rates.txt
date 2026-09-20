@@ -1,0 +1,87 @@
+// npc/custom/rates_board.txt  (add to npc/scripts_custom.conf)
+prontera,164,174,4	script	Server Rates#rates	4_BOARD3,{
+	mes "[Server Rates]";
+	mes "100% = 1x";
+	mes "-----------------";
+	for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
+		mes .label$[.@i] + ": ^0000FF" + getbattleflag(.flag$[.@i]) + "%^000000";
+	close;
+
+OnInit:
+	// setarray <index>: flag name, display label, value (100 = 1x)
+	setarray .flag$[0],
+		"base_exp_rate", "job_exp_rate", "quest_exp_rate", "mvp_exp_rate",
+		"item_rate_common", "item_rate_heal", "item_rate_use", "item_rate_equip", "item_rate_card",
+		"item_rate_common_boss", "item_rate_heal_boss", "item_rate_use_boss",
+		"item_rate_equip_boss", "item_rate_card_boss",
+		"item_rate_mvp", "item_rate_treasure", "item_rate_adddrop";
+
+	setarray .label$[0],
+		"Base EXP", "Job EXP", "Quest EXP", "MVP EXP",
+		"Drop: Common", "Drop: Healing", "Drop: Usable", "Drop: Equipment", "Drop: Card",
+		"Boss Drop: Common", "Boss Drop: Healing", "Boss Drop: Usable",
+		"Boss Drop: Equipment", "Boss Drop: Card",
+		"MVP Drop", "Treasure Drop", "Added Drops";
+
+	setarray .val[0],
+		7500, 7500, 7500, 7500,
+		10000, 5000, 5000, 3500, 3500,
+		7500, 7500, 10000,
+		3500, 100,
+		1000, 1000, 1000;
+
+	// Apply all rates
+	for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
+		setbattleflag(.flag$[.@i], .val[.@i]);
+	end;
+}
+-	script	DropEvent#rates	-1,{
+OnInit:
+	// Event definition: flag names + boosted values (100 = 1x)
+	setarray .ev_flag$[0], "item_rate_equip", "item_rate_card", "item_rate_equip_boss", "item_rate_card_boss";
+	setarray .ev_val[0],   10000,             10000,            10000,                  1000;
+	.ev_duration = 3600;    // seconds (1 hour)
+	.active = 0;
+	end;
+
+OnClock0000:
+OnClock0600:
+	if (.active) end;
+	.active = 1;
+
+	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++) {
+		.bak[.@i] = getbattleflag(.ev_flag$[.@i]);
+		setbattleflag(.ev_flag$[.@i], .ev_val[.@i]);
+	}
+	donpcevent strnpcinfo(3) + "::OnBroadcast";   // immediate first announcement
+	initnpctimer;
+	end;
+
+OnBroadcast:
+	if (!.active) end;
+	.@left = (.ev_duration - (getnpctimer(0) / 1000)) / 60;   // minutes remaining
+	announce "[Drop Event] Equipment & Card drop rates are boosted! " + .@left + " min remaining.", bc_all, 0x00FF00;
+	end;
+
+OnTimer300000:
+OnTimer600000:
+OnTimer900000:
+OnTimer1200000:
+OnTimer1500000:
+OnTimer1800000:
+OnTimer2100000:
+OnTimer2400000:
+OnTimer2700000:
+OnTimer3000000:
+OnTimer3300000:
+	donpcevent strnpcinfo(3) + "::OnBroadcast";
+	end;
+
+OnTimer3600000:             // must equal .ev_duration * 1000
+	stopnpctimer;
+	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++)
+		setbattleflag(.ev_flag$[.@i], .bak[.@i]);
+	.active = 0;
+	announce "[Drop Event] Drop event has ended. Rates are back to normal.", bc_all, 0xFF0000;
+	end;
+}

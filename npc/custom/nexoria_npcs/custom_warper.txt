@@ -2,7 +2,7 @@
 // Zero-Friction Range Warper with Quick Return
 // ====================================================================
 // The "3,3" at the end creates the trigger zone around 162,193
-prontera, 162, 190, 4	script	Gatekeeper	116, 3, 3,{
+prontera, 162, 190, 4	script	Gatekeeper	116,{
 function Go; function Disp; function Pick; function Restrict;
 
 OnTouch:

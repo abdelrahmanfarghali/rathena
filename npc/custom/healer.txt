@@ -13,30 +13,51 @@
 //= 1.1 Aligned coordinates with @go.
 //============================================================
 
--	script	Healer	-1,{
+prontera,144,189,4	script	The Grand Healer	21317,{
 
+OnTouch:
 	.@Price = 0;	// Zeny required for heal
-	.@Buffs = 0;	// Also buff players? (1: yes / 0: no)
+	.@Buffs = 1;	// Also buff players? (1: yes / 0: no)
 	.@Delay = 0;	// Heal delay, in seconds
 
 	if (@HD > gettimetick(2))
 		end;
+		
 	if (.@Price) {
-		message strcharinfo(0), "Healing costs " + callfunc("F_InsertComma",.@Price) + " Zeny.";
-		if (Zeny < .@Price)
+		if (Zeny < .@Price) {
+			message strcharinfo(0), "Healing costs " + callfunc("F_InsertComma",.@Price) + " Zeny.";
 			end;
-		if (select("^0055FFHeal^000000:^777777Cancel^000000") == 2)
-			end;
+		}
 		Zeny -= .@Price;
+		message strcharinfo(0), "Healing cost " + callfunc("F_InsertComma",.@Price) + " Zeny.";
 	}
+		// Cleanse all negative status effects (curses, Orcish face, etc.)
+	setarray .@Debuffs[0],
+		SC_CURSE, SC_POISON, SC_SILENCE, SC_CONFUSION, SC_BLIND, SC_BLEEDING,
+		SC_STUN, SC_FREEZE, SC_STONE, SC_SLEEP, SC_DPOISON, SC_HALLUCINATION,
+		SC_DECREASEAGI, SC_SLOWDOWN, SC_ORCISH, SC_QUAGMIRE, SC_ANKLE,
+		SC_FEAR, SC_BURNING, SC_FREEZING, SC_CRYSTALIZE, SC_DEEPSLEEP,
+		SC_STRIPWEAPON, SC_STRIPSHIELD, SC_STRIPARMOR, SC_STRIPHELM,
+		SC_NOCHAT, SC_SLOWCAST, SC_MARSHOFABYSS, SC_WHITEIMPRISON,
+		SC_HELLPOWER, SC_MANDRAGORA, SC_CHANGEUNDEAD, SC_NEEDLE_OF_PARALYZE,
+		SC_PARALYSIS, SC_PYREXIA, SC_DEATHHURT, SC_HEALTHSTATE_ORCISH,
+		SC_VENOMBLEED, SC_TOXIN, SC_MAGICMUSHROOM, SC_OBLIVIONCURSE,
+		SC_LEECHESEND, SC_ARMOR_PROPERTY, SC_BITE, SC_STRANGLEMENT;
+
+	for (.@i = 0; .@i < getarraysize(.@Debuffs); .@i++)
+		sc_end .@Debuffs[.@i];
+
 	specialeffect2 EF_HEAL2;
 	percentheal 100,100;
+	
 	if (.@Buffs) {
 		specialeffect2 EF_INCAGILITY;
 		sc_start SC_INCREASEAGI,240000,10;
 		specialeffect2 EF_BLESSING;
 		sc_start SC_BLESSING,240000,10;
+		sc_end SC_WALKSPEED;
 	}
+	
 	if (.@Delay)
 		@HD = gettimetick(2) + .@Delay;
 	end;

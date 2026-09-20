@@ -311,7 +311,7 @@ map: pvp_y_8-5
 map: pvp_y_room
 map: sword_1-1
 map: sword_2-1
-//map: sword_3-1
+map: sword_3-1
 map: treasure01
 map: treasure02
 //map: wizard_1-1
@@ -345,10 +345,10 @@ map: comodo
 
 map: quiz_00
 map: quiz_01
-//map: g_room1-1
-//map: g_room1-2
-//map: g_room1-3
-//map: g_room2
+map: g_room1-1
+map: g_room1-2
+map: g_room1-3
+map: g_room2
 
 //--- Ep4.0 Turtle Island ---
 
@@ -382,11 +382,11 @@ map: guild_vs2
 map: guild_vs3
 map: guild_vs4
 map: guild_vs5
-//map: guild_vs1-1
-//map: guild_vs1-2
-//map: guild_vs1-3
-//map: guild_vs1-4
-//map: guild_vs2-1
+map: guild_vs1-1
+map: guild_vs1-2
+map: guild_vs1-3
+map: guild_vs1-4
+map: guild_vs2-1
 map: guild_vs2-2
 //map: job_hunter
 map: job_hunte
@@ -678,7 +678,7 @@ map: auction_02
 
 // ???
 // -- 2005-12-06gdata_k.gpf
-//map: alde_tt03
+map: alde_tt03
 
 // --- Garden City Hugel / Kiehl ---
 // -- 2005-12-20sdata_k.gpf -- 
@@ -776,7 +776,7 @@ map: poring_w02
 
 // --- ??? ---
 // -- 2007-??-??
-//map: 06guild_r
+map: 06guild_r
 map: 06guild_01
 map: 06guild_02
 map: 06guild_03
@@ -818,8 +818,8 @@ map: moc_fild20
 map: moc_fild21
 map: moc_fild22
 map: que_ba
-//map: que_moc_16
-//map: que_moon
+map: que_moc_16
+map: que_moon
 
 // Arunafeltz Seige
 // -- 2007-10-24sdata_k.gpf
@@ -988,15 +988,15 @@ map: iz_dun05
 
 // ???
 // -- 2010-12-01data_x.gpf
-//map: evt_mobroom
+map: evt_mobroom
 
 // ???
 map: dic_dun03
 //map: mjolnir_04_1
-//map: evt_swar_b
-//map: evt_swar_r
-//map: evt_swar_s
-//map: evt_swar_t
+map: evt_swar_b
+map: evt_swar_r
+map: evt_swar_s
+map: evt_swar_t
 
 // Lighthalzen Dungeon F4, Wolfchev's Laboratory
 // -- 2011-03-16rdata_x.gpf
@@ -1038,7 +1038,7 @@ map: ma_zif08
 map: ma_zif09
 
 // -- 2011-11-30data_j3.gpf
-//map: new_event
+map: new_event
 
 // 14.2 Eclage
 // -- 2011-11-30rdata_j.gpf
@@ -1068,7 +1068,7 @@ map: iz_ac02
 map: treasure_n1
 map: treasure_n2
 map: iz_int
-//map: iz_ng01
+map: iz_ng01
 map: iz_int01
 map: iz_int02
 map: iz_int03
@@ -1151,7 +1151,7 @@ map: moro_cav
 map: moro_vol
 
 // ???
-//map: silk_lair
+map: silk_lair
 
 // Clock Nightmare Mode
 map: c_tower2_
@@ -1177,8 +1177,8 @@ map: lhz_dun_n
 map: lhz_d_n2
 
 // Copy of Old Glast Heim memorial map
-//map: 1@gl_kh
-//map: 2@gl_kh
+map: 1@gl_kh
+map: 2@gl_kh
 
 // EP 15.2 Memory Record
 map: 1@lab
@@ -1193,7 +1193,7 @@ map: verus02
 map: paramk
 
 // Clan memorial
-//map: 1@ffp
+map: 1@ffp
 
 // Infinite memorial
 map: 1@infi
@@ -1286,32 +1286,32 @@ map: tur_d04_i
 map: 1@crd
 
 // ??
-//map: ordeal_a00
-//map: ordeal_a02
-//map: pprontera
+map: ordeal_a00
+map: ordeal_a02
+map: pprontera
 
 // ??
-//map: niflxmas
-//map: sch_lab
-//map: nakhyang
+map: niflxmas
+map: sch_lab
+map: nakhyang
 
 // Noodles Festival July
-//map: lasa_sea
+map: lasa_sea
 map: 1@drdo
 
 // X anniversary
-//map: x_lhz
-//map: x_prt
-//map: x_ra
+map: x_lhz
+map: x_prt
+map: x_ra
 
 // November hunting contest
-//map: prt_evt_in
+map: prt_evt_in
 
 // Welcome Corridor
-//map: vis_h01
-//map: vis_h02
-//map: vis_h03
-//map: vis_h04
+map: vis_h01
+map: vis_h02
+map: vis_h03
+map: vis_h04
 
 // Illusion of Teddy Bear
 map: ein_d02_i
@@ -1376,8 +1376,8 @@ map: ba_pw01
 map: ba_pw02
 map: ba_pw03
 map: 1@odin
-//map: ba_chess
-//map: ba_go
+map: ba_chess
+map: ba_go
 map: ba_lost
 
 // Illusion of Labyrinth
@@ -1437,7 +1437,7 @@ map: 2@ch_t
 map: 3@ch_t
 
 // Level 200 Expansion
-//map: abyss_04
+map: abyss_04
 map: ein_dun03
 map: odin_past
 
@@ -1478,38 +1478,38 @@ map: 1@ch_u
 map: ant_d02_i
 
 // ??
-//map: verus02_a
-//map: verus02_b
-//map: tur_d04ia
-//map: tur_d04ib
+map: verus02_a
+map: verus02_b
+map: tur_d04ia
+map: tur_d04ib
 
 // Episode 19
 map: icecastle
-//map: icas_in
+map: icas_in
 map: jor_tail
 map: jor_back1
 map: jor_back2
 map: jor_back3
-//map: jor_nest
+map: jor_nest
 map: jor_dun01
 map: jor_dun02
-//map: jor_dun03
+map: jor_dun03
 map: jor_ab01
 map: jor_ab02
-//map: jor_que
-//map: air_if
-//map: 1@iwp
-//map: 1@jorchs
-//map: 1@jorlab
-//map: 1@whl
+map: jor_que
+map: air_if
+map: 1@iwp
+map: 1@jorchs
+map: 1@jorlab
+map: 1@whl
 
 // Extended Jobs
-//map: 1@exhn
-//map: 1@exds
-//map: 2@exds
-//map: 1@exse
-//map: 1@exnw
-//map: 1@exsr
+map: 1@exhn
+map: 1@exds
+map: 2@exds
+map: 1@exse
+map: 1@exnw
+map: 1@exsr
 map: 1@exsh
 
 // Varmundt's Biosphere
@@ -1525,29 +1525,29 @@ map: bl_venom
 map: clock_01
 
 // Ragnarok Festival
-//map: rag_fes
-//map: rag_fes_a
+map: rag_fes
+map: rag_fes_a
 
 // 20th Anniversary
-//map: memohall
-//map: 1@dime
+map: memohall
+map: 1@dime
 
 // Fantasy maps
 map: prt_elib
-//map: 1@vrcas
-//map: 1@vrev
-//map: 1@vrgen
-//map: 1@vrpo
-//map: 1@vrac1
-//map: 1@vrac2
-//map: 1@vrclo
-//map: 1@vrhha
-//map: 2@vrclo
+map: 1@vrcas
+map: 1@vrev
+map: 1@vrgen
+map: 1@vrpo
+map: 1@vrac1
+map: 1@vrac2
+map: 1@vrclo
+map: 1@vrhha
+map: 2@vrclo
 
 // ??
-//map: 1@pdb
-//map: airplane2
-//map: vr_bob
+map: 1@pdb
+map: airplane2
+map: vr_bob
 
 // Heroria
 map: hero_dun1
@@ -1558,7 +1558,7 @@ map: hero_in1
 map: hero_in2
 map: hero_in3
 map: hero_in4
-//map: hero_lb
+map: hero_lb
 map: hero_out1
 map: hero_out2
 map: hero_out3
@@ -1567,146 +1567,146 @@ map: hero_tra
 map: herosria
 
 // Level 260 Expansion
-//map: mjo_wst01
-//map: ra_pol01
+map: mjo_wst01
+map: ra_pol01
 
 // Episode 20
-//map: 1@20cn1
-//map: 1@20cn2
-//map: 1@slug
-//map: 1@twas
-//map: 1@twbs
-//map: 1@twig
-//map: 1@twsd
-//map: icas_in2
-//map: jor_back4
-//map: jor_back5
-//map: jor_back6
-//map: jor_maze
-//map: jor_root1
-//map: jor_root2
-//map: jor_root3
-//map: jor_safty1
-//map: jor_safty2
-//map: jor_sanct
-//map: jor_twice
-//map: jor_twig
+map: 1@20cn1
+map: 1@20cn2
+map: 1@slug
+map: 1@twas
+map: 1@twbs
+map: 1@twig
+map: 1@twsd
+map: icas_in2
+map: jor_back4
+map: jor_back5
+map: jor_back6
+map: jor_maze
+map: jor_root1
+map: jor_root2
+map: jor_root3
+map: jor_safty1
+map: jor_safty2
+map: jor_sanct
+map: jor_twice
+map: jor_twig
 
 // Depth biosphere 1st floor
 map: bl_depth1
 
 // Garden of Time
-//map: 1@ba_go
-//map: 1@f_lake
+map: 1@ba_go
+map: 1@f_lake
 map: for_dun01
 map: for_dun02
 map: t_garden
 
 // Fantasy Series - Rainbow Lake
-//map: 1@vrpop
-//map: 2@vrpop
-//map: 3@vrpop
+map: 1@vrpop
+map: 2@vrpop
+map: 3@vrpop
 
 // Depth biosphere 2nd floor
 map: bl_depth2
 
 // Fantasy Series Sonic Collaboration - Dr. Eggman's Secret Base
-//map: 1@vrsn
+map: 1@vrsn
 
 // Episode 21
-//map: 1@ep21a
-//map: 1@ep21b
-//map: 1@ep21c
-//map: 1@mdtem
-//map: 1@twbs2
-//map: 1@wtgs
-//map: 2@mdtem
-//map: jalbe_in
-//map: jor_albe
-//map: jor_base
-//map: jor_crk
-//map: jor_crk_p
-//map: jor_mbase
-//map: jor_raise1
-//map: jor_raise2
-//map: jor_tmple1
-//map: jor_tmple2
-//map: luna_sf1
-//map: luna_sf2
-//map: mbase_in
+map: 1@ep21a
+map: 1@ep21b
+map: 1@ep21c
+map: 1@mdtem
+map: 1@twbs2
+map: 1@wtgs
+map: 2@mdtem
+map: jalbe_in
+map: jor_albe
+map: jor_base
+map: jor_crk
+map: jor_crk_p
+map: jor_mbase
+map: jor_raise1
+map: jor_raise2
+map: jor_tmple1
+map: jor_tmple2
+map: luna_sf1
+map: luna_sf2
+map: mbase_in
 
 // Market place
-//map: prt_mk
+map: prt_mk
 
 // Level 275 Expansion
-//map: moc_akhet
-//map: nif_fild03
+map: moc_akhet
+map: nif_fild03
 
 // Copy of the maps related to izlude beginner training center
-//map: iz_in_a
-//map: iz_in_b
-//map: iz_in_c
-//map: iz_in_d
+map: iz_in_a
+map: iz_in_b
+map: iz_in_c
+map: iz_in_d
 
 // New dungeon related to Episode 21
-//map: jor_sklf1
-//map: jor_sklf2
+map: jor_sklf1
+map: jor_sklf2
 
 // Level 275 Expansion : Comodo dungeon
-//map: cmd_bhole
+map: cmd_bhole
 
 // Chapter 1 : Song of the World Tree, Prelude
-//map: 1@ch1a
-//map: 1@ch1b
-//map: ch1_dw
-//map: ch1_gef_in
-//map: ch1_geffen
-//map: ch1_gfn01
-//map: ch1_gfn03
-//map: ch1_que01
-//map: ch1_sf01
-//map: ch1_sf02
-//map: ch1_sf03
-//map: ch1_vrgef1
-//map: ch1_vrgef2
-//map: hem_dun01
-//map: hem_dun02
-//map: hem_fild
-//map: mu_fild01
-//map: uknw_ruin
-//map: uknw_ruin2
-//map: ygg_edge
-//map: ygg_fruit
-//map: ygg_roots
+map: 1@ch1a
+map: 1@ch1b
+map: ch1_dw
+map: ch1_gef_in
+map: ch1_geffen
+map: ch1_gfn01
+map: ch1_gfn03
+map: ch1_que01
+map: ch1_sf01
+map: ch1_sf02
+map: ch1_sf03
+map: ch1_vrgef1
+map: ch1_vrgef2
+map: hem_dun01
+map: hem_dun02
+map: hem_fild
+map: mu_fild01
+map: uknw_ruin
+map: uknw_ruin2
+map: ygg_edge
+map: ygg_fruit
+map: ygg_roots
 
 // How to Train Your Dragon Collaboration
-//map: httyd_01
-//map: httyd_02
+map: httyd_01
+map: httyd_02
 
 // Fantasy Series Fielding
-//map: vr_po
-//map: vr_pop1
-//map: vr_pop2
-//map: vr_pop3
-//map: vr_clo1
-//map: vr_clo2
-//map: vr_gen
-//map: vr_cas
+map: vr_po
+map: vr_pop1
+map: vr_pop2
+map: vr_pop3
+map: vr_clo1
+map: vr_clo2
+map: vr_gen
+map: vr_cas
 
 // ROS Arenas
-//map: 2025arena1
-//map: 2025arena2
-//map: 2025arena3
-//map: 2025arena4
-//map: 2025arena5
-//map: 25ros03_01
+map: 2025arena1
+map: 2025arena2
+map: 2025arena3
+map: 2025arena4
+map: 2025arena5
+map: 25ros03_01
 
 // Chapter 1 : Zero Cell dungeons
-//map: ch1zero1
-//map: ch1zero2
-//map: ch1zero3
-//map: ch1zero4
-//map: ch1fild1
+map: ch1zero1
+map: ch1zero2
+map: ch1zero3
+map: ch1zero4
+map: ch1fild1
 
 // Prontera Training Ground updated
 map: tra_fild01
