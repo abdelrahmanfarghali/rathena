@@ -158,9 +158,10 @@ OnInit:
     setarray .cat_name$[0],
         "Classic & Iconic Dungeons",
         "Heroes' Trails & Dimensional Gap",
-        "Episode 16 & 17 (Banquet / OS)",
-        "Episode 18 & High-End Raids",
-        "Special & Event Dungeons";
+        "Episode 16";
+	//, "Episode 17 (Banquet / OS)",
+        //"Episode 18 & High-End Raids",
+        //"Special & Event Dungeons";
 
     // Category 1
     callsub S_Reg, "Endless Tower", 1, 0, 0;
@@ -203,45 +204,45 @@ OnInit:
     callsub S_Reg, "Ritual of Blessing", 3, 0, 0;
     callsub S_Reg, "Room of Consciousness", 3, 0, 0;
     callsub S_Reg, "Sky Fortress Invasion", 3, 0, 0;
-    callsub S_Reg, "Heart Hunter War Base 1", 3, 0, 0;
-    callsub S_Reg, "Heart Hunter War Base 2", 3, 0, 0;
-    callsub S_Reg, "Werner Laboratory central room#1", 3, 0, 0;
-    callsub S_Reg, "Werner Laboratory central room#2", 3, 0, 0;
-    callsub S_Reg, "Regenschirm", 3, 0, 0;
-    callsub S_Reg, "Sealed OS", 3, 0, 0;
-    callsub S_Reg, "OS Occupation", 3, 0, 0;
-    callsub S_Reg, "2nd OS Search", 3, 0, 0;
-    callsub S_Reg, "Cor Memorial", 3, 0, 0;
-    callsub S_Reg, "Half Moon In The Daylight", 3, 0, 0;
+    //callsub S_Reg, "Heart Hunter War Base 1", 4, 0, 0;
+    //callsub S_Reg, "Heart Hunter War Base 2", 4, 0, 0;
+    //callsub S_Reg, "Werner Laboratory central room#1", 4, 0, 0;
+    //callsub S_Reg, "Werner Laboratory central room#2", 4, 0, 0;
+    //callsub S_Reg, "Regenschirm", 4, 0, 0;
+    //callsub S_Reg, "Sealed OS", 4, 0, 0;
+    //callsub S_Reg, "OS Occupation", 4, 0, 0;
+    //callsub S_Reg, "2nd OS Search", 4, 0, 0;
+    //callsub S_Reg, "Cor Memorial", 4, 0, 0;
+    //callsub S_Reg, "Half Moon In The Daylight", 4, 0, 0;
 
     // Category 4
-    callsub S_Reg, "Thanatos Tower", 4, 0, 0;
-    callsub S_Reg, "Constellation Tower", 4, 0, 0;
-    callsub S_Reg, "Sunken Tower", 4, 0, 0;
-    callsub S_Reg, "Tomb of Remorse", 4, 0, 0;
-    callsub S_Reg, "Geffen Night Arena", 4, 0, 0;
-    callsub S_Reg, "Airship Crash", 4, 0, 0;
-    callsub S_Reg, "Airship Destruction", 4, 0, 0;
-    callsub S_Reg, "Simulation Battle", 4, 0, 0;
-    callsub S_Reg, "Oz Labyrinth", 4, 0, 0;
-    callsub S_Reg, "Thor Military Base", 4, 0, 0;
-    callsub S_Reg, "Wolves Gathering Place", 4, 0, 0;
-    callsub S_Reg, "Sanctuary Purification", 4, 0, 0;
-    callsub S_Reg, "High Priest's Villa", 4, 0, 0;
-    callsub S_Reg, "Villa of Deception", 4, 0, 0;
-    callsub S_Reg, "Villa of Deception Advanced", 4, 0, 0;
-    callsub S_Reg, "Bagot Laboratory", 4, 0, 0;
-    callsub S_Reg, "Confused Snake's Nest", 4, 0, 0;
-    callsub S_Reg, "Iwin Patrol", 4, 0, 0;
-    callsub S_Reg, "Deep Forest", 4, 0, 0;
-    callsub S_Reg, "Water Garden", 4, 0, 0;
-    callsub S_Reg, "Water Garden Hard", 4, 0, 0;
-    callsub S_Reg, "Hidden Flower Garden", 4, 0, 0;
-    callsub S_Reg, "Security Area 1", 4, 0, 0;
-    callsub S_Reg, "Security Area 2", 4, 0, 0;
-    callsub S_Reg, "Twilight Garden", 4, 0, 0;
-    callsub S_Reg, "Hey! Sweety", 4, 0, 0;
-    callsub S_Reg, "Farm Lost in Time", 4, 0, 0;
+    //callsub S_Reg, "Thanatos Tower", 4, 0, 0;
+    //callsub S_Reg, "Constellation Tower", 4, 0, 0;
+    //callsub S_Reg, "Sunken Tower", 4, 0, 0;
+    //callsub S_Reg, "Tomb of Remorse", 4, 0, 0;
+    //callsub S_Reg, "Geffen Night Arena", 4, 0, 0;
+    //callsub S_Reg, "Airship Crash", 4, 0, 0;
+    //callsub S_Reg, "Airship Destruction", 4, 0, 0;
+    //callsub S_Reg, "Simulation Battle", 4, 0, 0;
+    //callsub S_Reg, "Oz Labyrinth", 4, 0, 0;
+    //callsub S_Reg, "Thor Military Base", 4, 0, 0;
+    //callsub S_Reg, "Wolves Gathering Place", 4, 0, 0;
+    //callsub S_Reg, "Sanctuary Purification", 4, 0, 0;
+    //callsub S_Reg, "High Priest's Villa", 4, 0, 0;
+    //callsub S_Reg, "Villa of Deception", 4, 0, 0;
+    //callsub S_Reg, "Villa of Deception Advanced", 4, 0, 0;
+    //callsub S_Reg, "Bagot Laboratory", 4, 0, 0;
+    //callsub S_Reg, "Confused Snake's Nest", 4, 0, 0;
+    //callsub S_Reg, "Iwin Patrol", 4, 0, 0;
+    //callsub S_Reg, "Deep Forest", 4, 0, 0;
+    //callsub S_Reg, "Water Garden", 4, 0, 0;
+    //callsub S_Reg, "Water Garden Hard", 4, 0, 0;
+    //callsub S_Reg, "Hidden Flower Garden", 4, 0, 0;
+    //callsub S_Reg, "Security Area 1", 4, 0, 0;
+    //callsub S_Reg, "Security Area 2", 4, 0, 0;
+    //callsub S_Reg, "Twilight Garden", 4, 0, 0;
+    //callsub S_Reg, "Hey! Sweety", 4, 0, 0;
+    //callsub S_Reg, "Farm Lost in Time", 4, 0, 0;
 
     // Category 5
     callsub S_Reg, "Poring Village", 5, 0, 0;
@@ -257,6 +258,6 @@ OnInit:
 // ====================================================================
 prontera,165,141,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
 prontera,165,144,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
-prontera,165,147,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
-prontera,165,149,4	duplicate(Machine#mcd)	Charleston Crisis	PORTAL
+//prontera,165,147,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
+//prontera,165,149,4	duplicate(Machine#mcd)	Charleston Crisis	PORTAL
 prontera,165,138,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE

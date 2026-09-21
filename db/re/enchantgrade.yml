@@ -55,9 +55,9 @@ Header:
   Version: 3
 
 Body:
-  - Type: Armor
-    Levels:
-      - Level: 2
-  - Type: Weapon
-    Levels:
-      - Level: 5
+  # - Type: Armor
+  #   Levels:
+  #     - Level: 2
+  # - Type: Weapon
+  #   Levels:
+  #     - Level: 5

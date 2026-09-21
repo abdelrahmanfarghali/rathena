@@ -73802,14 +73802,14 @@ Body:
             Item: S_Tempest_Pendent
             RefineMinimum: 9
             RefineMaximum: 9
-  - Group: INJUSTICE_WEAPON_BOX
-    SubGroups:
-      - SubGroup: 6
-        Algorithm: Random
-        List:
-          - Index: 18
-            Item: Destruction_Axe
-            Rate: 10
+  # - Group: INJUSTICE_WEAPON_BOX
+  #   SubGroups:
+  #     - SubGroup: 6
+  #       Algorithm: Random
+  #       List:
+  #         - Index: 18
+  #           Item: Destruction_Axe
+  #           Rate: 10
   - Group: LI_NYANGVINE_BOX1_30
     SubGroups:
       - SubGroup: 0
@@ -82397,20 +82397,20 @@ Body:
       - SubGroup: 6
         Algorithm: Random
         List:
-          - Index: 61
-            Item: Destruction_Axe
-            RefineMinimum: 12
-            RefineMaximum: 12
-            GradeMinimum: A
-            GradeMaximum: A
-            Rate: 4
-          - Index: 143
-            Item: Destruction_Axe
-            RefineMinimum: 10
-            RefineMaximum: 10
-            GradeMinimum: C
-            GradeMaximum: C
-            Rate: 10
+          # - Index: 61
+          #   Item: Destruction_Axe
+          #   RefineMinimum: 12
+          #   RefineMaximum: 12
+          #   GradeMinimum: A
+          #   GradeMaximum: A
+          #   Rate: 4
+          # - Index: 143
+          #   Item: Destruction_Axe
+          #   RefineMinimum: 10
+          #   RefineMaximum: 10
+          #   GradeMinimum: C
+          #   GradeMaximum: C
+          #   Rate: 10
           - Index: 310
             Item: S_Infinity_Weapon
             RefineMinimum: 10

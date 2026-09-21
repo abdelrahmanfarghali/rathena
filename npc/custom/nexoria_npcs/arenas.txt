@@ -10,119 +10,83 @@ pvp_n_8-5	mapflag	noreturn
 pvp_n_8-5	mapflag	nomemo
 pvp_n_8-5	mapflag	nobranch
 
-// Hidden effect carrier
--	script	BombFx	-1,{ end; }
+// Hidden effect carrier - MUST have a physical map location to be manipulated!
+// Note: If you change the arena map, change 'pvp_n_8-5' here as well.
+// Hidden effect carrier - MUST use sprite 111 (Invisible) so the engine recognizes it as a physical object
+pvp_n_8-5,1,1,0	script	MeteorFx	111,{ end; }
 
 // Engine
--	script	BombArena	-1,{
+-	script	MeteorArena	-1,{
 OnInit:
 	// ---- CONFIG ----
 	.map$        = "pvp_n_8-5";
-	.bombs       = 6;        // bombs per wave
-	.warn_ms     = 2500;     // warning time before detonation
-	.wave_ms     = 3000;     // pause between waves
+	.meteors     = 4;        // Meteor blast zones per wave
+	.wave_ms     = 4000;     // Pause between meteor showers
 	.min_x = 20; .max_x = 80;
 	.min_y = 20; .max_y = 80;
 	
-	.radius      = 2;        // 2 cells = 5x5 AoE (Matches Heaven's Drive)
-	.bombring_id = 1904;     // Mob ID for Bombring (1142 is Marine Sphere, change if custom)
-	
-	// ---- EFFECTS ----
-	.fx_warn_center = 333;   // EF_MAGICMAKER: Magic cast circle at the epicenter
-	.fx_warn_grid   = 245;   // EF_COV_MARK: Small red crosshairs for the 5x5 danger zone
-	.fx_boom        = 301;   // EF_HEAVENDRIVE: Earth spikes for the actual blast
+	.radius      = 3;        // 3 cells = 7x7 AoE blast radius
+	.fx_meteor   = 378;      // EF_METEOR
 	// ----------------
 	
-	
-	// The ', 0, 100' syntax sets the minimum and maximum group levels.
-	// 0 ensures standard players can use the command.
-	//bindatcmd "leavepvp", "BombArena::OnLeave", 0, 100;
-
-	// ... (rest of your existing OnInit loop) ...
-	// Spawn 3 Bombrings randomly on the map that respawn every 3 minutes (180,000 ms)
-	for (.@i = 0; .@i < 3; .@i++)
-		monster .map$, 0, 0, "--ja--", .bombring_id, 1, strnpcinfo(0) + "::OnBombringDead";
+	// Cache the effect NPC ID once
+	.fx_npc_id = getnpcid(0, "MeteorFx");
 
 	while (1) {
 		if (getmapusers(.map$) < 1) { sleep 2000; continue; }
 
-		// Pick centers
-		deletearray .@bx; deletearray .@by;
-		for (.@i = 0; .@i < .bombs; .@i++) {
-			.@try = 0;
-			do {
-				.@x = rand(.min_x, .max_x);
-				.@y = rand(.min_y, .max_y);
-			} while (!checkcell(.map$, .@x, .@y, cell_chkpass) && ++.@try < 50);
-			.@bx[.@i] = .@x;
-			.@by[.@i] = .@y;
-		}
-
-		// Warning Phase: 5x5 Ground Area 
-		for (.@i = 0; .@i < .bombs; .@i++) {
-			// Center cast circle
-			unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i], .@by[.@i];
-			specialeffect .fx_warn_center, AREA, "BombFx";
-			
-			// Outline the 5x5 grid danger zone
-			for (.@dx = -.radius; .@dx <= .radius; .@dx++) {
-				for (.@dy = -.radius; .@dy <= .radius; .@dy++) {
-					if (!checkcell(.map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy, cell_chkpass)) continue;
-
-					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
-					specialeffect .fx_warn_grid, AREA, "BombFx";
-				}
-			}
-		}
-		sleep .warn_ms;
-
-		// Detonation Phase: Heaven's Drive Effect + Kill
-		for (.@i = 0; .@i < .bombs; .@i++) {
-			for (.@dx = -.radius; .@dx <= .radius; .@dx++) {
-				for (.@dy = -.radius; .@dy <= .radius; .@dy++) {
-					if (!checkcell(.map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy, cell_chkpass)) continue;
-
-					unitwarp getnpcid(0, "BombFx"), .map$, .@bx[.@i] + .@dx, .@by[.@i] + .@dy;
-					specialeffect .fx_boom, AREA, "BombFx";
-				}
-			}
-		}
-
-		// Process Kills
+		// Instant Strike Phase: Announce
+		mapannounce .map$, "A Meteor Shower is striking the arena!", bc_map | bc_red;
+		
+		// Capture all players on the map before the strike
 		.@n = getmapunits(BL_PC, .map$, .@gids);
-		for (.@p = 0; .@p < .@n; .@p++) {
-			if (!attachrid(.@gids[.@p])) continue;
-			if (Hp <= 0) { detachrid; continue; }
-			getmapxy .@m$, .@x, .@y, BL_PC;
-			for (.@i = 0; .@i < .bombs; .@i++) {
-				if (abs(.@x - .@bx[.@i]) <= .radius && abs(.@y - .@by[.@i]) <= .radius) {
-					percentheal -100, -100;
-					break;
-				}
+		
+		for (.@i = 0; .@i < .meteors; .@i++) {
+			// Pick a random blast epicenter
+			.@mx = rand(.min_x, .max_x);
+			.@my = rand(.min_y, .max_y);
+			
+			// Visuals: Stagger the meteor drops for authenticity
+			for (.@v = 0; .@v < 6; .@v++) {
+				unitwarp .fx_npc_id, .map$, .@mx + rand(-.radius, .radius), .@my + rand(-.radius, .radius);
+				specialeffect .fx_meteor, AREA, "MeteorFx";
+				sleep 100; // Small pause so they drop sequentially, not all at once
 			}
-			detachrid;
+
+			// Process Kills for this specific epicenter
+			for (.@p = 0; .@p < .@n; .@p++) {
+				if (!attachrid(.@gids[.@p])) continue;
+				
+				getmapxy(.@m$, .@px, .@py, 0);
+				
+				// If caught in the 7x7 blast radius, eliminate instantly
+				if (.@px >= .@mx - .radius && .@px <= .@mx + .radius && .@py >= .@my - .radius && .@py <= .@my + .radius) {
+					percentheal -100, -100;
+				}
+				detachrid;
+			}
 		}
+		
+		// Wait until the next random shower
 		sleep .wave_ms;
 	}
 	end;
-OnBombringDead:
-	sleep 60000;
-	monster .map$, 0, 0, "--ja--", .bombring_id, 1, strnpcinfo(0) + "::OnBombringDead";
-	end;
-OnPCLoginEvent:
-	sc_end SC_WALKSPEED;
-	end;
-OnPCDieEvent:
-OnPCLogoutEvent:
-	if (strcharinfo(3) != .map$) end;
-	sc_end SC_WALKSPEED;
-	
-	// Capture the dead player's exact coordinates
-	getmapxy(.@m$, .@x, .@y, 0);
+}
 
-	// Spawn 1 Bombring directly on the corpse (No respawn timer, it dies permanently once killed)
-	monster .map$, .@x, .@y, "--ja--", .bombring_id, 1;
+// Entry NPC
+prontera,137,202,4	script	Zero Blow PvP Manager	21377,{
+	mes "[Zero Blow PVP Master]";
+	mes "Enter the Zero Blow PVP?";
+	mes "Beware: Meteors will strike randomly without any ground warnings.";
+	next;
 	
+	if (select("Enter:Cancel") == 2) close;
+	
+	warp .map$, 0, 0;
+	end;
+
+OnInit:
+	.map$ = "pvp_n_8-5";
 	end;
 }
 
@@ -141,7 +105,6 @@ OnLeave:
 	// Re-verify the player is still on a PvP map instead of checking an empty .map$ variable
 	if (!getmapflag(strcharinfo(3), mf_pvp)) end;
 
-	sc_end SC_WALKSPEED;
 	warp "SavePoint", 0, 0;
 	end;
 
@@ -151,26 +114,6 @@ OnInit:
 	end;
 }
 
-// Entry NPC
-prontera,137,202,4	script	Zero Blow PvP Manager	21377,{
-	mes "[Zero Blow PVP Master]";
-	mes "Enter the Zero Blow PVP?";
-	mes "Your movement will be slowed. Type ^0000FF@leavepvp^000000 to escape.";
-	next;
-	if (select("Enter:Cancel") == 2) close;
-	
-	if (.walk_speed != 0) {
-		sc_start SC_WALKSPEED, 86400000, .walk_speed;
-	}
-	
-	warp .map$, 0, 0;
-	end;
-
-OnInit:
-	.map$ = "pvp_n_8-5";
-	.walk_speed = 30; 
-	end;
-}
 // ==============================================================================
 // Ranked PvP Manager & Ladder
 // Features: Entry portal, Score tracking, SQL Top 10 Ladder, On-Kill Point System
@@ -185,7 +128,6 @@ guild_vs1	mapflag	noteleport
 guild_vs1	mapflag	nomemo
 guild_vs1	mapflag	nopenalty
 guild_vs1	mapflag	nobranch
-guild_vs1	mapflag	nomob
 guild_vs1	mapflag	gvg	off
 
 // --- Main NPC Manager ---
@@ -279,7 +221,6 @@ guild_vs2	mapflag	noteleport
 guild_vs2	mapflag	nomemo
 guild_vs2	mapflag	nopenalty
 guild_vs2	mapflag	nobranch
-guild_vs2	mapflag	nomob
 guild_vs2	mapflag	gvg	off
 
 // --- Main NPC Manager ---
@@ -341,7 +282,7 @@ prontera,133,198,4	script	Reborn PvP Manager	20357,{
 }
 
 // --- Kill/Death Scoring Event ---
--	script	PvP_Scoring_System	-1,{
+-	script	PvP_Scoring_System_2	-1,{
 OnPCKillEvent:
 	if (strcharinfo(3) != "guild_vs2") end;
 	if (killedrid == getcharid(3)) end;      // self-kill guard

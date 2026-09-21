@@ -6540,60 +6540,60 @@ Body:
          bonus bDelayrate,-5;
          bonus2 bMagicAtkEle,Ele_Holy,6;
       }
-  - Id: 1341
-    AegisName: Destruction_Axe
-    Name: Destruction Axe
-    Type: Weapon
-    SubType: 1hAxe
-    Weight: 4400
-    Attack: 230
-    Range: 1
-    Slots: 2
-    Jobs:
-      Blacksmith: true
-    Classes:
-      Fourth: true
-    Locations:
-      Right_Hand: true
-    WeaponLevel: 5
-    EquipLevelMin: 215
-    Refineable: true
-    Gradable: true
-    Script: |
-      .@g = getenchantgrade();
-      .@r = getrefine();
-      bonus bUnbreakableWeapon;
-      bonus bAtkRate,5;
-      bonus bPow,2;
-      bonus2 bSkillAtk,"MT_TRIPLE_LASER",5;
-      if (.@r>=5) {
-         bonus2 bSkillAtk,"MT_TRIPLE_LASER",10;
-         if (.@r>=7) {
-            bonus bLongAtkRate,5;
-            if (.@r>=9) {
-               bonus2 bSkillAtk,"MT_TRIPLE_LASER",10;
-               if (.@r>=10) {
-                  bonus bCritical,10;
-                  if (.@r>=11) {
-                     bonus bCritAtkRate,20;
-                     bonus2 bSkillAtk,"MT_TRIPLE_LASER",5;
-                  }
-               }
-            }
-         }
-      }
-      if (.@g>=ENCHANTGRADE_D) {
-         bonus bLongAtkRate,10;
-         if (.@g>=ENCHANTGRADE_C) {
-            bonus2 bAddSize,Size_All,10;
-            if (.@g>=ENCHANTGRADE_B) {
-               bonus2 bAddRace,RC_All,10;
-               if (.@g>=ENCHANTGRADE_A) {
-                  bonus2 bAddEle,Ele_All,10;
-               }
-            }
-         }
-      }
+  # - Id: 1341
+  #   AegisName: Destruction_Axe
+  #   Name: Destruction Axe
+  #   Type: Weapon
+  #   SubType: 1hAxe
+  #   Weight: 4400
+  #   Attack: 230
+  #   Range: 1
+  #   Slots: 2
+  #   Jobs:
+  #     Blacksmith: true
+  #   Classes:
+  #     Fourth: true
+  #   Locations:
+  #     Right_Hand: true
+  #   WeaponLevel: 5
+  #   EquipLevelMin: 215
+  #   Refineable: true
+  #   Gradable: true
+  #   Script: |
+  #     .@g = getenchantgrade();
+  #     .@r = getrefine();
+  #     bonus bUnbreakableWeapon;
+  #     bonus bAtkRate,5;
+  #     bonus bPow,2;
+  #     bonus2 bSkillAtk,"MT_TRIPLE_LASER",5;
+  #     if (.@r>=5) {
+  #        bonus2 bSkillAtk,"MT_TRIPLE_LASER",10;
+  #        if (.@r>=7) {
+  #           bonus bLongAtkRate,5;
+  #           if (.@r>=9) {
+  #              bonus2 bSkillAtk,"MT_TRIPLE_LASER",10;
+  #              if (.@r>=10) {
+  #                 bonus bCritical,10;
+  #                 if (.@r>=11) {
+  #                    bonus bCritAtkRate,20;
+  #                    bonus2 bSkillAtk,"MT_TRIPLE_LASER",5;
+  #                 }
+  #              }
+  #           }
+  #        }
+  #     }
+  #     if (.@g>=ENCHANTGRADE_D) {
+  #        bonus bLongAtkRate,10;
+  #        if (.@g>=ENCHANTGRADE_C) {
+  #           bonus2 bAddSize,Size_All,10;
+  #           if (.@g>=ENCHANTGRADE_B) {
+  #              bonus2 bAddRace,RC_All,10;
+  #              if (.@g>=ENCHANTGRADE_A) {
+  #                 bonus2 bAddEle,Ele_All,10;
+  #              }
+  #           }
+  #        }
+  #     }
   - Id: 1350
     AegisName: Comp_Avenger
     Name: "[Not For Sale] Avenger"
@@ -116134,25 +116134,25 @@ Body:
     Script: |
       bonus bMatkRate,1;
       bonus bAtkRate,1;
-  - Id: 490087
-    AegisName: 4th_Q_Necklace
-    Name: Hourglass Necklace
-    Type: Armor
-    Buy: 20
-    Locations:
-      Both_Accessory: true
-    ArmorLevel: 1
-    EquipLevelMin: 200
-    Trade:
-      NoDrop: true
-      NoTrade: true
-      NoCart: true
-      NoStorage: true
-      NoGuildStorage: true
-      NoMail: true
-      NoAuction: true
-    Script: |
-      bonus bAllTraitStats,6-(JobLevel/5);
+  # - Id: 490087
+  #   AegisName: 4th_Q_Necklace
+  #   Name: Hourglass Necklace
+  #   Type: Armor
+  #   Buy: 20
+  #   Locations:
+  #     Both_Accessory: true
+  #   ArmorLevel: 1
+  #   EquipLevelMin: 200
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoCart: true
+  #     NoStorage: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #   Script: |
+  #     bonus bAllTraitStats,6-(JobLevel/5);
   - Id: 490102
     AegisName: Skull_Ring
     Name: Skull Ring

@@ -308,16 +308,16 @@ prontera,140,165,4	script	Statue of the MVP	1751,{
 // Left Wing: End-Game & High Tier
 // ====================================================================
 // CONFIRMED: npc/instances/EndlessTower.txt, entrance object "Captain Janssen", sprite 709
-prontera,145,150,4	duplicate(Captain Janssen)	Endless Tower	709
+prontera,165,147,4	duplicate(Captain Janssen)	Endless Tower	709
 
 // CONFIRMED: npc/re/instances/OldGlastHeim.txt line 24, entrance object "Hugin", sprite 4_M_SAGE_C
-prontera,145,145,4	duplicate(Hugin)	Old Glast Heim	4_M_SAGE_C
+prontera,165,135,4	duplicate(Hugin)	Old Glast Heim	4_M_SAGE_C
 
 // CONFIRMED: npc/re/instances/FacewormsNest.txt line 321, entrance object "Magic Scholar", sprite 4_M_SAGE_C
-prontera,145,140,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
+prontera,165,132,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
 
 // CONFIRMED: npc/re/instances/TempleOfDemonGod.txt line 10, entrance object "Guardian Nidhogg#epeom01", sprite 4_F_NYDHOG
-prontera,145,135,4	duplicate(Guardian Nidhogg#epeom01)	Temple of Demon God	4_F_NYDHOG
+//prontera,145,135,4	duplicate(Guardian Nidhogg#epeom01)	Temple of Demon God	4_F_NYDHOG
 
 // Right Wing: Farming & Mid-Tier
 // ====================================================================
