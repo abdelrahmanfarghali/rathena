@@ -1,0 +1,47 @@
+// 126,208 126,204 126,200
+prontera,255,65,0	script	Gepukan#0	844,{
+	end;
+
+OnThisKilled:
+	stopnpctimer strnpcinfo(0); 
+OnInit:
+	getunitdata(getnpcid(0), .@nd);
+
+	.@dupid = getnpcid(0);
+	.@mobgid = monster(strnpcinfo(4), .@nd[UNPC_X], .@nd[UNPC_Y], "Gepukan "+ strnpcinfo(2), 21078, 1, strnpcinfo(0)+"::OnThisKilled");
+
+	.gid[.@dupid] = .@mobgid;
+	.name$[.@dupid] = "Gepukan "+ strnpcinfo(2);
+
+	setunitdata .gid[.@dupid], UMOB_RACE, RC_Player;
+	setunitdata .gid[.@dupid], UMOB_ELETYPE, Ele_Neutral;
+	setunitdata .gid[.@dupid], UMOB_ELELEVEL, 1;
+
+	.@mode = MD_KNOCKBACK_IMMUNE|MD_TELEPORT_BLOCK|MD_STATUS_IMMUNE;
+	setunitdata .gid[.@dupid], UMOB_MODE, .@mode;
+
+	.MAX_HP = 1000000000;
+	setunitdata .gid[.@dupid], UMOB_HP, .MAX_HP;
+	setunitdata .gid[.@dupid], UMOB_MAXHP, .MAX_HP;
+	initnpctimer strnpcinfo(0);
+	end;
+
+OnTimer5000:
+	.@dupid = getnpcid(0);
+	if (unitexists(.gid[.@dupid]))
+	{
+		getunitdata(.gid[.@dupid], .@d);
+		.@diff = (.MAX_HP - .@d[UMOB_HP]);
+		if (.@diff > 0)
+		{
+			npctalk "Punching Bag : I've taken " + (.@diff/5) + " DPS in last 5 seconds.";
+			setunitdata .gid[.@dupid], UMOB_HP, .MAX_HP;
+			setunitdata .gid[.@dupid], UMOB_MAXHP, .MAX_HP;
+			specialeffect EF_HEAL;
+		}
+	}
+	initnpctimer strnpcinfo(0);
+	end;
+}
+prontera,255,77,0	duplicate(Gepukan#0)	Gepukan#1	844
+prontera,255,54,0	duplicate(Gepukan#0)	Gepukan#2	844

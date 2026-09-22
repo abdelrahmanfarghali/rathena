@@ -128,7 +128,6 @@ guild_vs1	mapflag	noteleport
 guild_vs1	mapflag	nomemo
 guild_vs1	mapflag	nopenalty
 guild_vs1	mapflag	nobranch
-guild_vs1	mapflag	gvg	off
 
 // --- Main NPC Manager ---
 prontera,135,200,4	script	Ranked PvP Manager	20358,{
@@ -221,7 +220,6 @@ guild_vs2	mapflag	noteleport
 guild_vs2	mapflag	nomemo
 guild_vs2	mapflag	nopenalty
 guild_vs2	mapflag	nobranch
-guild_vs2	mapflag	gvg	off
 
 // --- Main NPC Manager ---
 prontera,133,198,4	script	Reborn PvP Manager	20357,{

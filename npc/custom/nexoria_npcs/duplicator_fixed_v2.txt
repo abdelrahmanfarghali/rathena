@@ -162,11 +162,11 @@ prontera,170,185,4	script	Mora Coin Exchanger	515,{
 prontera,170,183,4	duplicate(Artifact Researcher#new)	Mora Enchanter	521
 
 // FIXED: real official template in npc/battleground/bg_common.txt line 386, sprite 109 (4_M_JOB_KNIGHT)
-prontera,178,185,4	duplicate(Erundek)	Siege Exchanger	109
+//prontera,178,185,4	duplicate(Erundek)	Siege Exchanger	109
 
 // IMPLEMENTED: Essential Supplies & Catalysts Shop
 // Optimized Supply Dealer for Nexoria
-prontera,174,179,4	shop	Supply Dealer	89,501:50,502:200,503:600,504:1200,505:5000,525:800,534:1500,656:3000,601:210,602:-1,611:40,523:20,717:600,716:600,715:600,1065:100,1750:1,1751:3,1752:3,679:15000
+prontera,159,192,4	shop	Supply Dealer	89,501:50,502:200,503:600,504:1200,505:5000,525:800,534:1500,656:3000,601:210,602:-1,611:40,523:20,717:600,716:600,715:600,1065:100,1750:1,1751:3,1752:3,679:15000
 
 
 // ====================================================================
@@ -238,7 +238,7 @@ OnClock0000:
 // ---------------------------------------------------------------
 // Statue
 // ---------------------------------------------------------------
-prontera,140,165,4	script	Statue of the MVP	1751,{
+prontera,146,158,4	script	Statue of the MVP	1751,{
 	mes "[Statue of the MVP]";
 	mes "A majestic stone monument sculpted in honor of Midgard's greatest monster hunters.";
 	next;
@@ -340,7 +340,7 @@ prontera,165,132,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
 prontera,165,159,4	script	Instance Cooldowns	837,{
 	mes "[Instance Cooldowns]";
 	mes "Greetings, adventurer!";
-	mes "I track the temporal stability and cooldowns for all major memorial dungeons. you can reset using item ^FF0000"+ getitemname(671);
+	mes "I track the temporal stability and cooldowns for all major memorial dungeons. you can reset using item ^0000FF5x"+ getitemname(671) + "s";
 	next;
 	mes "[Memorial Dungeon Status]";
 	function check_cooldown {

@@ -34,7 +34,7 @@ function	script	F_RebornPath	{
 }
 
 // ================= Rebirth Master (opt-in flag) =================
-prontera,182,208,4	script	Rebirth Master	4_M_SAGE_A,{
+prontera,146,153,4	script	Rebirth Master	728,{
 	mes "[Rebirth Master]";
 	if (reborn_flag) { mes "You are already a reborn character."; close; }
 
@@ -63,7 +63,7 @@ OnPCLoginEvent:
 }
 
 // ================= Reborn Job Master =================
-prontera,180,210,4	script	Reborn Job Master	4_M_SAGE_A,{
+prontera,146,150,4	script	Reborn Job Master	733,{
 	mes "[Reborn Job Master]";
 	if (!reborn_flag) { mes "Not a reborn character."; close; }
 

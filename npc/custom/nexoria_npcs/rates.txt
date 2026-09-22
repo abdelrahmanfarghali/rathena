@@ -24,11 +24,11 @@ OnInit:
 		"MVP Drop", "Treasure Drop", "Added Drops";
 
 	setarray .val[0],
-		7500, 7500, 7500, 7500,
-		10000, 5000, 5000, 3500, 3500,
-		7500, 7500, 10000,
-		3500, 100,
-		1000, 1000, 1000;
+		17500, 17500, 17500, 17500,
+		7500, 7500, 7500, 7500, 7500,
+		7500, 7500, 7500,
+		7500, 100,
+		7500, 7500, 7500;
 
 	// Apply all rates
 	for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
@@ -38,14 +38,14 @@ OnInit:
 -	script	DropEvent#rates	-1,{
 OnInit:
 	// Event definition: flag names + boosted values (100 = 1x)
-	setarray .ev_flag$[0], "item_rate_equip", "item_rate_card", "item_rate_equip_boss", "item_rate_card_boss";
-	setarray .ev_val[0],   10000,             10000,            10000,                  1000;
+	setarray .ev_flag$[0], "item_rate_equip", "item_rate_card", "item_rate_equip_boss";
+	setarray .ev_val[0],   10000,             10000,            10000;
 	.ev_duration = 3600;    // seconds (1 hour)
 	.active = 0;
 	end;
 
 OnClock0000:
-OnClock0600:
+OnClock1800:
 	if (.active) end;
 	.active = 1;
 

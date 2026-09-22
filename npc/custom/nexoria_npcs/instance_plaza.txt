@@ -15,9 +15,9 @@ OnTouch:
     // Party already has an active instance: enter or destroy
     if (instance_id(IM_PARTY) > 0) {
         .@active$ = instance_live_info(ILI_NAME, instance_id(IM_PARTY));
-        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "[ ^FF6600Instance Manager^000000]";
         mes "Your party already has an active instance running:";
-        mes "^0055FF" + (.@active$ != "" ? .@active$ : "Active Instance") + "^0000";
+        mes "^0055FF" + (.@active$ != "" ? .@active$ : "Active Instance") + "^000000";
         next;
         switch (select("Enter Instance:Destroy Instance:Cancel")) {
         case 1:
@@ -25,12 +25,12 @@ OnTouch:
             end;
         case 2:
             if (!is_party_leader()) {
-                mes "[ ^FF6600Instance Manager^0000 ]";
-                mes "Only the ^FF0000Party Leader^0000 can destroy the active instance.";
+                mes "[ ^FF6600Instance Manager^000000]";
+                mes "Only the ^FF0000Party Leader^000000can destroy the active instance.";
                 close;
             }
             instance_destroy instance_id(IM_PARTY);
-            mes "[ ^FF6600Instance Manager^0000 ]";
+            mes "[ ^FF6600Instance Manager^000000]";
             mes "Instance destroyed. You may now generate a new one.";
             close;
         case 3:
@@ -39,7 +39,7 @@ OnTouch:
     }
 
     // Category menu
-    mes "[ ^FF6600Instance Manager^0000 ]";
+    mes "[ ^FF6600Instance Manager^000000]";
     mes "Select an instance category to browse:";
     next;
     .@menu$ = "";
@@ -57,8 +57,8 @@ OnTouch:
         .@menu$ += .inst_name$[.@i] + ":";
         .@n++;
     }
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "Select: ^0055FF" + .cat_name$[.@c - 1] + "^0000";
+    mes "[ ^FF6600Instance Manager^000000]";
+    mes "Select: ^0055FF" + .cat_name$[.@c - 1] + "^000000";
     next;
     .@s = select(.@menu$ + "Back to Categories") - 1;
     if (.@s >= .@n) goto OnTouch;
@@ -68,8 +68,8 @@ OnTouch:
     // ---------------- Entrance choice ----------------
     // NPC-managed: warp to its gate NPC
     if (.inst_gx[.@inst] > 0) {
-        mes "[ ^FF6600Instance Manager^0000 ]";
-        mes "^0055FF" + .@inst_name$ + "^0000";
+        mes "[ ^FF6600Instance Manager^000000]";
+        mes "^0055FF" + .@inst_name$ + "^000000";
         mes "This instance is started by its own gate NPC.";
         next;
         switch (select("Go to the gate:Back to categories:Cancel")) {
@@ -85,24 +85,24 @@ OnTouch:
     }
 
     // Generic: create (leader) / enter (members)
-    mes "[ ^FF6600Instance Manager^0000 ]";
-    mes "^0055FF" + .@inst_name$ + "^0000";
+    mes "[ ^FF6600Instance Manager^000000]";
+    mes "^0055FF" + .@inst_name$ + "^000000";
     next;
     switch (select("Create instance (Party Leader):Enter instance:Back to categories:Cancel")) {
     case 1:
         if (!is_party_leader()) {
-            mes "[ ^FF6600Instance Manager^0000 ]";
-            mes "Only the ^FF0000Party Leader^0000 can generate a new instance.";
+            mes "[ ^FF6600Instance Manager^000000]";
+            mes "Only the ^FF0000Party Leader^000000can generate a new instance.";
             close;
         }
         if (instance_create(.@inst_name$, getcharid(1), IM_PARTY) < 0) {
-            mes "[ ^FF6600Instance Manager^0000 ]";
-            mes "^FF0000Failed to create instance.^0000";
+            mes "[ ^FF6600Instance Manager^000000]";
+            mes "^FF0000Failed to create instance.^000000";
             mes "The server might be full, or your party is still on cooldown.";
             close;
         }
-        mes "[ ^FF6600Instance Manager^0000 ]";
-        mes "^00AA00Instance reserved!^0000 All party members may now touch the portal to enter.";
+        mes "[ ^FF6600Instance Manager^000000]";
+        mes "^00AA00Instance reserved!^000000All party members may now touch the portal to enter.";
         close;
     case 2:
         callsub L_Enter;
@@ -119,25 +119,25 @@ OnTouch:
 // --------------------------------------------------------------------
 L_Enter:
     if (instance_id(IM_PARTY) <= 0) {
-        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "[ ^FF6600Instance Manager^000000]";
         mes "No instance exists yet.";
-        mes "The ^FF0000Party Leader^0000 must create one first.";
+        mes "The ^FF0000Party Leader^000000must create one first.";
         close;
     }
     switch (instance_enter(instance_live_info(ILI_NAME, instance_id(IM_PARTY)))) {
     case IE_OK:
         close;
     case IE_NOINSTANCE:
-        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "[ ^FF6600Instance Manager^000000]";
         mes "No instance exists yet.";
         close;
     case IE_NOMEMBER:
-        mes "[ ^FF6600Instance Manager^0000 ]";
+        mes "[ ^FF6600Instance Manager^000000]";
         mes "You must be in a party to enter.";
         close;
     default:
-        mes "[ ^FF6600Instance Manager^0000 ]";
-        mes "^FF0000An unknown error occurred while entering.^0000";
+        mes "[ ^FF6600Instance Manager^000000]";
+        mes "^FF0000An unknown error occurred while entering.^000000";
         mes "Please try again or contact a GM.";
         close;
     }

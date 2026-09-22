@@ -1,10 +1,10 @@
 // ============================================================
-// Tao Gunka Exchanger
+// Refine Ticket Exchanger
 // ============================================================
-prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
+prontera,142,175,4	script	Refine Ticket Exchanger	726,{
 	// ---------- Config ----------
 	.@gem     = 671;   // Gemstone item ID
-	.@cap_hrs = 72;    // max AFK hours that can accumulate
+	.@cap_hrs = 48;    // max AFK hours that can accumulate
 	.@min_lv  = 6;     // lowest ticket level
 	.@max_lv  = 19;    // highest ticket level
 	.@base    = 15;    // cost at .@min_lv
@@ -19,18 +19,18 @@ prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
 	if (!TG_LAST) TG_LAST = .@now;
 	.@hrs = min((.@now - TG_LAST) / 3600, .@cap_hrs);
 
-	mes "[Tao Gunka]";
-	mes "Gemstones: ^0000FF" + countitem(.@gem) + "^000000";
+	mes "[Refine Ticket Exchanger]";
+	mes getitemname(.@gem) + "s: ^0000FF" + countitem(.@gem) + "^000000";
 	mes "AFK reward ready: ^00AA00" + .@hrs + "^000000 (+1 per hour)";
 	next;
-	switch (select("Claim AFK gemstones:Exchange gemstones for tickets:Refine with tickets:Cancel")) {
+	switch (select("Claim AFK " + getitemname(.@gem) + "s:Exchange " + getitemname(.@gem) + "s for tickets:Refine with tickets:Cancel")) {
 
 	case 1:
-		if (.@hrs < 1) { mes "[Tao Gunka]"; mes "Come back later."; close; }
+		if ((.@hrs//2) < 1) { mes "[Refine Ticket Exchanger]"; mes "Come back later."; close; }
 		TG_LAST += .@hrs * 3600;   // keep the remainder
-		getitem .@gem, .@hrs;
-		mes "[Tao Gunka]";
-		mes "Received " + .@hrs + " gemstone(s).";
+		getitem .@gem, (.@hrs//2);
+		mes "[Refine Ticket Exchanger]";
+		mes "Received " + .@hrs + " gold coins(s).";
 		close;
 
 	case 2:
@@ -39,8 +39,8 @@ prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
 			.@menu$ += "+" + .@i + " Ticket (" + (.@base + (.@i - .@min_lv) * .@step) + " gems):";
 		.@lv   = .@min_lv - 1 + select(.@menu$);
 		.@cost = .@base + (.@lv - .@min_lv) * .@step;
-		if (countitem(.@gem) < .@cost) { mes "Not enough gemstones."; close; }
-		mes "[Tao Gunka]";
+		if (countitem(.@gem) < .@cost) { mes "Not enough " + getitemname(.@gem) + "s."; close; }
+		mes "[Refine Ticket Exchanger]";
 		mes "Weapon or armor ticket?";
 		.@type = select("Weapon:Armor");
 		delitem .@gem, .@cost;
@@ -77,7 +77,7 @@ prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
 			         + (.@i < .@cnt ? " ^FF0000[Downgrade]^000000" : "") + ":";
 		}
 		if (!.@n) {
-			mes "[Tao Gunka]";
+			mes "[Refine Ticket Exchanger]";
 			mes "You have no usable ticket for this item (" + .@amt + "x needed).";
 			close;
 		}
@@ -86,7 +86,7 @@ prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
 
 		// Critical confirmation for downgrades
 		if (.@to < .@cnt) {
-			mes "[Tao Gunka]";
+			mes "[Refine Ticket Exchanger]";
 			mes "^FF0000WARNING:^000000 this will set your";
 			mes getequipname(.@p);
 			mes "from ^FF0000+" + .@cnt + "^000000 DOWN to ^FF0000+" + .@to + "^000000.";
@@ -101,7 +101,7 @@ prontera,142,175,4	script	Tao Gunka Exchanger	1583,{
 		delitem .@tid, .@amt;
 		while (getequiprefinerycnt(.@p) < .@to) successrefitem .@p;
 		while (getequiprefinerycnt(.@p) > .@to) downrefitem .@p;
-		mes "[Tao Gunka]";
+		mes "[Refine Ticket Exchanger]";
 		mes "Done. Your item is now ^0000FF+" + getequiprefinerycnt(.@p) + "^000000.";
 		close;
 
