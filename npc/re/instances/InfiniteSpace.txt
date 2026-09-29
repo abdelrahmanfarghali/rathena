@@ -623,6 +623,7 @@ OnPoringKill:
 	next;
 	mes "[ Reckless Explorer ]";
 	mes "So, shall we get out of here?";
+	callfunc "F_InstanceCoinReward", 5;
 	close2;
 	warp "cmd_fild07",53,270;
 	end;

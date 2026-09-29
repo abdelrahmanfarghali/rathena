@@ -1456,6 +1456,7 @@ OnEnable:
 OnMyMobDead:
 	mapannounce instance_mapname("1@sara"), "Doyen Irene has fallen.",bc_map,"0xffff00";
 	donpcevent instance_npcname("Doyen Irene#04", instance_id())+"::OnEnable";
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 }
 

@@ -2013,6 +2013,7 @@ OnMobDead:
 	stopnpctimer instance_npcname("#despair_event_4");
 	stopnpctimer instance_npcname("#despair_event_5");
 	mapannounce 'map_eom$, "D-don't think... th-this... is over.. You're... already... time...", bc_map, 0xff0000;
+	callfunc "F_InstanceCoinReward", 5;
 	initnpctimer;
 
 	'step = 11;

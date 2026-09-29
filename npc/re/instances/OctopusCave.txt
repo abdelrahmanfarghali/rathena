@@ -616,6 +616,7 @@ OnMyMobDead:
 		enablenpc instance_npcname("oct_exit_2");
 		donpcevent instance_npcname("oct_boss_foot")+"::OnDisable";
 		stopnpctimer;
+		callfunc "F_InstanceCoinReward", 5;
 		donpcevent instance_npcname("oct_boss_con")+"::OnDisable";
 		end;
 	}

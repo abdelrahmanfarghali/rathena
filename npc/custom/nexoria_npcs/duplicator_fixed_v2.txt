@@ -21,8 +21,8 @@
 // 1. The Zero-Friction Core (Spawn & Instant Deployment)
 // ====================================================================
 // Kafra Storage: 1-click storage access, standard Prontera Kafra sprite (113)
-prontera,156,193,4	script	Kafra Storage	113,{ openstorage; end; }
-prontera,157,187,4	script	Kafra Save Point	113,{OnTouch: getmapxy(.@map$, .@x, .@y); savepoint .@map$, .@x, .@y; message strcharinfo(0), "Your save point has been updated.";}
+//prontera,156,193,4	script	Kafra Storage	113,{ openstorage; end; }
+//prontera,157,187,4	script	Kafra Save Point	113,{OnTouch: getmapxy(.@map$, .@x, .@y); savepoint .@map$, .@x, .@y; message strcharinfo(0), "Your save point has been updated.";}
 
 // FIXED: real template in npc/custom/healer.txt, sprite 909
 //prontera,148,187,4	duplicate(Healer)	The Grand Healer	21317
@@ -159,27 +159,27 @@ prontera,170,185,4	script	Mora Coin Exchanger	515,{
 }
 
 // FIXED: real official template in npc/re/merchants/enchan_mora.txt line 598, sprite 521 (4_M_RAFLE_OLD)
-prontera,170,183,4	duplicate(Artifact Researcher#new)	Mora Enchanter	521
+//prontera,170,183,4	duplicate(Artifact Researcher#new)	Mora Enchanter	521
 
 // FIXED: real official template in npc/battleground/bg_common.txt line 386, sprite 109 (4_M_JOB_KNIGHT)
 //prontera,178,185,4	duplicate(Erundek)	Siege Exchanger	109
 
 // IMPLEMENTED: Essential Supplies & Catalysts Shop
 // Optimized Supply Dealer for Nexoria
-prontera,159,192,4	shop	Supply Dealer	89,501:50,502:200,503:600,504:1200,505:5000,525:800,534:1500,656:3000,601:210,602:-1,611:40,523:20,717:600,716:600,715:600,1065:100,1750:1,1751:3,1752:3,679:15000
+//prontera,159,192,4	shop	Supply Dealer	89, 12235:200,501:50,502:200,503:600,504:1200,505:5000,525:800,534:1500,656:3000,601:210,602:-1,611:40,523:20,717:600,716:600,715:600,1065:100,1750:1,1751:3,1752:3,679:15000,678:120000
 
 
 // ====================================================================
 // 3. The Forge of Fate (West Wing)
 // ====================================================================
 // FIXED: real official template in npc/merchants/refine.txt line 526, sprite 85 (4_M_03)
-prontera,142,185,4	duplicate(Hollgrehenn)	Master Refiner	85
+//prontera,142,185,4	duplicate(Hollgrehenn)	Master Refiner	85
 
 // FIXED: real template in npc/custom/card_remover.txt, sprite 78
-prontera,142,181,4	duplicate(Wise Old Woman#eAcustom)	Card Remover	78
+//prontera,142,181,4	duplicate(Wise Old Woman#eAcustom)	Card Remover	78
 
 // FIXED: real official template in npc/merchants/refine.txt line 1200, sprite 86
-prontera,138,179,4	duplicate(Repairman#prt)	Repairman	86
+//prontera,138,179,4	duplicate(Repairman#prt)	Repairman	86
 
 // ====================================================================
 // 4. The Avenue of Prestige (North Path)
@@ -238,7 +238,7 @@ OnClock0000:
 // ---------------------------------------------------------------
 // Statue
 // ---------------------------------------------------------------
-prontera,146,158,4	script	Statue of the MVP	1751,{
+prontera,146,153,4	script	Statue of the MVP	1751,{
 	mes "[Statue of the MVP]";
 	mes "A majestic stone monument sculpted in honor of Midgard's greatest monster hunters.";
 	next;
@@ -284,14 +284,14 @@ prontera,146,158,4	script	Statue of the MVP	1751,{
 			mes "Finish in the top 3 before midnight to earn one.";
 			close;
 		}
-		if (checkweight(671, .@amt) == 0) {
+		if (checkweight(7517, .@amt) == 0) {
 			mes "You cannot carry that much. Free some weight and return.";
 			close;
 		}
 		$mvp_claim[.@cid] = 0;
-		getitem 671, .@amt;
+		getitem 7517, .@amt;
 		mes "The monument rewards your glory!";
-		mes "Received ^008800" + getitemname(671) + " x" + .@amt + "^000000.";
+		mes "Received ^008800" + getitemname(7517) + " x" + .@amt + "^000000.";
 		close;
 	case 4:
 		mes "[Statue Inscription]";
@@ -308,13 +308,13 @@ prontera,146,158,4	script	Statue of the MVP	1751,{
 // Left Wing: End-Game & High Tier
 // ====================================================================
 // CONFIRMED: npc/instances/EndlessTower.txt, entrance object "Captain Janssen", sprite 709
-prontera,165,147,4	duplicate(Captain Janssen)	Endless Tower	709
+//prontera,165,147,4	duplicate(Captain Janssen)	Endless Tower	709
 
 // CONFIRMED: npc/re/instances/OldGlastHeim.txt line 24, entrance object "Hugin", sprite 4_M_SAGE_C
-prontera,165,135,4	duplicate(Hugin)	Old Glast Heim	4_M_SAGE_C
+//prontera,165,135,4	duplicate(Hugin)	Old Glast Heim	4_M_SAGE_C
 
 // CONFIRMED: npc/re/instances/FacewormsNest.txt line 321, entrance object "Magic Scholar", sprite 4_M_SAGE_C
-prontera,165,132,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
+//prontera,165,132,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
 
 // CONFIRMED: npc/re/instances/TempleOfDemonGod.txt line 10, entrance object "Guardian Nidhogg#epeom01", sprite 4_F_NYDHOG
 //prontera,145,135,4	duplicate(Guardian Nidhogg#epeom01)	Temple of Demon God	4_F_NYDHOG
@@ -337,67 +337,67 @@ prontera,165,132,4	duplicate(Magic Scholar)	Faceworm's Nest	4_M_SAGE_C
 // 6. The Center Anchor (Utility & Cooldowns)
 // ====================================================================
 // IMPLEMENTED: Cooldown Tracker & Quest Playtime Dashboard for Memorial Dungeons
-prontera,165,159,4	script	Instance Cooldowns	837,{
-	mes "[Instance Cooldowns]";
-	mes "Greetings, adventurer!";
-	mes "I track the temporal stability and cooldowns for all major memorial dungeons. you can reset using item ^0000FF5x"+ getitemname(671) + "s";
-	next;
-	mes "[Memorial Dungeon Status]";
-	function check_cooldown {
-		.@qid = getarg(0);
-		.@name$ = getarg(1);
-		.@status = checkquest(.@qid, PLAYTIME);
-		if (.@status == -1 || .@status == 2) {
-			mes " ~ " + .@name$ + ": ^00AA00[READY]^000000";
-		} else {
-			mes " ~ " + .@name$ + ": ^FF0000[COOLDOWN]^000000";
-		}
-		return;
-	}
-
-	check_cooldown(60201, "Endless Tower");
-	check_cooldown(12317, "Old Glast Heim");
-	check_cooldown(12325, "Faceworm's Nest");
-	check_cooldown(7605, "Temple of Demon God");
-	check_cooldown(12330, "Horror Toy Factory");
-	if (GeffenTournament > gettimetick(2)) {
-		.@diff = GeffenTournament - gettimetick(2);
-		.@hrs = .@diff / 3600;
-		.@mins = (.@diff % 3600) / 60;
-		mes " ~ Geffen Tournament: ^FF0000[COOLDOWN (" + .@hrs + "h " + .@mins + "m)]^000000";
-	} else {
-		mes " ~ Geffen Tournament: ^00AA00[READY]^000000";
-	}
-	check_cooldown(13185, "Charleston Crisis");
-	check_cooldown(12347, "Central Laboratory");
-	check_cooldown(12310, "Sara's Memory");
-	check_cooldown(12313, "Ghost Palace");
-	next;
-	if (getgmlevel() >= 80 || countitem(671) >= 5) {
-		mes "[GM Cooldown Reset]";
-		mes "You possess GM privileges. Would you like to reset your instance cooldowns for testing?";
-		if (select("Keep Cooldowns:Reset All My Cooldowns") == 2) {
-			if (getgmlevel() < 80) delitem(671, 5);
-			erasequest 60200; erasequest 60201;
-			erasequest 12317; erasequest 12322;
-			erasequest 12325;
-			erasequest 7605;
-			erasequest 12330; erasequest 12331;
-			GeffenTournament = 0;
-			erasequest 13185;
-			erasequest 12347;
-			erasequest 12310;
-			erasequest 12313;
-			mes "[Instance Cooldowns]";
-			mes "All instance cooldowns have been reset.";
-		}
-	}
-	close;
-}
+//prontera,165,159,4	script	Instance Cooldowns	837,{
+//	mes "[Instance Cooldowns]";
+//	mes "Greetings, adventurer!";
+//	mes "I track the temporal stability and cooldowns for all major memorial dungeons. you can reset using item ^0000FF5x"+ getitemname(671) + "s";
+//	next;
+//	mes "[Memorial Dungeon Status]";
+//	function check_cooldown {
+//		.@qid = getarg(0);
+//		.@name$ = getarg(1);
+//		.@status = checkquest(.@qid, PLAYTIME);
+//		if (.@status == -1 || .@status == 2) {
+//			mes " ~ " + .@name$ + ": ^00AA00[READY]^000000";
+//		} else {
+//			mes " ~ " + .@name$ + ": ^FF0000[COOLDOWN]^000000";
+//		}
+//		return;
+//	}
+//
+//	check_cooldown(60201, "Endless Tower");
+//	check_cooldown(12317, "Old Glast Heim");
+//	check_cooldown(12325, "Faceworm's Nest");
+//	check_cooldown(7605, "Temple of Demon God");
+//	check_cooldown(12330, "Horror Toy Factory");
+//	if (GeffenTournament > gettimetick(2)) {
+//		.@diff = GeffenTournament - gettimetick(2);
+//		.@hrs = .@diff / 3600;
+//		.@mins = (.@diff % 3600) / 60;
+//		mes " ~ Geffen Tournament: ^FF0000[COOLDOWN (" + .@hrs + "h " + .@mins + "m)]^000000";
+//	} else {
+//		mes " ~ Geffen Tournament: ^00AA00[READY]^000000";
+//	}
+//	check_cooldown(13185, "Charleston Crisis");
+//	check_cooldown(12347, "Central Laboratory");
+//	check_cooldown(12310, "Sara's Memory");
+//	check_cooldown(12313, "Ghost Palace");
+//	next;
+//	if (getgmlevel() >= 80 || countitem(671) >= 5) {
+//		mes "[GM Cooldown Reset]";
+//		mes "You possess GM privileges. Would you like to reset your instance cooldowns for testing?";
+//		if (select("Keep Cooldowns:Reset All My Cooldowns") == 2) {
+//			if (getgmlevel() < 80) delitem(671, 5);
+//			erasequest 60200; erasequest 60201;
+//			erasequest 12317; erasequest 12322;
+//			erasequest 12325;
+//			erasequest 7605;
+//			erasequest 12330; erasequest 12331;
+//			GeffenTournament = 0;
+//			erasequest 13185;
+//			erasequest 12347;
+//			erasequest 12310;
+//			erasequest 12313;
+//			mes "[Instance Cooldowns]";
+//			mes "All instance cooldowns have been reset.";
+//		}
+//	}
+//	close;
+//}
 
 // IMPLEMENTED: Active Party Notice Board & Party Booking System
 // Sprite 837: JT_BULLETIN_BOARD (identical to official bulletin boards in npc/other/bulletin_boards.txt)
-prontera,165,153,4	script	Party Recruiter Board	837,{
+prontera,164,167,4	script	Party Recruiter Board	837,{
 	mes "[Party Recruiter Board]";
 	mes "Connecting adventurers for party expeditions & instances.";
 	next;

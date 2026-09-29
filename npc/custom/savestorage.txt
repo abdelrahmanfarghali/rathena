@@ -1,0 +1,33 @@
+prontera,158,193,5	script	Kafra Services	116,{
+	
+    mes "[Wuksha]";
+    mes "Chosen One Save Or Storage ?";
+    next;
+    switch(select("Save:Use Storage:Cancel")) {
+	case 1:
+		mes "[Wuksha]";
+		mes "Your Respawn Point has";
+		mes "been saved here, main";
+		mes "map and have fun";
+		mes "^666666*Thank you.*^000000";
+		savepoint "prontera",155,180;
+		break;
+        case 2:
+            mes "[Wuksha]";
+            mes "Storage will be opened. Thank you";
+            close2;
+            openstorage;
+            break;
+        case 3:
+		mes "[Wuksha]";
+		mes "^666666*Whew...*^000000";
+		mes "Great, because I'm";
+		mes "actually on my break";
+		mes "right now. Choosing";
+		mes "''Cancel'' was a good";
+		mes "move on your part.";
+		break;
+    }
+	end;
+
+}

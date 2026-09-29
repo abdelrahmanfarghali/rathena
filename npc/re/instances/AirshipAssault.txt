@@ -910,6 +910,7 @@ OnMyMobDead:
 		enablenpc instance_npcname("Captain Ferlock#air2");
 		disablenpc instance_npcname("calla#air2");
 		'airship_status = 8;
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	end;
 }

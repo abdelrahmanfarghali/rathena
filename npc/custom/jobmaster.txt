@@ -17,7 +17,7 @@
 //============================================================
 
 //prontera,153,193,6	script	Job Master	123,{
-prontera,146,170,4	script	Job Master	21360,{
+prontera,153,193,4	script	Job Master	21360,{
 function Get_Job_Equip;
 // Checks if the Player has the required level.
 // closes if not, returns if yes
@@ -393,6 +393,13 @@ function	Confirm_Change	{
 	return;
 }
 
+// Gives an item only if a valid ID is configured (0 = disabled).
+function	Give_If_Set	{
+	if (getarg(0, 0) > 0)
+		getitem2 getarg(0), 1, 1, 9, 0, 0, 0, 0, 0;
+	return;
+}
+
 // Function which gives a job related item to the player
 // the items are the rewards from the original job change quests
 function	Get_Job_Equip	{
@@ -437,6 +444,7 @@ function	Get_Job_Equip	{
 				getitem 6121,1;			//	Makeover Brush
 				getitem 6122,1;	break;	//	Paint Brush
 		}
+		Give_If_Set(.Wpn_Third[BaseJob]);	// Third job weapon (data-driven)
 	} else if (.@eac&EAJL_2) {
 		// Second Class (And not Third Class)
 		switch(BaseJob) {
@@ -505,21 +513,37 @@ OnInit:
 	.NPCName$ = "[Job Master]";
 	
 	// Settings
-	.FourthClass = true;				// Enable fourth classes?
-	.FourthExpanded = true;				// Enable new expanded fourth classes: Ex. Hyper Novice, Rebellion, Shinkiro/Shiranui?
+	.FourthClass = false;				// Enable fourth classes?
+	.FourthExpanded = false;				// Enable new expanded fourth classes: Ex. Hyper Novice, Rebellion, Shinkiro/Shiranui?
 	.ThirdClass = true;					// Enable third classes?
 	.RebirthClass = true;				// Enable rebirth classes?
 	.SecondExpanded = true;				// Enable new expanded second classes: Ex. Super Novice, Kagerou/Oboro, Rebellion?
-	.BabyNovice = true;					// Enable Baby novice classes? Disable it if you like player must have parent to get job baby.
-	.BabyClass = true;					// Enable Baby classes?
-	.BabyThird = true;					// Enable Baby third classes?
-	.BabyExpanded = true;				// Enable Baby Expanded classes: Ex. Baby Ninja, Baby Taekwon, etc.
-	.BabySummoner = true;				// Enable Baby Summoner?
+	.BabyNovice = false;					// Enable Baby novice classes? Disable it if you like player must have parent to get job baby.
+	.BabyClass = false;					// Enable Baby classes?
+	.BabyThird = false;					// Enable Baby third classes?
+	.BabyExpanded = false;				// Enable Baby Expanded classes: Ex. Baby Ninja, Baby Taekwon, etc.
+	.BabySummoner = false;				// Enable Baby Summoner?
 	.LastJob = true;					// Enforce linear class changes?
 	.SkillPointCheck = true;			// Force player to use up all skill points?
 	.Platinum = true;					// Get platinum skills automatically?
-	.GetJobEquip = false;				// Get job equipment (mostly weapons) on job change?
+	.GetJobEquip = true;				// Get job equipment (mostly weapons) on job change?
 
+
+	// Third job weapons, indexed by 2nd-class job constant
+	setarray .Wpn_Third[Job_Knight],     21015; /* ID */
+	setarray .Wpn_Third[Job_Wizard],     2025; /* ID */
+	setarray .Wpn_Third[Job_Hunter],     18130; /* ID */
+	setarray .Wpn_Third[Job_Priest],     16040; /* ID */
+	setarray .Wpn_Third[Job_Blacksmith], 28106; /* ID */
+	setarray .Wpn_Third[Job_Assassin],   28007; /* ID */
+	setarray .Wpn_Third[Job_Crusader],   13454; /* ID */
+	setarray .Wpn_Third[Job_Sage],       1680; /* ID */
+	setarray .Wpn_Third[Job_Bard],       1939; /* ID */
+	setarray .Wpn_Third[Job_Dancer],     1995; /* ID */
+	setarray .Wpn_Third[Job_Monk],       16040; /* ID */
+	setarray .Wpn_Third[Job_Alchemist],  28705; /* ID */
+	setarray .Wpn_Third[Job_Rogue],      28705; /* ID */
+	
 	// Level Requirements
 	setarray .Req_First[0],1,10; 		// Minimum base level, job level to turn into 1st class
 	setarray .Req_Second[0],1,40; 		// Minimum base level, job level to turn into 2nd class

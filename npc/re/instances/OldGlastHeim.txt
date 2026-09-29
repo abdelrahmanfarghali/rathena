@@ -2065,6 +2065,7 @@ OnTimer10000:
 	mes "What did you say just before?";
 	mes "Anyway, that is not important. The gap of time will be closed so we need to get out of here.";
 	next;
+	callfunc "F_InstanceCoinReward", 5;
 	if (select("Let me look around more:Please let me out") == 1) {
 		mes "[Hugin]";
 		mes "Really? This place will be break down soon. Please look around quickly.";

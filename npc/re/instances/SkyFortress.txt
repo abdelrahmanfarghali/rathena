@@ -1565,6 +1565,7 @@ OnStart:
 	initnpctimer;
 	end;
 OnBossDead:
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 OnTimer1000:
 	if ('boss_id < 1 || mobcount( 'sthd_map$, instance_npcname("#Last_Boss") + "::OnBossDead" ) < 1) {

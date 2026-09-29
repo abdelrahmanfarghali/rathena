@@ -3384,6 +3384,7 @@ OnActivate:
     end;
 OnDefeat:
     hideoffnpc instance_npcname("Fenrir#f");
+	callfunc "F_InstanceCoinReward", 5;
     enablenpc instance_npcname("#fenrirtalk2");
     end;
 

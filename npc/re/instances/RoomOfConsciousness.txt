@@ -733,6 +733,7 @@ OnMobDead:
 	if ('step != 7)
 		end;
 	'step = 8;
+	callfunc "F_InstanceCoinReward", 5;
 	stopnpctimer;
 	donpcevent instance_npcname("eq#mir3") + "::OnStop";
 	donpcevent instance_npcname("eq#mir6") + "::OnStop";

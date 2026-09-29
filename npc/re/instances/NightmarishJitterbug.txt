@@ -4406,6 +4406,7 @@ OnMobDead23:
 		enablenpc instance_npcname("Shaloshi#24");
 		enablenpc instance_npcname("Ferre#25");
 		'boss_id = 0;
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	end;
 

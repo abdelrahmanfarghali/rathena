@@ -762,6 +762,7 @@ OnMyMobDead3:
 		enablenpc instance_npcname("Sakray#dk");
 		enablenpc instance_npcname("Magic Sword Tartanos#dk3");
 		disablenpc instance_npcname("#gp_control_6");
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	end;
 OnMyMobDead4:

@@ -2174,6 +2174,7 @@ OnMyMobDead:
 		}
 		mes "[Wolfchev]";
 		mes "Then I will send you out.";
+		callfunc "F_InstanceCoinReward", 5;
 		close2;
 		warp "lhz_dun04", 147, 273;
 		end;

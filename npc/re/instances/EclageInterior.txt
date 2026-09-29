@@ -468,6 +468,7 @@ OnMyMobDead:
 	close2;
 	cutin "",255;
 	warp "ecl_in03",57,76;
+	callfunc "F_InstanceCoinReward", 5;
 	instance_destroy;
 	end;
 }

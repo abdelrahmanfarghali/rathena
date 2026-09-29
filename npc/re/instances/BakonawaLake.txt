@@ -378,6 +378,7 @@ OnMyMobDead:
 		killmonster .@map$,instance_npcname("#Bakonawan3")+"::OnMyMobDead";
 		stopnpctimer;
 		disablenpc instance_npcname("#Bakonawan3");
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	end;
 OnTimer1000:

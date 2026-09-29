@@ -848,6 +848,7 @@ OnMyMobDead:
 	donpcevent instance_npcname("#2Resurrect Monsters1")+"::OnDisable";
 	donpcevent instance_npcname("#2Resurrect Monsters3")+"::OnDisable";
 	donpcevent instance_npcname("#Warp Outside Orc Dun")+"::OnEnable";
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 }
 

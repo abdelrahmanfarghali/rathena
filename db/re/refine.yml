@@ -119,12 +119,12 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 9000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
@@ -137,12 +137,12 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 4000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 7000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
@@ -155,12 +155,12 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 4000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 7000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
@@ -174,12 +174,12 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 4000
+                Rate: 5000
                 Price: 2000
                 Material: Enriched_Elunium
                 BreakingRate: 10000
@@ -193,7 +193,7 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
@@ -212,7 +212,7 @@ Body:
                 Material: Elunium
                 BreakingRate: 10000
               - Type: HD
-                Rate: 900
+                Rate: 1800
                 Price: 20000
                 Material: HD_Elunium
                 DowngradeAmount: 1
@@ -232,7 +232,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Carnium
                 DowngradeAmount: 1
@@ -247,7 +247,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Carnium
                 DowngradeAmount: 1
@@ -264,7 +264,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Carnium
                 DowngradeAmount: 1
@@ -1213,12 +1213,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 9000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1232,12 +1232,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 5000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 8000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1252,12 +1252,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 4000
+                Rate: 5000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1272,7 +1272,7 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 2000
+                Rate: 3000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
@@ -1292,12 +1292,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 1900
+                Rate: 1800
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 3000
+                Rate: 2000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1543,12 +1543,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 6000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 9000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1562,12 +1562,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 4000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 7000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1581,12 +1581,12 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 4000
+                Rate: 10000
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
               - Type: Enriched
-                Rate: 7000
+                Rate: 10000
                 Price: 2000
                 Material: Enriched_Oridecon
                 BreakingRate: 10000
@@ -1641,7 +1641,7 @@ Body:
                 Material: Oridecon
                 BreakingRate: 10000
               - Type: HD
-                Rate: 900
+                Rate: 1800
                 Price: 20000
                 Material: HD_Oridecon
                 DowngradeAmount: 1
@@ -1662,7 +1662,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Bradium
                 DowngradeAmount: 1
@@ -1678,7 +1678,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Bradium
                 DowngradeAmount: 1
@@ -1714,7 +1714,7 @@ Body:
                 BreakingRate: 2000
                 DowngradeAmount: 3
               - Type: HD
-                Rate: 800
+                Rate: 1600
                 Price: 100000
                 Material: HD_Bradium
                 DowngradeAmount: 1

@@ -532,6 +532,7 @@ OnTimer1000:
 		donpcevent instance_npcname("#Summon Pillar") + "::OnEnable1";
 		mapannounce 'map_name$, "Bangungot: I....cannot.....finish...like.......this.",bc_map,"0xFF82FF";
 		disablenpc instance_npcname("#Summon Boss");
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	stopnpctimer;
 	end;

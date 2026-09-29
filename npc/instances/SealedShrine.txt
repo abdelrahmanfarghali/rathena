@@ -1252,6 +1252,7 @@ OnMyMobDead:
 		donpcevent instance_npcname("ins_2f_enter_broad")+"::OnDisable";
 		donpcevent instance_npcname("control_baphomet")+"::OnDisable";
 		disablenpc instance_npcname("control_baphomet");
+		callfunc "F_InstanceCoinReward", 5;
 	}
 	end;
 }

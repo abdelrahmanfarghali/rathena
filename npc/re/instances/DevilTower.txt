@@ -2011,6 +2011,7 @@ OnBossDead:
 	enablenpc instance_npcname("box#tnmbosang");
 	disablenpc instance_npcname("#boss_skills_timer");
 	'devil_tower = 15;
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 }
 

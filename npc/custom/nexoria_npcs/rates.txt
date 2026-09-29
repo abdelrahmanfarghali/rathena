@@ -1,10 +1,8 @@
 // npc/custom/rates_board.txt  (add to npc/scripts_custom.conf)
-prontera,164,174,4	script	Server Rates#rates	4_BOARD3,{
+prontera,164,173,4	script	Server Rates#rates	4_BOARD3,{
 	mes "[Server Rates]";
-	mes "100% = 1x";
-	mes "-----------------";
 	for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
-		mes .label$[.@i] + ": ^0000FF" + getbattleflag(.flag$[.@i]) + "%^000000";
+		mes .label$[.@i] + ": ^0000FF" + (getbattleflag(.flag$[.@i])/100) + "x^000000";
 	close;
 
 OnInit:
@@ -23,23 +21,23 @@ OnInit:
 		"Boss Drop: Equipment", "Boss Drop: Card",
 		"MVP Drop", "Treasure Drop", "Added Drops";
 
-	setarray .val[0],
-		17500, 17500, 17500, 17500,
-		7500, 7500, 7500, 7500, 7500,
-		7500, 7500, 7500,
-		7500, 100,
-		7500, 7500, 7500;
+	//setarray .val[0],
+	//	25000, 25000, 25000, 25000,
+	//	7500, 7500, 7500, 7500, 7500,
+	//	7500, 7500, 7500,
+	//	7500, 100,
+	//	7500, 7500, 7500;
 
 	// Apply all rates
-	for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
-		setbattleflag(.flag$[.@i], .val[.@i]);
+	//for (.@i = 0; .@i < getarraysize(.flag$); .@i++)
+	//	setbattleflag(.flag$[.@i], .val[.@i]);
 	end;
 }
 -	script	DropEvent#rates	-1,{
 OnInit:
 	// Event definition: flag names + boosted values (100 = 1x)
 	setarray .ev_flag$[0], "item_rate_equip", "item_rate_card", "item_rate_equip_boss";
-	setarray .ev_val[0],   10000,             10000,            10000;
+	setarray .ev_val[0],   30000,             30000,            30000;
 	.ev_duration = 3600;    // seconds (1 hour)
 	.active = 0;
 	end;

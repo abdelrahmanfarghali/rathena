@@ -5,7 +5,7 @@
 prontera,140,170,4	script	Cash Exchanger	469,{
 
     // --- Configuration ---
-    .@CoinID = 671;          // Item ID for Gold Coin (Change if using a custom coin)
+    .@CoinID = 7517;          // Item ID for Gold Coin (Change if using a custom coin)
     .@CashPerCoin = 100;     // How many Cash Points 1 Gold Coin gives
     // ---------------------
 
@@ -14,16 +14,16 @@ prontera,140,170,4	script	Cash Exchanger	469,{
     query_sql("SELECT `value` FROM `global_acc_reg_num` WHERE `account_id` = " + .@acc_id + " AND `key` = '#CASHPOINTS' AND `index` = 0", .@cur_cash);
     // If no row exists yet, .@cur_cash[0] is 0 (default) — that's correct.
 
-    mes "[ ^FFD700Cash Exchanger^0000 ]";
-    mes "Ahlan! Want to turn your hard-earned ^FF0000" + getitemname(.@CoinID) + "s^0000 into Cash Points?";
-    mes "Current Rate: ^0055FF1 Coin = " + .@CashPerCoin + " Cash Points^0000.";
+    mes "[ ^FFD700Cash Exchanger^00000 ]";
+    mes "Ahlan! Want to turn your hard-earned ^FF0000" + getitemname(.@CoinID) + "s^000000 into Cash Points?";
+    mes "Current Rate: ^0055FF1 Coin = " + .@CashPerCoin + " Cash Points^000000.";
     mes " ";
-    mes "Your Coins: ^00AA00" + countitem(.@CoinID) + "^0000";
-    mes "Your Cash Points: ^FF0000" + .@cur_cash[0] + "^0000";
+    mes "Your Coins: ^00AA00" + countitem(.@CoinID) + "^000000";
+    mes "Your Cash Points: ^FF0000" + .@cur_cash[0] + "^000000";
     next;
 
     if (countitem(.@CoinID) == 0) {
-        mes "[ ^FFD700Cash Exchanger^0000 ]";
+        mes "[ ^FFD700Cash Exchanger^000000 ]";
         mes "You don't have any coins to exchange right now.";
         mes "Come back when you've farmed some more!";
         close;
@@ -36,12 +36,12 @@ prontera,140,170,4	script	Cash Exchanger	469,{
             break;
             
         case 2:
-            mes "[ ^FFD700Cash Exchanger^0000 ]";
+            mes "[ ^FFD700Cash Exchanger^000000 ]";
             mes "How many coins do you want to exchange?";
             input .@amt;
             
             if (.@amt <= 0 || .@amt > countitem(.@CoinID)) {
-                mes "[ ^FFD700Cash Exchanger^0000 ]";
+                mes "[ ^FFD700Cash Exchanger^000000 ]";
                 mes "Invalid amount. Please try again.";
                 close;
             }
@@ -65,9 +65,9 @@ prontera,140,170,4	script	Cash Exchanger	469,{
     // Trigger a visual effect on the player for satisfaction
     specialeffect2 50;
 
-    mes "[ ^FFD700Cash Exchanger^0000 ]";
+    mes "[ ^FFD700Cash Exchanger^000000 ]";
     mes "Mabrouk! Transaction complete.";
-    mes "Added ^00AA00" + .@TotalCash + " Cash Points^0000 to your account.";
-    mes "New Balance: ^FF0000" + .@new_balance + "^0000";
+    mes "Added ^00AA00" + .@TotalCash + " Cash Points^000000 to your account.";
+    mes "New Balance: ^FF0000" + .@new_balance + "^000000";
     close;
 }

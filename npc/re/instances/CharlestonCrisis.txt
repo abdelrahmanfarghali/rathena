@@ -2187,5 +2187,6 @@ OnMyMobDead:
 	.@mob_id = killedrid;
 	sleep .@time;
 	monster 'map_name$,0,0,"--ja--", .@mob_id,1, instance_npcname("Charleston Assistant#1") + "::OnMyMobDead";
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 }

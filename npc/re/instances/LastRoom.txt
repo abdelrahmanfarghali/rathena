@@ -438,6 +438,7 @@ OnMyMobDead:
 		// enablenpc instance_npcname("Du#room4");
 		// enablenpc instance_npcname("Mark#room4");
 		enablenpc instance_npcname("Verity#room4");
+		callfunc "F_InstanceCoinReward", 5;
 		disablenpc instance_npcname("#bosslr");
 	}
 	end;

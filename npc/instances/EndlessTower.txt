@@ -2111,6 +2111,7 @@ OnTimer10500:
 
 OnMyMobDead:
 	donpcevent instance_npcname("Lost Soul#102")+"::OnEnable";
+	callfunc "F_InstanceCoinReward", 5;
 	end;
 }
 

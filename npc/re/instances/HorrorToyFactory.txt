@@ -1082,6 +1082,7 @@ OnStart:
 OnMyMobDead:
 	if (mobcount( 'xm_d_map$, instance_npcname("#finalbs2") + "::OnMyMobDead" ) < 1)
 		donpcevent instance_npcname("#finalbs2") + "::OnEnd";
+		callfunc "F_InstanceCoinReward", 5;
 	end;
 
 OnEnd:

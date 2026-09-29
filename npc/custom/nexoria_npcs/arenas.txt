@@ -1,94 +1,94 @@
 // ============ Bomb Arena ============
 // Arena map flags
-pvp_n_8-5	mapflag	pvp
-pvp_n_8-5	mapflag	nopenalty
-pvp_n_8-5	mapflag	nosave	SavePoint
-pvp_n_8-5	mapflag	noteleport
-pvp_n_8-5	mapflag	nowarp
-pvp_n_8-5	mapflag	nowarpto
-pvp_n_8-5	mapflag	noreturn
-pvp_n_8-5	mapflag	nomemo
-pvp_n_8-5	mapflag	nobranch
+//pvp_n_8-5	mapflag	pvp
+//pvp_n_8-5	mapflag	nopenalty
+//pvp_n_8-5	mapflag	nosave	SavePoint
+//pvp_n_8-5	mapflag	noteleport
+//pvp_n_8-5	mapflag	nowarp
+//pvp_n_8-5	mapflag	nowarpto
+//pvp_n_8-5	mapflag	noreturn
+//pvp_n_8-5	mapflag	nomemo
+//pvp_n_8-5	mapflag	nobranch
 
 // Hidden effect carrier - MUST have a physical map location to be manipulated!
 // Note: If you change the arena map, change 'pvp_n_8-5' here as well.
 // Hidden effect carrier - MUST use sprite 111 (Invisible) so the engine recognizes it as a physical object
-pvp_n_8-5,1,1,0	script	MeteorFx	111,{ end; }
+//pvp_n_8-5,1,1,0	script	MeteorFx	111,{ end; }
 
 // Engine
--	script	MeteorArena	-1,{
-OnInit:
+//-	script	MeteorArena	-1,{
+//OnInit:
 	// ---- CONFIG ----
-	.map$        = "pvp_n_8-5";
-	.meteors     = 4;        // Meteor blast zones per wave
-	.wave_ms     = 4000;     // Pause between meteor showers
-	.min_x = 20; .max_x = 80;
-	.min_y = 20; .max_y = 80;
-	
-	.radius      = 3;        // 3 cells = 7x7 AoE blast radius
-	.fx_meteor   = 378;      // EF_METEOR
-	// ----------------
-	
-	// Cache the effect NPC ID once
-	.fx_npc_id = getnpcid(0, "MeteorFx");
-
-	while (1) {
-		if (getmapusers(.map$) < 1) { sleep 2000; continue; }
-
-		// Instant Strike Phase: Announce
-		mapannounce .map$, "A Meteor Shower is striking the arena!", bc_map | bc_red;
-		
-		// Capture all players on the map before the strike
-		.@n = getmapunits(BL_PC, .map$, .@gids);
-		
-		for (.@i = 0; .@i < .meteors; .@i++) {
-			// Pick a random blast epicenter
-			.@mx = rand(.min_x, .max_x);
-			.@my = rand(.min_y, .max_y);
-			
-			// Visuals: Stagger the meteor drops for authenticity
-			for (.@v = 0; .@v < 6; .@v++) {
-				unitwarp .fx_npc_id, .map$, .@mx + rand(-.radius, .radius), .@my + rand(-.radius, .radius);
-				specialeffect .fx_meteor, AREA, "MeteorFx";
-				sleep 100; // Small pause so they drop sequentially, not all at once
-			}
-
-			// Process Kills for this specific epicenter
-			for (.@p = 0; .@p < .@n; .@p++) {
-				if (!attachrid(.@gids[.@p])) continue;
-				
-				getmapxy(.@m$, .@px, .@py, 0);
-				
-				// If caught in the 7x7 blast radius, eliminate instantly
-				if (.@px >= .@mx - .radius && .@px <= .@mx + .radius && .@py >= .@my - .radius && .@py <= .@my + .radius) {
-					percentheal -100, -100;
-				}
-				detachrid;
-			}
-		}
-		
-		// Wait until the next random shower
-		sleep .wave_ms;
-	}
-	end;
-}
+//	.map$        = "pvp_n_8-5";
+//	.meteors     = 4;        // Meteor blast zones per wave
+//	.wave_ms     = 4000;     // Pause between meteor showers
+//	.min_x = 20; .max_x = 80;
+//	.min_y = 20; .max_y = 80;
+//	
+//	.radius      = 3;        // 3 cells = 7x7 AoE blast radius
+//	.fx_meteor   = 378;      // EF_METEOR
+//	// ----------------
+//	
+//	// Cache the effect NPC ID once
+//	.fx_npc_id = getnpcid(0, "MeteorFx");
+//
+//	while (1) {
+//		if (getmapusers(.map$) < 1) { sleep 2000; continue; }
+//
+//		// Instant Strike Phase: Announce
+//		mapannounce .map$, "A Meteor Shower is striking the arena!", bc_map | bc_red;
+//		
+//		// Capture all players on the map before the strike
+//		.@n = getmapunits(BL_PC, .map$, .@gids);
+//		
+//		for (.@i = 0; .@i < .meteors; .@i++) {
+//			// Pick a random blast epicenter
+//			.@mx = rand(.min_x, .max_x);
+//			.@my = rand(.min_y, .max_y);
+//			
+//			// Visuals: Stagger the meteor drops for authenticity
+//			for (.@v = 0; .@v < 6; .@v++) {
+//				unitwarp .fx_npc_id, .map$, .@mx + rand(-.radius, .radius), .@my + rand(-.radius, .radius);
+//				specialeffect .fx_meteor, AREA, "MeteorFx";
+//				sleep 100; // Small pause so they drop sequentially, not all at once
+//			}
+//
+//			// Process Kills for this specific epicenter
+//			for (.@p = 0; .@p < .@n; .@p++) {
+//				if (!attachrid(.@gids[.@p])) continue;
+//				
+//				getmapxy(.@m$, .@px, .@py, 0);
+//				
+//				// If caught in the 7x7 blast radius, eliminate instantly
+//				if (.@px >= .@mx - .radius && .@px <= .@mx + .radius && .@py >= .@my - .radius && .@py <= .@my + .radius) {
+//					percentheal -100, -100;
+//				}
+//				detachrid;
+//			}
+//		}
+//		
+//		// Wait until the next random shower
+//		sleep .wave_ms;
+//	}
+//	end;
+//}
 
 // Entry NPC
-prontera,137,202,4	script	Zero Blow PvP Manager	21377,{
-	mes "[Zero Blow PVP Master]";
-	mes "Enter the Zero Blow PVP?";
-	mes "Beware: Meteors will strike randomly without any ground warnings.";
-	next;
-	
-	if (select("Enter:Cancel") == 2) close;
-	
-	warp .map$, 0, 0;
-	end;
-
-OnInit:
-	.map$ = "pvp_n_8-5";
-	end;
-}
+//prontera,137,202,4	script	Zero Blow PvP Manager	21377,{
+//	mes "[Zero Blow PVP Master]";
+//	mes "Enter the Zero Blow PVP?";
+//	mes "Beware: Meteors will strike randomly without any ground warnings.";
+//	next;
+//	
+//	if (select("Enter:Cancel") == 2) close;
+//	
+//	warp .map$, 0, 0;
+//	end;
+//
+//OnInit:
+//	.map$ = "pvp_n_8-5";
+//	end;
+//}
 
 pvp_n_8-5,90,110,4	script	Inner PvP Manager	-1,{
 OnLeave:
@@ -120,17 +120,17 @@ OnInit:
 // ==============================================================================
 
 // --- PvP Map Flags ---
-// Replace 'guild_vs1' with your designated PvP map.
-guild_vs1	mapflag	pvp	on
-guild_vs1	mapflag	nowarp
-guild_vs1	mapflag	nowarpto
-guild_vs1	mapflag	noteleport
-guild_vs1	mapflag	nomemo
-guild_vs1	mapflag	nopenalty
-guild_vs1	mapflag	nobranch
+// Replace 'pvp_n_8-5' with your designated PvP map.
+pvp_n_8-5	mapflag	pvp	on
+pvp_n_8-5	mapflag	nowarp
+pvp_n_8-5	mapflag	nowarpto
+pvp_n_8-5	mapflag	noteleport
+pvp_n_8-5	mapflag	nomemo
+pvp_n_8-5	mapflag	nopenalty
+pvp_n_8-5	mapflag	nobranch
 
 // --- Main NPC Manager ---
-prontera,135,200,4	script	Ranked PvP Manager	20358,{
+prontera,140,181,4	script	Ranked PvP Manager	20358,{
     mes "[Ranked PvP Manager]";
     mes "Welcome to the Ranked PvP arena.";
     mes "Test your mettle and climb the ladder!";
@@ -140,7 +140,7 @@ prontera,135,200,4	script	Ranked PvP Manager	20358,{
             mes "[Ranked PvP Manager]";
             mes "Prepare yourself. Good luck!";
             close2;
-            warp "guild_vs1", 0, 0;
+            warp "pvp_n_8-5", 0, 0;
             end;
             
         case 2:
@@ -184,7 +184,7 @@ prontera,135,200,4	script	Ranked PvP Manager	20358,{
 -	script	PvP_Scoring_System	-1,{
 OnPCKillEvent:
     // Ensure the kill happened in the designated PvP map
-    if (strcharinfo(3) != "guild_vs1") end;
+    if (strcharinfo(3) != "pvp_n_8-5") end;
 
     // Prevent farming by checking if they killed themselves (homunculus/reflect) or same IP (optional)
     if (killedrid == getcharid(3)) end; 
@@ -213,96 +213,96 @@ OnPCKillEvent:
 // ==============================================================================
 
 // --- PvP Map Flags ---
-guild_vs2	mapflag	pvp	on
-guild_vs2	mapflag	nowarp
-guild_vs2	mapflag	nowarpto
-guild_vs2	mapflag	noteleport
-guild_vs2	mapflag	nomemo
-guild_vs2	mapflag	nopenalty
-guild_vs2	mapflag	nobranch
-
-// --- Main NPC Manager ---
-prontera,133,198,4	script	Reborn PvP Manager	20357,{
-	mes "[Rebirth Jobs PvP Manager]";
-	mes "Welcome to the Ranked PvP arena.";
-	mes "Test your mettle and climb the ladder!";
-	next;
-	switch (select("Enter Arena:My PvP Stats:Top 10 Ladder:Cancel")) {
-	case 1:
-		mes "[Ranked PvP Manager]";
-		if (!reborn_flag) {
-			mes "This arena is for reborn characters only.";
-			close;
-		}
-		mes "Prepare yourself. Good luck!";
-		close2;
-		warp "guild_vs2", 0, 0;
-		end;
-
-	case 2:
-		mes "[Ranked PvP Manager]";
-		if (!reborn_flag) {
-			mes "Only reborn characters have a ranked record.";
-			close;
-		}
-		mes "Here is your current combat record:";
-		mes "--------------------------------";
-		mes "Rank Points : ^0000FF" + pvp_score + "^000000";
-		mes "Total Kills : ^00AA00" + pvp_kills + "^000000";
-		mes "Total Deaths: ^FF0000" + pvp_deaths + "^000000";
-		close;
-
-	case 3:
-		mes "[Ranked PvP Ladder]";
-		mes "Fetching the top reborn warriors...";
-		mes "--------------------------------";
-
-		.@query$ = "SELECT `c`.`name`, `r`.`value` FROM `char_reg_num` `r` " +
-		           "LEFT JOIN `char` `c` ON `r`.`char_id` = `c`.`char_id` " +
-		           "INNER JOIN `char_reg_num` `f` ON `f`.`char_id` = `r`.`char_id` " +
-		           "AND `f`.`key` = 'reborn_flag' AND `f`.`value` = 1 " +
-		           "WHERE `r`.`key` = 'pvp_score' " +
-		           "ORDER BY CAST(`r`.`value` AS SIGNED) DESC LIMIT 10";
-
-		query_sql(.@query$, .@names$, .@scores);
-
-		if (getarraysize(.@names$) == 0) {
-			mes "The ladder is currently empty.";
-			close;
-		}
-		for (.@i = 0; .@i < getarraysize(.@names$); .@i++)
-			mes (.@i + 1) + ". ^0000FF" + .@names$[.@i] + "^000000 - " + .@scores[.@i] + " Points";
-		close;
-
-	case 4:
-		close;
-	}
-}
-
-// --- Kill/Death Scoring Event ---
--	script	PvP_Scoring_System_2	-1,{
-OnPCKillEvent:
-	if (strcharinfo(3) != "guild_vs2") end;
-	if (killedrid == getcharid(3)) end;      // self-kill guard
-	if (!reborn_flag) end;                   // killer must be reborn
-
-	.@killer = getcharid(3);
-	if (!attachrid(killedrid)) end;          // switch to victim
-	.@victim_ok = reborn_flag;               // victim must be reborn
-	attachrid(.@killer);                     // back to killer
-	if (!.@victim_ok) end;
-
-	// --- Killer Rewards ---
-	pvp_kills++;
-	pvp_score += 10;
-	dispbottom "PvP: You gained 10 Rank Points! Total: " + pvp_score;
-
-	// --- Victim Penalties ---
-	if (attachrid(killedrid)) {
-		pvp_deaths++;
-		pvp_score -= 5;
-		if (pvp_score < 0) pvp_score = 0;
-		dispbottom "PvP: You were defeated and lost 5 Rank Points. Total: " + pvp_score;
-	}
-	end;
-}
+//guild_vs2	mapflag	pvp	on
+//guild_vs2	mapflag	nowarp
+//guild_vs2	mapflag	nowarpto
+//guild_vs2	mapflag	noteleport
+//guild_vs2	mapflag	nomemo
+//guild_vs2	mapflag	nopenalty
+//guild_vs2	mapflag	nobranch
+//
+//// --- Main NPC Manager ---
+//prontera,142,179,4	script	Reborn PvP Manager	20357,{
+//	mes "[Rebirth Jobs PvP Manager]";
+//	mes "Welcome to the Ranked PvP arena.";
+//	mes "Test your mettle and climb the ladder!";
+//	next;
+//	switch (select("Enter Arena:My PvP Stats:Top 10 Ladder:Cancel")) {
+//	case 1:
+//		mes "[Ranked PvP Manager]";
+//		if (!reborn_flag) {
+//			mes "This arena is for reborn characters only.";
+//			close;
+//		}
+//		mes "Prepare yourself. Good luck!";
+//		close2;
+//		warp "guild_vs2", 0, 0;
+//		end;
+//
+//	case 2:
+//		mes "[Ranked PvP Manager]";
+//		if (!reborn_flag) {
+//			mes "Only reborn characters have a ranked record.";
+//			close;
+//		}
+//		mes "Here is your current combat record:";
+//		mes "--------------------------------";
+//		mes "Rank Points : ^0000FF" + pvp_score + "^000000";
+//		mes "Total Kills : ^00AA00" + pvp_kills + "^000000";
+//		mes "Total Deaths: ^FF0000" + pvp_deaths + "^000000";
+//		close;
+//
+//	case 3:
+//		mes "[Ranked PvP Ladder]";
+//		mes "Fetching the top reborn warriors...";
+//		mes "--------------------------------";
+//
+//		.@query$ = "SELECT `c`.`name`, `r`.`value` FROM `char_reg_num` `r` " +
+//		           "LEFT JOIN `char` `c` ON `r`.`char_id` = `c`.`char_id` " +
+//		           "INNER JOIN `char_reg_num` `f` ON `f`.`char_id` = `r`.`char_id` " +
+//		           "AND `f`.`key` = 'reborn_flag' AND `f`.`value` = 1 " +
+//		           "WHERE `r`.`key` = 'pvp_score' " +
+//		           "ORDER BY CAST(`r`.`value` AS SIGNED) DESC LIMIT 10";
+//
+//		query_sql(.@query$, .@names$, .@scores);
+//
+//		if (getarraysize(.@names$) == 0) {
+//			mes "The ladder is currently empty.";
+//			close;
+//		}
+//		for (.@i = 0; .@i < getarraysize(.@names$); .@i++)
+//			mes (.@i + 1) + ". ^0000FF" + .@names$[.@i] + "^000000 - " + .@scores[.@i] + " Points";
+//		close;
+//
+//	case 4:
+//		close;
+//	}
+//}
+//
+//// --- Kill/Death Scoring Event ---
+//-	script	PvP_Scoring_System_2	-1,{
+//OnPCKillEvent:
+//	if (strcharinfo(3) != "guild_vs2") end;
+//	if (killedrid == getcharid(3)) end;      // self-kill guard
+//	if (!reborn_flag) end;                   // killer must be reborn
+//
+//	.@killer = getcharid(3);
+//	if (!attachrid(killedrid)) end;          // switch to victim
+//	.@victim_ok = reborn_flag;               // victim must be reborn
+//	attachrid(.@killer);                     // back to killer
+//	if (!.@victim_ok) end;
+//
+//	// --- Killer Rewards ---
+//	pvp_kills++;
+//	pvp_score += 10;
+//	dispbottom "PvP: You gained 10 Rank Points! Total: " + pvp_score;
+//
+//	// --- Victim Penalties ---
+//	if (attachrid(killedrid)) {
+//		pvp_deaths++;
+//		pvp_score -= 5;
+//		if (pvp_score < 0) pvp_score = 0;
+//		dispbottom "PvP: You were defeated and lost 5 Rank Points. Total: " + pvp_score;
+//	}
+//	end;
+//}

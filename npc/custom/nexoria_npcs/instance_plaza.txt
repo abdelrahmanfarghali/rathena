@@ -158,52 +158,52 @@ OnInit:
     setarray .cat_name$[0],
         "Classic & Iconic Dungeons",
         "Heroes' Trails & Dimensional Gap",
-        "Episode 16";
+        "Episode 16",
 	//, "Episode 17 (Banquet / OS)",
         //"Episode 18 & High-End Raids",
-        //"Special & Event Dungeons";
+        "Special & Event Dungeons";
 
     // Category 1
-    callsub S_Reg, "Endless Tower", 1, 0, 0;
-    callsub S_Reg, "Old Glast Heim", 1, 0, 0;
-    callsub S_Reg, "Old Glast Heim (Beginner)", 1, 0, 0;
-    callsub S_Reg, "Old Glast Heim (Challenge Mode)", 1, 0, 0;
-    callsub S_Reg, "Fall of Glast Heim (Normal)", 1, 0, 0;
-    callsub S_Reg, "Fall of Glast Heim (Advanced)", 1, 0, 0;
-    callsub S_Reg, "Sealed Catacomb", 1, 0, 0;
-    callsub S_Reg, "Orc's Memory", 1, 0, 0;
-    callsub S_Reg, "Nidhoggur's Nest", 1, 0, 0;
-    callsub S_Reg, "Culvert", 1, 0, 0;
-    callsub S_Reg, "Octopus Cave", 1, 0, 0;
-    callsub S_Reg, "Mistwood Maze", 1, 0, 0;
-    callsub S_Reg, "Eclage Interior", 1, 0, 0;
-    callsub S_Reg, "Wolfchev's Laboratory", 1, 0, 0;
-    callsub S_Reg, "Bakonawa Lake", 1, 0, 0;
-    callsub S_Reg, "Bangungot Hospital 2F", 1, 0, 0;
-    callsub S_Reg, "Buwaya Cave", 1, 0, 0;
+    callsub S_Reg, "Endless Tower", 1, 0, 0; // gives instance reward
+    callsub S_Reg, "Old Glast Heim", 1, 0, 0; //gives instance reward
+    //callsub S_Reg, "Old Glast Heim (Beginner)", 1, 0, 0;
+    //callsub S_Reg, "Old Glast Heim (Challenge Mode)", 1, 0, 0;
+    //callsub S_Reg, "Fall of Glast Heim (Normal)", 1, 0, 0;
+    //callsub S_Reg, "Fall of Glast Heim (Advanced)", 1, 0, 0;
+    //callsub S_Reg, "Sealed Catacomb", 1, 0, 0; //doesn't give
+    callsub S_Reg, "Orc's Memory", 1, 0, 0; //gives instance reward
+    callsub S_Reg, "Nidhoggur's Nest", 1, 0, 0; //gives instance reward
+    //callsub S_Reg, "Culvert", 1, 0, 0; //doesn't give
+    callsub S_Reg, "Octopus Cave", 1, 0, 0; //gives instance reward
+    //callsub S_Reg, "Mistwood Maze", 1, 0, 0; //doesn't give
+    callsub S_Reg, "Eclage Interior", 1, 0, 0; //gives instance reward
+    callsub S_Reg, "Wolfchev's Laboratory", 1, 0, 0; //gives instance reward
+    callsub S_Reg, "Bakonawa Lake", 1, 0, 0; //gives instance reward
+    callsub S_Reg, "Bangungot Hospital 2F", 1, 0, 0; //gives instance reward
+    callsub S_Reg, "Buwaya Cave", 1, 0, 0; //gives instance reward
 
     // Category 2 (gate coords = 2 cells west of each duplicate NPC)
-    callsub S_Reg, "Sara's Memories", 2, 0, 0;
-    callsub S_Reg, "Geffen Magic Tournament", 2, 163, 144;
-    callsub S_Reg, "Ghost Palace", 2, 0, 0;
-    callsub S_Reg, "Devil's Tower", 2, 0, 0;
-    callsub S_Reg, "Faceworm's Nest", 2, 0, 0;
-    callsub S_Reg, "Horror Toy Factory", 2, 163, 141;
-    callsub S_Reg, "Fenrir and Sarah", 2, 0, 0;
-    callsub S_Reg, "Assault on the Airship", 2, 0, 0;
-    callsub S_Reg, "Nightmarish Jitterbug", 2, 0, 0;
-    callsub S_Reg, "Isle of Bios", 2, 0, 0;
-    callsub S_Reg, "Morse's Cave", 2, 0, 0;
-    callsub S_Reg, "Temple of the Demon God", 2, 0, 0;
-    callsub S_Reg, "Central Laboratory", 2, 163, 138;
-    callsub S_Reg, "Last room", 2, 0, 0;
-    callsub S_Reg, "Charleston in Distress", 2, 0, 0;
-    callsub S_Reg, "Infinite Space", 2, 0, 0;
+    callsub S_Reg, "Sara's Memories", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Geffen Magic Tournament", 2, 163, 144; //gives instance reward
+    callsub S_Reg, "Ghost Palace", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Devil's Tower", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Faceworm's Nest", 2, 0, 0; //doesn't give
+    callsub S_Reg, "Horror Toy Factory", 2, 163, 141; //gives instance reward
+    callsub S_Reg, "Fenrir and Sarah", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Assault on the Airship", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Nightmarish Jitterbug", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Isle of Bios", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Morse's Cave", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Temple of the Demon God", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Central Laboratory", 2, 163, 138; //gives instance reward
+    callsub S_Reg, "Last room", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Charleston in Distress", 2, 0, 0; //gives instance reward
+    callsub S_Reg, "Infinite Space", 2, 0, 0; //gives instance reward
 
     // Category 3
-    callsub S_Reg, "Ritual of Blessing", 3, 0, 0;
-    callsub S_Reg, "Room of Consciousness", 3, 0, 0;
-    callsub S_Reg, "Sky Fortress Invasion", 3, 0, 0;
+    callsub S_Reg, "Ritual of Blessing", 3, 0, 0; //doesn't give
+    callsub S_Reg, "Room of Consciousness", 3, 0, 0; //gives instance reward
+    callsub S_Reg, "Sky Fortress Invasion", 3, 0, 0; //gives instance reward
     //callsub S_Reg, "Heart Hunter War Base 1", 4, 0, 0;
     //callsub S_Reg, "Heart Hunter War Base 2", 4, 0, 0;
     //callsub S_Reg, "Werner Laboratory central room#1", 4, 0, 0;
@@ -245,19 +245,19 @@ OnInit:
     //callsub S_Reg, "Farm Lost in Time", 4, 0, 0;
 
     // Category 5
-    callsub S_Reg, "Poring Village", 5, 0, 0;
+    callsub S_Reg, "Poring Village", 5, 0, 0; //gives instance reward
     callsub S_Reg, "Friday Dungeon", 5, 0, 0;
     callsub S_Reg, "Weekend Dungeon", 5, 0, 0;
-    callsub S_Reg, "Wave Mode - Forest", 5, 0, 0;
-    callsub S_Reg, "Wave Mode - Sky", 5, 0, 0;
+    //callsub S_Reg, "Wave Mode - Forest", 5, 0, 0;
+    //callsub S_Reg, "Wave Mode - Sky", 5, 0, 0;
     end;
 }
 
 // ====================================================================
 // Gate NPCs (originals must stay loaded)
 // ====================================================================
-prontera,165,141,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
-prontera,165,144,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
+//prontera,165,141,4	duplicate(Catherine Jet Johnson)	Horror Toy Factory	4_F_SKULL06GIRL
+//prontera,165,144,4	duplicate(Emmitt White)	Geffen Tournament	4_M_KHKYEL
 //prontera,165,147,4	duplicate(Charleston#mcd)	Charleston Crisis	4_F_CHARLESTON02
 //prontera,165,149,4	duplicate(Machine#mcd)	Charleston Crisis	PORTAL
-prontera,165,138,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE
+//prontera,165,138,4	duplicate(Civilization Explorer#pa0829_01)	Central Laboratory	4_LGTSCIENCE

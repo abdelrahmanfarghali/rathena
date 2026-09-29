@@ -1,27 +1,43 @@
 // ================= Balance profile (edit here only) =================
 function	script	F_RebornBalance	{
+	// Ensure a character is reborn/transcendent before continuing
 	if (!reborn_flag) return;
-	.@b$ = "bonus bMaxHPrate,10; bonus bMaxSPrate,10;";   // baseline
+
+	// Establish baseline permanent bonuses for all reborn classes
+	.@b$ = "bonus bMaxHPrate,10; bonus bMaxSPrate,10; ";
 
 	switch (getarg(0, Class)) {
-	case Job_Assassin_Cross:
-		.@b$ += "bonus2 bSkillCooldown,AS_SONICBLOW,-1000;"
-		      + "bonus2 bSkillDelay,AS_SONICBLOW,-1500;"
-		      + "bonus bDelayrate,-10;";
-		break;
-	case Job_Lord_Knight:
-	case Job_Paladin:
-		.@b$ += "bonus bMaxHPrate,5; bonus bDelayrate,-10;"; break;
-	case Job_High_Wizard:
-	case Job_Professor:
-		.@b$ += "bonus bCastrate,-10; bonus2 bSkillFixedCast,WZ_STORMGUST,-500;"; break;
-	case Job_Sniper:
-		.@b$ += "bonus bAspdRate,5; bonus bDelayrate,-10;"; break;
+		case Job_Assassin_Cross:
+			// Strip Renewal Cooldown and force classic 2.0s delay and walk lockout
+			.@b$ += "bonus2 bSkillCooldown,AS_SONICBLOW,-1000; "
+			      + "bonus2 bSkillDelay,AS_SONICBLOW,1500; "
+			      + "bonus2 bNoWalkTime,AS_SONICBLOW,2000; "
+			      + "bonus bDelayrate,-10; ";
+			break;
+
+		case Job_Lord_Knight:
+		case Job_Paladin:
+			.@b$ += "bonus bMaxHPrate,5; bonus bDelayrate,-10; "; 
+			break;
+
+		case Job_High_Wizard:
+		case Job_Professor:
+			.@b$ += "bonus bCastrate,-10; bonus2 bSkillFixedCast,WZ_STORMGUST,-500; "; 
+			break;
+
+		case Job_Sniper:
+			.@b$ += "bonus bAspdRate,5; bonus bDelayrate,-10; "; 
+			break;
 	}
+
+	// Wipe old script-driven bonuses before safely attaching the updated parameters
 	bonus_script_clear();
-	bonus_script .@b$, 2000000000, 0, 0, 0;
+	
+	// Format: bonus_script "bonus string", <duration_in_seconds (0 = permanent)>, <flags>
+	bonus_script .@b$, 0, BS_NODISPELL;
 	return;
 }
+
 
 // ================= Path table (data-driven) =================
 function	script	F_RebornPath	{

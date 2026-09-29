@@ -2090,6 +2090,7 @@ OnMyMobDead:
 		mapannounce .@map$, "Nidhoggur's Shadow : You're not bad... but I will be your opponent this time.",bc_map,"0x00ff99";
 		donpcevent instance_npcname("nyd_2f_boss_enter_logic")+"::OnEnable";
 		donpcevent instance_npcname(strnpcinfo(0))+"::OnDisable";
+		callfunc "F_InstanceCoinReward", 5;
 		end;
 	}
 	end;

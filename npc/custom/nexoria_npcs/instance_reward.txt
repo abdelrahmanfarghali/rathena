@@ -1,0 +1,40 @@
+// ---------------- Reward Function ----------------
+// Usage: callfunc "F_InstanceCoinReward", <amount>;
+// Call it from the final boss's OnMyMobDead label (killer must be attached).
+//OnMyMobDead:
+//	callfunc "F_InstanceCoinReward", 5;
+//	end;
+
+function	script	F_InstanceCoinReward	{
+	.@amount = getarg(0, 5);
+	.@self   = getcharid(3);
+	.@map$   = strcharinfo(PC_MAP);
+	.@party  = getcharid(1);
+
+	if (.@party) {
+		getpartymember .@party, 2;                 // account IDs of online members
+		.@count = $@partymembercount;
+		copyarray .@aid[0], $@partymemberaid[0], .@count;
+	} else {
+		.@aid[0] = .@self;                         // solo player
+		.@count = 1;
+	}
+
+	for (.@i = 0; .@i < .@count; .@i++) {
+		if (!attachrid(.@aid[.@i]))
+			continue;
+		if (strcharinfo(PC_MAP) != .@map$)         // only players still in the instance
+			continue;
+		if (checkweight(674, .@amount) == 0) {
+			dispbottom "Instance reward failed: you are carrying too much.";
+			continue;
+		}
+		getitem 674, .@amount;
+		dispbottom "You received " + .@amount + " Instance Coin(s).";
+	}
+
+	attachrid(.@self);                             // restore original player context
+	return;
+}
+
+prontera,146,168,6	itemshop	Instance Shop#coin	117,674:-1,5374:10,5401:20,2202:20,5208:50,18561:75,18813:75,5359:75,5800:75,5462:75,19283:75,5657:150,2589:150,18874:150

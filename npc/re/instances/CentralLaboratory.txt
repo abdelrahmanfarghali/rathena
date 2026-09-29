@@ -771,6 +771,7 @@ OnMyMobDead:
 	mapannounce 'map_name$, "MA-4885: Phase synchronization completed before creature is eliminated. Starting dimensional travel.", bc_map, 0xffff00,FW_NORMAL,13,0;
 	if (mobcount( 'map_name$, instance_npcname("#npc_con10") + "::OnMyMobDead" ) < 1)
 		initnpctimer;
+		callfunc "F_InstanceCoinReward", 5;
 	end;
 OnTimer1000:
 	killmonster 'map_name$, instance_npcname("#npc_con10") + "::OnMyMobDead";
