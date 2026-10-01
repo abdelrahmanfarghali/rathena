@@ -1,0 +1,24 @@
+prontera,156,173,4	script	Royal Guard	4258,{
+
+	OnNPCTalkEvent:
+	mes "^660000[Renewal Visitor]^000000";
+	mes "Hey, here is ^66BB55Royal Guard^000000 from ^000088Renewal World.^000000";
+	mes "^990099We're Coming in next week!^000000";
+	mes "^FF0000Maintenance time will start on Tuesday.^000000";
+	
+
+ OnInit:
+	setunitdata getnpcid(0),UNPC_CLASS,4066;
+	setunitdata getnpcid(0),UNPC_SEX,1;	
+	setunitdata getnpcid(0),UNPC_CLOTHCOLOR,45;
+	setunitdata getnpcid(0),UNPC_HAIRSTYLE,7;
+	setunitdata getnpcid(0),UNPC_HAIRCOLOR,2;	
+	setunitdata getnpcid(0),UNPC_HEADTOP,731;
+	setunitdata getnpcid(0),UNPC_HEADMIDDLE,316;
+	setunitdata getnpcid(0),UNPC_HEADBOTTOM,383;
+	setunitdata getnpcid(0),UNPC_ROBE,19;
+	setunitdata getnpcid(0),UNPC_BODY2,1;
+	setunittitle(getnpcid(0), "Renewal Visitor");
+	questinfo QTYPE_JUMPING_PORING;
+	end;
+}

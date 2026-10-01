@@ -25,11 +25,11 @@ function	script	F_InstanceCoinReward	{
 			continue;
 		if (strcharinfo(PC_MAP) != .@map$)         // only players still in the instance
 			continue;
-		if (checkweight(674, .@amount) == 0) {
+		if (checkweight(30000, .@amount) == 0) {
 			dispbottom "Instance reward failed: you are carrying too much.";
 			continue;
 		}
-		getitem 674, .@amount;
+		getitem 30000, .@amount;
 		dispbottom "You received " + .@amount + " Instance Coin(s).";
 	}
 
@@ -37,4 +37,5 @@ function	script	F_InstanceCoinReward	{
 	return;
 }
 
-prontera,146,168,6	itemshop	Instance Shop#coin	117,674:-1,5374:10,5401:20,2202:20,5208:50,18561:75,18813:75,5359:75,5800:75,5462:75,19283:75,5657:150,2589:150,18874:150
+prontera,146,168,6	itemshop	Instance Shop#coin	117,30000:-1,5374:50,18874:50,5401:20,2202:20,5208:50,18813:75,5359:75,5800:75,5462:75,2589:150
+//prontera,146,168,6	itemshop	Instance Shop#coin	117,30000:-1,5374:50,5401:20,2202:20,5208:50,18561:75,18813:75,5359:75,5800:75,5462:75,2589:150,18874:150

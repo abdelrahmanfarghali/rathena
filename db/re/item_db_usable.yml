@@ -2076,6 +2076,72 @@ Body:
       Sitting: true
     Script: |
       itemskill "MG_FROSTDIVER",1;
+  # - Id: 6225
+  #   AegisName: HD_Carnium
+  #   Name: HD Carnium
+  #   Type: Usable
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
+  # - Id: 6226
+  #   AegisName: HD_Bradium
+  #   Name: HD Bradium
+  #   Type: Usable
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
+  # - Id: 6240
+  #   AegisName: HD_Oridecon
+  #   Name: HD Oridecon
+  #   Type: Usable
+  #   Buy: 20
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
+  # - Id: 6241
+  #   AegisName: HD_Elunium
+  #   Name: HD Elunium
+  #   Type: Usable
+  #   Buy: 20
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
   - Id: 7037
     AegisName: Trade_Coupon
     Name: Coupon
@@ -2093,6 +2159,40 @@ Body:
       NoAuction: true
     Script: |
       /*set pcroom,(gettimetick(2)+7200);*/
+  # - Id: 7619
+  #   AegisName: Enriched_Elunium
+  #   Name: Enriched Elunium
+  #   Type: Usable
+  #   Buy: 2
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
+  # - Id: 7620
+  #   AegisName: Enriched_Oridecon
+  #   Name: Enriched Oridecon
+  #   Type: Usable
+  #   Buy: 2
+  #   Weight: 10
+  #   Trade:
+  #     NoDrop: true
+  #     NoTrade: true
+  #     NoSell: true
+  #     NoCart: true
+  #     NoGuildStorage: true
+  #     NoMail: true
+  #     NoAuction: true
+  #     NoConsume: true
+  #   Script: |
+  #     laphine_upgrade();
   - Id: 9510
     AegisName: Enchant_Stone_Box17
     Name: Costume Enchant Stone Box 17

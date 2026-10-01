@@ -16,6 +16,22 @@
 //   npc/re/instances/CharlestonCrisis.txt     -> Charleston#mcd (Charleston Crisis)
 //   npc/re/instances/CentralLaboratory.txt    -> Civilization Explorer#pa0829_01 (Central Lab)
 // ====================================================================
+//
+//
+//
+// ====================================================================
+// 1. The illusion dungeons npcs (Enchanter & Shops)
+// ====================================================================
+prontera,148,230,4	duplicate(Illusion Enchanter#0)	Illusion Enchanter	4_GEFFEN_09
+
+prontera,166,228,4	duplicate(Gemcutter#ilp20)	Illusion Exchange Moonlight	4_TOWER_17
+prontera,168,226,4	duplicate(Great Merchant#illgef)	Illusion Exchange Vampire	4_M_HUMERCHANT
+prontera,170,224,4	duplicate(Illusion Stone Research)	Illusion Exchange Frozen	4_M_ALCHE_B
+prontera,172,222,4	duplicate(Equipment Researcher)	Illusion Exchange Turtle	4_TOWER_15
+prontera,146,228,4	duplicate(Village Soap#Lu)	Illusion Exchange Luanda	4_M_ORIENT01
+prontera,144,226,4	duplicate(Horen#Horen)	Illusion Exchange Underwater	4_M_BIBI
+prontera,142,224,4	duplicate(From#iltw)	Illusion Exchange Twins	MECHANIC
+prontera,140,222,4	duplicate(Bear Wanting Illusion Stone#ITB)	Illusion Exchange Teddy	4_NASARIAN
 
 // ====================================================================
 // 1. The Zero-Friction Core (Spawn & Instant Deployment)
@@ -23,7 +39,6 @@
 // Kafra Storage: 1-click storage access, standard Prontera Kafra sprite (113)
 //prontera,156,193,4	script	Kafra Storage	113,{ openstorage; end; }
 //prontera,157,187,4	script	Kafra Save Point	113,{OnTouch: getmapxy(.@map$, .@x, .@y); savepoint .@map$, .@x, .@y; message strcharinfo(0), "Your save point has been updated.";}
-
 // FIXED: real template in npc/custom/healer.txt, sprite 909
 //prontera,148,187,4	duplicate(Healer)	The Grand Healer	21317
 
@@ -284,14 +299,14 @@ prontera,146,153,4	script	Statue of the MVP	1751,{
 			mes "Finish in the top 3 before midnight to earn one.";
 			close;
 		}
-		if (checkweight(7517, .@amt) == 0) {
+		if (checkweight(30001, .@amt) == 0) {
 			mes "You cannot carry that much. Free some weight and return.";
 			close;
 		}
 		$mvp_claim[.@cid] = 0;
-		getitem 7517, .@amt;
+		getitem 30001, .@amt;
 		mes "The monument rewards your glory!";
-		mes "Received ^008800" + getitemname(7517) + " x" + .@amt + "^000000.";
+		mes "Received ^008800" + getitemname(30001) + " x" + .@amt + "^000000.";
 		close;
 	case 4:
 		mes "[Statue Inscription]";

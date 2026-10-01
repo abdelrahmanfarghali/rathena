@@ -1,73 +1,179 @@
 // ====================================================================
-// Cash Point Exchanger - E-Sport Zero Friction Edition
-// SQL-backed cash balance (global_acc_reg_num) for reliable persistence
+// Cash Exchanger - Cash Points + Coin Type Conversion
+// SQL-backed balance (global_acc_reg_num). Fully data-driven via arrays.
 // ====================================================================
 prontera,140,170,4	script	Cash Exchanger	469,{
 
-    // --- Configuration ---
-    .@CoinID = 7517;          // Item ID for Gold Coin (Change if using a custom coin)
-    .@CashPerCoin = 100;     // How many Cash Points 1 Gold Coin gives
-    // ---------------------
+    // --- Configuration (parallel arrays: same index = same coin) ---
+    setarray .@CoinID[0],      45000, 45001, 45002, 45003;
+    setarray .@CashPerCoin[0],   100,   500,  1000, 10000;
+    .@MaxStack = 30000;   // server's max stack per item (MAX_AMOUNT)
+    // ---------------------------------------------------------------
 
-    // --- Read current cash balance directly from DB (authoritative source) ---
+    .@size   = getarraysize(.@CoinID);
     .@acc_id = getcharid(3);
-    query_sql("SELECT `value` FROM `global_acc_reg_num` WHERE `account_id` = " + .@acc_id + " AND `key` = '#CASHPOINTS' AND `index` = 0", .@cur_cash);
-    // If no row exists yet, .@cur_cash[0] is 0 (default) — that's correct.
+    .@Title$ = "[ ^FFD700Cash Exchanger^000000 ]";
 
-    mes "[ ^FFD700Cash Exchanger^00000 ]";
-    mes "Ahlan! Want to turn your hard-earned ^FF0000" + getitemname(.@CoinID) + "s^000000 into Cash Points?";
-    mes "Current Rate: ^0055FF1 Coin = " + .@CashPerCoin + " Cash Points^000000.";
+L_Main:
+    // Reset per-pass state and refresh snapshots
+    deletearray .@Owned;
+    deletearray .@Map;
+    deletearray .@Amt;
+    .@Held = 0; .@TotalCash = 0; .@n = 0; .@menu$ = "";
+
+    query_sql("SELECT `value` FROM `global_acc_reg_num` WHERE `account_id` = " + .@acc_id + " AND `key` = '#CASHPOINTS' AND `index` = 0", .@cur_cash);
+
+    for (.@i = 0; .@i < .@size; ++.@i) {
+        .@Owned[.@i] = countitem(.@CoinID[.@i]);
+        .@Held += .@Owned[.@i];
+    }
+
+    mes .@Title$;
+    mes "Ahlan! I can exchange your coins for Cash Points, or convert them between types.";
     mes " ";
-    mes "Your Coins: ^00AA00" + countitem(.@CoinID) + "^000000";
+    for (.@i = 0; .@i < .@size; ++.@i)
+        mes "^FF0000" + getitemname(.@CoinID[.@i]) + "^000000 (^0055FF" + .@CashPerCoin[.@i] + " CP^000000): ^00AA00" + .@Owned[.@i] + "^000000";
+    mes " ";
     mes "Your Cash Points: ^FF0000" + .@cur_cash[0] + "^000000";
     next;
 
-    if (countitem(.@CoinID) == 0) {
-        mes "[ ^FFD700Cash Exchanger^000000 ]";
-        mes "You don't have any coins to exchange right now.";
+    if (!.@Held) {
+        mes .@Title$;
+        mes "You don't have any coins right now.";
         mes "Come back when you've farmed some more!";
         close;
     }
 
-    // "Exchange All" is placed first for maximum efficiency (Zero Friction)
-    switch(select("Exchange All:Input Amount:Cancel")) {
+    switch (select("Exchange to Cash Points:Convert Coin Types:Cancel")) {
+        case 1: goto L_Cash;
+        case 2: goto L_Convert;
+        case 3: close;
+    }
+
+// --------------------------------------------------------------------
+L_Cash:
+    switch (select("Exchange All:Choose Coin Type:Back")) {
         case 1:
-            .@amt = countitem(.@CoinID);
+            for (.@i = 0; .@i < .@size; ++.@i)
+                .@Amt[.@i] = .@Owned[.@i];
             break;
-            
+
         case 2:
-            mes "[ ^FFD700Cash Exchanger^000000 ]";
-            mes "How many coins do you want to exchange?";
-            input .@amt;
-            
-            if (.@amt <= 0 || .@amt > countitem(.@CoinID)) {
-                mes "[ ^FFD700Cash Exchanger^000000 ]";
+            for (.@i = 0; .@i < .@size; ++.@i) {
+                if (.@Owned[.@i] <= 0) continue;
+                .@Map[.@n] = .@i;
+                ++.@n;
+                .@menu$ += getitemname(.@CoinID[.@i]) + " (" + .@Owned[.@i] + "):";
+            }
+            .@idx = .@Map[select(.@menu$) - 1];
+
+            mes .@Title$;
+            mes "How many ^FF0000" + getitemname(.@CoinID[.@idx]) + "s^000000 do you want to exchange?";
+            input .@qty;
+
+            if (.@qty <= 0 || .@qty > .@Owned[.@idx]) {
+                mes .@Title$;
                 mes "Invalid amount. Please try again.";
                 close;
             }
+            .@Amt[.@idx] = .@qty;
             break;
-            
+
         case 3:
-            close;
+            goto L_Main;
     }
 
-    // --- Process the transaction ---
-    delitem .@CoinID, .@amt;
-    .@TotalCash = (.@amt * .@CashPerCoin);
+    for (.@i = 0; .@i < .@size; ++.@i) {
+        if (.@Amt[.@i] <= 0) continue;
+        delitem .@CoinID[.@i], .@Amt[.@i];
+        .@TotalCash += .@Amt[.@i] * .@CashPerCoin[.@i];
+    }
     .@new_balance = .@cur_cash[0] + .@TotalCash;
 
-    // Upsert: insert a new row or increment the existing value atomically
     query_sql("INSERT INTO `global_acc_reg_num` (`account_id`, `key`, `index`, `value`) VALUES (" + .@acc_id + ", '#CASHPOINTS', 0, " + .@TotalCash + ") ON DUPLICATE KEY UPDATE `value` = `value` + " + .@TotalCash);
-
-    // Sync the in-memory account variable so the client HUD stays accurate
     #CASHPOINTS = .@new_balance;
-
-    // Trigger a visual effect on the player for satisfaction
     specialeffect2 50;
 
-    mes "[ ^FFD700Cash Exchanger^000000 ]";
+    mes .@Title$;
     mes "Mabrouk! Transaction complete.";
     mes "Added ^00AA00" + .@TotalCash + " Cash Points^000000 to your account.";
     mes "New Balance: ^FF0000" + .@new_balance + "^000000";
     close;
+
+// --------------------------------------------------------------------
+L_Convert:
+    // Step 1: pick SOURCE coin (only coins the player owns)
+    for (.@i = 0; .@i < .@size; ++.@i) {
+        if (.@Owned[.@i] <= 0) continue;
+        .@Map[.@n] = .@i;
+        ++.@n;
+        .@menu$ += getitemname(.@CoinID[.@i]) + " (" + .@Owned[.@i] + "):";
+    }
+    .@menu$ += "Back";
+
+    mes .@Title$;
+    mes "Which coin do you want to ^FF0000convert from^000000?";
+    .@sel = select(.@menu$) - 1;
+    if (.@sel == .@n) goto L_Main;
+    .@src = .@Map[.@sel];
+
+    // Step 2: pick TARGET coin (every coin except the source)
+    deletearray .@Map;
+    .@n = 0; .@menu$ = "";
+    for (.@i = 0; .@i < .@size; ++.@i) {
+        if (.@i == .@src) continue;
+        .@Map[.@n] = .@i;
+        ++.@n;
+        .@menu$ += getitemname(.@CoinID[.@i]) + " (" + .@CashPerCoin[.@i] + " CP):";
+    }
+    .@menu$ += "Back";
+
+    mes .@Title$;
+    mes "Convert ^FF0000" + getitemname(.@CoinID[.@src]) + "^000000 into which coin?";
+    .@sel = select(.@menu$) - 1;
+    if (.@sel == .@n) goto L_Main;
+    .@dst = .@Map[.@sel];
+
+    // Step 3: compute the maximum obtainable target amount
+    .@max = .@Owned[.@src] * .@CashPerCoin[.@src] / .@CashPerCoin[.@dst];
+    .@max = min(.@max, .@MaxStack - countitem(.@CoinID[.@dst]));
+
+    if (.@max < 1) {
+        mes .@Title$;
+        mes "You don't have enough ^FF0000" + getitemname(.@CoinID[.@src]) + "^000000 to make even one ^0055FF" + getitemname(.@CoinID[.@dst]) + "^000000,";
+        mes "or your stack of that coin is full.";
+        next;
+        goto L_Main;
+    }
+
+    mes .@Title$;
+    mes "Rate: ^0055FF" + .@CashPerCoin[.@src] + " CP^000000 -> ^0055FF" + .@CashPerCoin[.@dst] + " CP^000000 per coin.";
+    mes "You can receive up to ^00AA00" + .@max + "^000000 " + getitemname(.@CoinID[.@dst]) + "(s).";
+    mes "How many do you want?";
+    input .@qty, 1, .@max;
+
+    // Cost rounded UP so rounding can never be exploited
+    .@cost = (.@qty * .@CashPerCoin[.@dst] + .@CashPerCoin[.@src] - 1) / .@CashPerCoin[.@src];
+
+    mes .@Title$;
+    mes "Pay: ^FF0000" + .@cost + " " + getitemname(.@CoinID[.@src]) + "^000000";
+    mes "Get: ^00AA00" + .@qty + " " + getitemname(.@CoinID[.@dst]) + "^000000";
+    next;
+    if (select("Confirm:Cancel") == 2) goto L_Main;
+
+    // Re-validate right before the transaction (inventory may have changed)
+    if (countitem(.@CoinID[.@src]) < .@cost || !checkweight(.@CoinID[.@dst], .@qty)) {
+        mes .@Title$;
+        mes "Conversion failed. Check your inventory weight and coin amounts.";
+        close;
+    }
+
+    delitem .@CoinID[.@src], .@cost;
+    getitem .@CoinID[.@dst], .@qty;
+    specialeffect2 50;
+
+    mes .@Title$;
+    mes "Done! Converted ^FF0000" + .@cost + "^000000 -> ^00AA00" + .@qty + " " + getitemname(.@CoinID[.@dst]) + "^000000.";
+    next;
+    goto L_Main;
 }

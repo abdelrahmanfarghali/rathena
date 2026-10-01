@@ -185,59 +185,60 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		close;
 	}
 	disable_items;
-	if (isbegin_quest(12415) == 0) {
-		mes "[Illusion Enchanter]";
-		mes "Oh, do you have Illusion equipment?";
-		next;
-		select("No. I don't even know what Illusion equipment is.");
-		mes "[Illusion Enchanter]";
-		mes "Oops, I'm sorry. I should've introduced myself first.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "I'm a chemist specializing in the study of Illusion Stones, which have been circulating among adventurers.";
-		next;
-		select("Illusion Stones?");
-		mes "[Illusion Enchanter]";
-		mes "You don't know, don't you? They're the hottest trend these days.";
-		next;
-		select("I don't care about trends.");
-		mes "[Illusion Enchanter]";
-		mes "You must have heard about the strange places that have sprung up here and there lately. Illusion Stones are only found in those places,";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "and their atomic structure is unlike any mineral I've seen. *Blah Blah* ...Their chemical chains... *Blah Blah*";
-		next;
-		select("(Uh-oh, he's zoning out!)");
-		mes "[Illusion Enchanter]";
-		mes "Anyway, I can enchant equipment that is exchanged for or purchased with Illusion Stones. I call them the Illusion equipment.";
-		next;
-		select("(He has no sense when it comes to names.)");
-		mes "[Illusion Enchanter]";
-		mes "This equipment at least responds positively to Illusion Stones, or it has the potential to be enchanted successfully.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "Explore the worlds of illusions, collect Illusion Stones, and exchange them for equipment. I can enchant the equipment for you.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "This benefits both of us. I need Illusion Stones for my studies, and you need powerful equipment for your adventures.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "That said, my service is not for free. It requires a few Illusion Stones and Zeny.";
-		next;
-		mes "[Illusion Enchanter]";
-		mes "If you're interested, how'd you like to get a membership for my service? You can get discounts that way!";
-		next;
-		if (select( "Sure!", "Not interested." ) == 2) {
-			mes "[Illusion Enchanter]";
-			mes "Okay, but let me know if you change your mind.";
-			close;
-		}
-		mes "[Illusion Enchanter]";
-		mes "Alright, then I'll add you to my member list. I hope you'll have some Illusion equipment next time I see you.";
-		setquest 12415;
-		completequest 12415;
-		close;
-	}
+	
+	//if (isbegin_quest(12415) == 0) {
+	//	mes "[Illusion Enchanter]";
+	//	mes "Oh, do you have Illusion equipment?";
+	//	next;
+	//	select("No. I don't even know what Illusion equipment is.");
+	//	mes "[Illusion Enchanter]";
+	//	mes "Oops, I'm sorry. I should've introduced myself first.";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "I'm a chemist specializing in the study of Illusion Stones, which have been circulating among adventurers.";
+	//	next;
+	//	select("Illusion Stones?");
+	//	mes "[Illusion Enchanter]";
+	//	mes "You don't know, don't you? They're the hottest trend these days.";
+	//	next;
+	//	select("I don't care about trends.");
+	//	mes "[Illusion Enchanter]";
+	//	mes "You must have heard about the strange places that have sprung up here and there lately. Illusion Stones are only found in those places,";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "and their atomic structure is unlike any mineral I've seen. *Blah Blah* ...Their chemical chains... *Blah Blah*";
+	//	next;
+	//	select("(Uh-oh, he's zoning out!)");
+	//	mes "[Illusion Enchanter]";
+	//	mes "Anyway, I can enchant equipment that is exchanged for or purchased with Illusion Stones. I call them the Illusion equipment.";
+	//	next;
+	//	select("(He has no sense when it comes to names.)");
+	//	mes "[Illusion Enchanter]";
+	//	mes "This equipment at least responds positively to Illusion Stones, or it has the potential to be enchanted successfully.";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "Explore the worlds of illusions, collect Illusion Stones, and exchange them for equipment. I can enchant the equipment for you.";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "This benefits both of us. I need Illusion Stones for my studies, and you need powerful equipment for your adventures.";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "That said, my service is not for free. It requires a few Illusion Stones and Zeny.";
+	//	next;
+	//	mes "[Illusion Enchanter]";
+	//	mes "If you're interested, how'd you like to get a membership for my service? You can get discounts that way!";
+	//	next;
+	//	if (select( "Sure!", "Not interested." ) == 2) {
+	//		mes "[Illusion Enchanter]";
+	//		mes "Okay, but let me know if you change your mind.";
+	//		close;
+	//	}
+	//	mes "[Illusion Enchanter]";
+	//	mes "Alright, then I'll add you to my member list. I hope you'll have some Illusion equipment next time I see you.";
+	//	setquest 12415;
+	//	completequest 12415;
+	//	close;
+	//}
 	mes "[Illusion Enchanter]";
 	mes "I can enchant Illusion equipment.";
 	next;
