@@ -25,15 +25,15 @@ OnInit:
 		unloadnpc "Black Marketeer#ein";
 		unloadnpc "Black Marketeer#lhz";
 		unloadnpc "Black Marketeer#mid";
-		unloadnpc "Black Marketeer#prt";
+		//unloadnpc "Black Marketeer#prt";
 		unloadnpc "Black Marketeer#ra";
 		
 		//= Johnny Waiker
 		unloadnpc "Johnny Waiker";
 		
 		//= Rebellion Sellers
-		unloadnpc "Rebellion Accessories";
-		unloadnpc "Rebellion Weapons";
+		//unloadnpc "Rebellion Accessories";
+		//unloadnpc "Rebellion Weapons";
 		
 		//= Arrow Quiver Event
 		unloadnpc "Inventor Jaax";

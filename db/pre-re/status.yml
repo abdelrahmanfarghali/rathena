@@ -1274,7 +1274,7 @@ Body:
       NoSave: true
       RemoveOnHermode: true
     EndOnStart:
-      Magicpower: true
+      Magicpower: false
   - Status: Edp
     Icon: EFST_EDP
     DurationLookup: ASC_EDP

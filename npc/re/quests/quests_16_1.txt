@@ -14233,6 +14233,7 @@ prt_cas,161,168,5	script	Royal Guardian Knight#02	4_M_CRU,{
 prt_cas,270,168,3	duplicate(Royal Guardian Knight#02)	Royal Guardian Knight#03	4_M_CRU
 
 // Exchanges and enchants npc
+//prt_cas,165,260,6
 prt_cas,165,260,6	script	Noblesse Operator#ext161	4_F_CRU,{
 	mes "[Noblesse Operator]";
 	mes "Hello.";
@@ -18839,3 +18840,4 @@ prt_prison,20,20,4	script	Underground Dungeon Helper#EP161D	4_PORING,{
 	mes "Complete";
 	close;
 }
+prt_in,53,63,4	duplicate(Noblesse Operator#ext161)	Noblesse Equipment#ext161	4_F_CRU

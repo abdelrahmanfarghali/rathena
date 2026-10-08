@@ -33,53 +33,42 @@ OnInit:
 	//	setbattleflag(.flag$[.@i], .val[.@i]);
 	end;
 }
--	script	DropEvent#rates	-1,{
-OnInit:
-	// Event definition: flag names + boosted values (100 = 1x)
-	setarray .ev_flag$[0], "item_rate_equip", "item_rate_card", "item_rate_equip_boss";
-	setarray .ev_val[0],   30000,             30000,            30000;
-	.ev_duration = 3600;    // seconds (1 hour)
-	.active = 0;
-	end;
-
-OnClock0000:
-OnClock1800:
-	if (.active) end;
-	.active = 1;
-
-	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++) {
-		.bak[.@i] = getbattleflag(.ev_flag$[.@i]);
-		setbattleflag(.ev_flag$[.@i], .ev_val[.@i]);
-	}
-	donpcevent strnpcinfo(3) + "::OnBroadcast";   // immediate first announcement
-	initnpctimer;
-	end;
-
-OnBroadcast:
-	if (!.active) end;
-	.@left = (.ev_duration - (getnpctimer(0) / 1000)) / 60;   // minutes remaining
-	announce "[Drop Event] Equipment & Card drop rates are boosted! " + .@left + " min remaining.", bc_all, 0x00FF00;
-	end;
-
-OnTimer300000:
-OnTimer600000:
-OnTimer900000:
-OnTimer1200000:
-OnTimer1500000:
-OnTimer1800000:
-OnTimer2100000:
-OnTimer2400000:
-OnTimer2700000:
-OnTimer3000000:
-OnTimer3300000:
-	donpcevent strnpcinfo(3) + "::OnBroadcast";
-	end;
-
-OnTimer3600000:             // must equal .ev_duration * 1000
-	stopnpctimer;
-	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++)
-		setbattleflag(.ev_flag$[.@i], .bak[.@i]);
-	.active = 0;
-	announce "[Drop Event] Drop event has ended. Rates are back to normal.", bc_all, 0xFF0000;
-	end;
-}
+//-	script	DropEvent#rates	-1,{
+//OnInit:
+//	// Event definition: flag names + boosted values (100 = 1x)
+//	setarray .ev_flag$[0], "item_rate_equip", "item_rate_equip_boss";
+//	setarray .ev_val[0],   20000, 20000;
+//	.ev_duration = 300;    // seconds (1 hour)
+//	.active = 0;
+//	end;
+//
+//OnClock0000:
+//OnClock1800:
+//	if (.active) end;
+//	.active = 1;
+//
+//	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++) {
+//		.bak[.@i] = getbattleflag(.ev_flag$[.@i]);
+//		setbattleflag(.ev_flag$[.@i], .ev_val[.@i]);
+//	}
+//	donpcevent strnpcinfo(3) + "::OnBroadcast";   // immediate first announcement
+//	initnpctimer;
+//	end;
+//
+//OnBroadcast:
+//	if (!.active) end;
+//	.@left = (.ev_duration - (getnpctimer(0) / 1000)) / 60;   // minutes remaining
+//	announce "[Drop Event] Equipment & Card drop rates are boosted! " + .@left + " min remaining.", bc_all, 0x00FF00;
+//	end;
+//OnTimer120000
+//	donpcevent strnpcinfo(3) + "::OnBroadcast";
+//	end;
+//
+//OnTimer300000:             // must equal .ev_duration * 1000
+//	stopnpctimer;
+//	for (.@i = 0; .@i < getarraysize(.ev_flag$); .@i++)
+//		setbattleflag(.ev_flag$[.@i], .bak[.@i]);
+//	.active = 0;
+//	announce "[Drop Event] Drop event has ended. Rates are back to normal.", bc_all, 0xFF0000;
+//	end;
+//}

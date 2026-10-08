@@ -40,6 +40,9 @@ beach_dun3,0,0	monster	Megalodon	1064,30,5000
 beach_dun3,0,0	monster	Hydra	1068,30,5000
 beach_dun3,0,0	monster	Nereid	1255,1,5000
 
+com_d02_i,0,0,0,0	boss_monster	Ancient Tao Gunka	20273,1,1200000,1100000,"illusion_luanda::OnBossDeath"
+com_d02_i,0,0,0,0	boss_monster	Ancient Wootan Defender	20277,1,1200000,1100000,"illusion_luanda::OnBossDeath"
+
 //==================================================
 // Illusion of Luanda
 //==================================================
@@ -49,21 +52,21 @@ beach_dun3,0,0	monster	Nereid	1255,1,5000
 OnMob20270: callsub( S_Mob, 20270, 5 );	// ILL_TRI_JOINT
 OnMob20271: callsub( S_Mob, 20271, 5 );	// ILL_STALACTIC_GOLEM
 OnMob20272: callsub( S_Mob, 20272, 5 );	// ILL_MEGALITH
-OnMob20274: callsub( S_Mob, 20274, 4 );	// ILL_STONE_SHOOTER
-OnMob20275: callsub( S_Mob, 20275, 4 );	// ILL_WOOTAN_SHOOTER
-OnMob20276: callsub( S_Mob, 20276, 4 );	// ILL_WOOTAN_FIGHTER
+OnMob20274: callsub( S_Mob, 20274, 5 );	// ILL_STONE_SHOOTER
+OnMob20275: callsub( S_Mob, 20275, 5 );	// ILL_WOOTAN_SHOOTER
+OnMob20276: callsub( S_Mob, 20276, 5 );	// ILL_WOOTAN_FIGHTER
 S_Mob:
 	.@group = getarg(1);
 	if (.@group != .group)
 		end;
-	if (playerattached()) {
-		if (.count < 1500)
-			.count++;
-		if (.count == 1500 && !.boss_spawn && !.cooldown) {
-			getunitdata( killedgid, .@data );
-			callsub( S_Boss, (20273 + .swap), .@data[UMOB_X], .@data[UMOB_Y] );
-		}
-	}
+	//if (playerattached()) {
+	//	if (.count < 1500)
+	//		.count++;
+	//	if (.count == 1500 && !.boss_spawn && !.cooldown) {
+	//		getunitdata( killedgid, .@data );
+	//		callsub( S_Boss, (20273 + .swap), .@data[UMOB_X], .@data[UMOB_Y] );
+	//	}
+	//}
 	.@mob_id = getarg(0);
 	sleep 5000;
 	if (.@group == .group)
@@ -73,11 +76,11 @@ S_Mob:
 S_Boss:
 	killmonster "com_d02_i", "illusion_luanda::OnBossDeath";
 	.boss_spawn = true;
-	monster "com_d02_i",getarg(1),getarg(2),"--ja--",getarg(0),1,"illusion_luanda::OnBossDeath";
-	if (.swap == 0)	// ILL_TAO_GUNKA
-		mapannounce "com_d02_i", "Ancient Tao Gunka: Is it time to show off your megalithic power?", bc_map, 0x70DBDB;
-	else	// ILL_WOOTAN_DEFENDER
-		mapannounce "com_d02_i", "Ancient Wootan Defender: I guess I'll have to step in after all these useless guys.", bc_map, 0x70DBDB;
+	//monster "com_d02_i",getarg(1),getarg(2),"--ja--",getarg(0),1,"illusion_luanda::OnBossDeath";
+	//if (.swap == 0)	// ILL_TAO_GUNKA
+	//	mapannounce "com_d02_i", "Ancient Tao Gunka: Is it time to show off your megalithic power?", bc_map, 0x70DBDB;
+	//else	// ILL_WOOTAN_DEFENDER
+	//	mapannounce "com_d02_i", "Ancient Wootan Defender: I guess I'll have to step in after all these useless guys.", bc_map, 0x70DBDB;
 	end;
 
 OnBossDeath:
@@ -100,7 +103,7 @@ OnBossDeath:
 		mapannounce "com_d02_i", "Ancient Wootan Defender: Listen to all Wootans! Leave now and commit to the next one.", bc_map, 0x70DBDB;
 	}
 	sleep 1000;
-	.group = (.group == 4 ? 5 : 4);
+	.group = (.group == 5 ? 5 : 5);
 
 	// all the mobs are killed and immediately replaced with new mobs
 	for ( .@i = 0; .@i < 3; ++.@i ) {
@@ -113,7 +116,10 @@ OnBossDeath:
 	callsub( S_SpawnInit,
 		(20270 + .swap),
 		(20271 + .swap),
-		(20272 + .swap)
+		(20272 + .swap),
+		(20274 + .swap),
+		(20275 + .swap),
+		(20276 + .swap)
 	);
 	initnpctimer;
 	end;
@@ -125,9 +131,12 @@ OnTimer7200000:
 
 S_SpawnInit:
 	.count = 0;
-	monster "com_d02_i",0,0,"--ja--",getarg(0),50,"illusion_luanda::OnMob" + getarg(0);
-	monster "com_d02_i",0,0,"--ja--",getarg(1),50,"illusion_luanda::OnMob" + getarg(1);
-	monster "com_d02_i",0,0,"--ja--",getarg(2),50,"illusion_luanda::OnMob" + getarg(2);
+	monster "com_d02_i",0,0,"--ja--",getarg(0),25,"illusion_luanda::OnMob" + getarg(0);
+	monster "com_d02_i",0,0,"--ja--",getarg(1),25,"illusion_luanda::OnMob" + getarg(1);
+	monster "com_d02_i",0,0,"--ja--",getarg(2),25,"illusion_luanda::OnMob" + getarg(2);
+	monster "com_d02_i",0,0,"--ja--",getarg(4),25,"illusion_luanda::OnMob" + getarg(4);
+	monster "com_d02_i",0,0,"--ja--",getarg(5),25,"illusion_luanda::OnMob" + getarg(5);
+	monster "com_d02_i",0,0,"--ja--",getarg(6),25,"illusion_luanda::OnMob" + getarg(6);
 	return;
 
 OnInit:
@@ -136,7 +145,10 @@ OnInit:
 	callsub( S_SpawnInit,
 		20270,	// ILL_TRI_JOINT
 		20271,	// ILL_STALACTIC_GOLEM
-		20272	// ILL_MEGALITH
+		20272,	// ILL_MEGALITH
+		20274,
+		20275,
+		20276
 	);
 	end;
 }

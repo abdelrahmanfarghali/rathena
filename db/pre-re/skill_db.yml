@@ -9756,6 +9756,7 @@ Body:
     CastTimeFlags:
       IgnoreDex: true
       IgnoreItemBonus: true
+      IgnoreStatus: true
     Requires:
       SpCost:
         - Level: 1
@@ -9778,7 +9779,7 @@ Body:
           Amount: 46
         - Level: 10
           Amount: 50
-    Status: MagicPower
+    Status: Magicpower
   - Id: 367
     Name: PA_PRESSURE
     Description: Gloria Domini

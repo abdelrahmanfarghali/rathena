@@ -5680,6 +5680,8 @@ static struct Damage battle_calc_weapon_attack(block_list *src, block_list *targ
 				ATK_ADD(wd.damage, wd.damage2, skill_lv * 500 + status_get_lv(target) * 40);
 			} else
 				ATK_ADD(wd.damage, wd.damage2, skill_lv * 240 + status_get_lv(target) * 40);
+			wd.damage = (wd.damage * 80) / 100;
+			wd.damage2 = (wd.damage2 * 80) / 100;
 			break;
 		case SR_GATEOFHELL: {
 			status_data* sstatus = status_get_status_data(*src);
@@ -6582,6 +6584,7 @@ struct Damage battle_calc_misc_attack(block_list *src,block_list *target,uint16 
 
 			// Additional Damage
 			md.damage += sstatus->max_hp / (6 - min(5, skill_lv)) + status_get_max_sp(src) * (2 * skill_lv);
+			md.damage = (md.damage * 80) / 100;
 			break;
 		case NPC_CANE_OF_EVIL_EYE:
 			md.damage = 15000;

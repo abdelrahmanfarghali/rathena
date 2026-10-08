@@ -14,7 +14,6 @@
 //= Request
 //============================================================
 prontera,164,161,4	script	Freebie NPC	116,{
-
 mes .n$;
 if(getgmlevel() >= .gm) {
 	mes "What do you want to do?";
@@ -27,6 +26,15 @@ if(.gm_it && getarraysize($item) < 1 || !.gm_it && getarraysize(.Free) < 1) {
 	mes "Please wait till an GM added some.";
 	close;
 }
+.@nb = query_sql(sprintf(
+    "SELECT 1 FROM `login` l1 " +
+    "INNER JOIN `login` l2 ON l1.`last_ip` = l2.`last_ip` " +
+    "INNER JOIN `global_acc_reg_num` r ON l2.`account_id` = r.`account_id` " +
+    "WHERE l1.`account_id` = %d AND l2.`account_id` <> %d " +
+    "AND r.`key` = '#free' AND r.`value` = 2 LIMIT 1", 
+    getcharid(3), getcharid(3)
+), .@ip_blocked);
+
 if(!#free && $freebies < .f_limit) {
 	if(Upper == 0) 
 		if(.requ && BaseLevel < 99 && JobLevel < 50) set .@f,1;
@@ -43,6 +51,9 @@ if(!#free && $freebies < .f_limit) {
 	mes "I'm sorry, but I cannot give you any freebies anymore, since I have reached the maximum allowed amount to give.";
 	close;
 	
+} else if (.@nb > 0) {
+	mes "I'm sorry, your ip has been restricted from recieving more freebies.";
+	close;
 } else if(#free == 1) {
 	mes "Do you want to recieve your freebies now?";
 	if(select("- Yes:- No") - 1) close;
@@ -235,7 +246,7 @@ switch(select("- View Freebies:- Freebie Management:- Player List:- Reset Variab
 
 OnInit:
 set .n$,"["+strnpcinfo(1)+"]";
-set .gm,80; // GM Access Level
+set .gm,10; // GM Access Level
 // How should be the Item Adding be handled?
 // 0 == via .Free Array > No Ingame Menu
 // 1 == via $item array > InGame Menu
@@ -248,12 +259,12 @@ set .reb_lvl,0; // When rebirthed is lvl 99/70 required?
 // Reward can be either Item and/or Zeny.
 // For Zeny put "1" and for Item, the ID you want.
 // Amount should be obvious.
-setarray .Free[0],14208,1,13607,1,12412,1,14533,1,13990,1,6380,20,19836,1;
+setarray .Free[0],0;
 set .zeny,1; // Use zeny too?
-set .f_limit,100; // Max Freebies to give
+set .f_limit,1000; // Max Freebies to give
 set .free_limit,200; // Max Freebies per player
 set .iam_limit,100; // Max Amount of an Item
-set .z_limit,100000; // Maximum Zeny (Default: 1m)
+set .z_limit,1000000; // Maximum Zeny (Default: 1m)
 if(.gm_it) end;
 for ( set .@f,0; .@f < getarraysize(.Free); set .@f,.@f + 1)
 	if(!.zeny && .Free[.@f] == 1) {

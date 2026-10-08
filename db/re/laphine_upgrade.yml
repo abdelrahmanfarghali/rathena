@@ -40,50 +40,50 @@ Header:
   Version: 1
 
 Body:
-  # - Item: Noblesse_Rifine_Ticket
-  #   ResultRefine: 9
-  #   CardsAllowed: true
-  #   TargetItems:
-  #     - Item: Noblesse_Breath_Armor
-  #     - Item: Noblesse_Knight_Armor
-  #     - Item: Noblesse_Spear_Armor
-  #     - Item: Noblesse_Genesis_Armor
-  #     - Item: Noblesse_Sharp_Suit
-  #     - Item: Noblesse_Aim_Suit
-  #     - Item: Noblesse_Severe_Suit
-  #     - Item: Noblesse_Reverb_Suit
-  #     - Item: Noblesse_Adora_Robe
-  #     - Item: Noblesse_Duple_Robe
-  #     - Item: Noblesse_Tonado_Armor
-  #     - Item: Noblesse_Vulcan_Armor
-  #     - Item: Noblesse_Kart_Suit
-  #     - Item: Noblesse_Kart_Suit2
-  #     - Item: Noblesse_Rolling_Suit
-  #     - Item: Noblesse_Assasin_Suit
-  #     - Item: Noblesse_Fatal_Suit
-  #     - Item: Noblesse_Stalker_Suit
-  #     - Item: Noblesse_Picky_Robe
-  #     - Item: Noblesse_Carrot_Robe
-  #     - Item: Noblesse_Trip_Suit
-  #     - Item: Noblesse_Firerain_Suit
-  #     - Item: Noblesse_Crimson_Robe
-  #     - Item: Noblesse_Frost_Robe
-  #     - Item: Noblesse_Psychic_Robe
-  #     - Item: Noblesse_Dust_Robe
-  #     - Item: Noblesse_Sun_Suit
-  #     - Item: Noblesse_Moon_Suit
-  #     - Item: Noblesse_Ninja_Suit
-  #     - Item: Noblesse_Kunai_Suit
-  #     - Item: Noblesse_Swhoo_Robe
-  #     - Item: Noblesse_Explosion_Robe
-  #     - Item: Noblesse_Knuckle_Suit
-  #     - Item: Noblesse_Tiger_Suit
-  #     - Item: Noblesse_Snovice_Suit
-  #     - Item: Noblesse_Snovice_Robe
-  #     - Item: Noblesse_Attack_Boots
-  #     - Item: Noblesse_Magic_Boots
-  #     - Item: Noblesse_Attack_Manteau
-  #     - Item: Noblesse_Magic_Manteau
+  - Item: Noblesse_Rifine_Ticket
+    ResultRefine: 9
+    CardsAllowed: true
+    TargetItems:
+      - Item: Noblesse_Breath_Armor
+      - Item: Noblesse_Knight_Armor
+      - Item: Noblesse_Spear_Armor
+      - Item: Noblesse_Genesis_Armor
+      - Item: Noblesse_Sharp_Suit
+      - Item: Noblesse_Aim_Suit
+      - Item: Noblesse_Severe_Suit
+      - Item: Noblesse_Reverb_Suit
+      - Item: Noblesse_Adora_Robe
+      - Item: Noblesse_Duple_Robe
+      - Item: Noblesse_Tonado_Armor
+      - Item: Noblesse_Vulcan_Armor
+      - Item: Noblesse_Kart_Suit
+      - Item: Noblesse_Kart_Suit2
+      - Item: Noblesse_Rolling_Suit
+      - Item: Noblesse_Assasin_Suit
+      - Item: Noblesse_Fatal_Suit
+      - Item: Noblesse_Stalker_Suit
+      - Item: Noblesse_Picky_Robe
+      - Item: Noblesse_Carrot_Robe
+      - Item: Noblesse_Trip_Suit
+      - Item: Noblesse_Firerain_Suit
+      - Item: Noblesse_Crimson_Robe
+      - Item: Noblesse_Frost_Robe
+      - Item: Noblesse_Psychic_Robe
+      - Item: Noblesse_Dust_Robe
+      - Item: Noblesse_Sun_Suit
+      - Item: Noblesse_Moon_Suit
+      - Item: Noblesse_Ninja_Suit
+      - Item: Noblesse_Kunai_Suit
+      - Item: Noblesse_Swhoo_Robe
+      - Item: Noblesse_Explosion_Robe
+      - Item: Noblesse_Knuckle_Suit
+      - Item: Noblesse_Tiger_Suit
+      - Item: Noblesse_Snovice_Suit
+      - Item: Noblesse_Snovice_Robe
+      - Item: Noblesse_Attack_Boots
+      - Item: Noblesse_Magic_Boots
+      - Item: Noblesse_Attack_Manteau
+      - Item: Noblesse_Magic_Manteau
   # - Item: Imperial_Rifine_Ticket
   #   ResultRefine: 9
   #   CardsAllowed: true

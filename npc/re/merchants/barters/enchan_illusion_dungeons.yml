@@ -209,7 +209,7 @@ Body:
             Amount: 50
           - Index: 3
             Item: IL_Kraken_Leg
-            Amount: 15
+            Amount: 2
           - Index: 4
             Item: IllusionStone
             Amount: 100
@@ -226,7 +226,7 @@ Body:
             Amount: 50
           - Index: 3
             Item: Crown_Of_Witch
-            Amount: 15
+            Amount: 2
           - Index: 4
             Item: IllusionStone
             Amount: 100
@@ -550,7 +550,7 @@ Body:
             Amount: 100
           - Index: 2
             Item: KTULLANUXsEye
-            Amount: 20
+            Amount: 2
       - Index: 1
         Item: Combo_Battle_Glove_IL
         RequiredItems:
@@ -708,7 +708,7 @@ Body:
             Amount: 100
           - Index: 2
             Item: ShipsLog
-            Amount: 50
+            Amount: 5
       - Index: 1
         Item: War_Axe_IL
         RequiredItems:
@@ -811,7 +811,7 @@ Body:
             Amount: 120
           - Index: 2
             Item: Wootan_D_S_Piece
-            Amount: 30
+            Amount: 3
           - Index: 3
             Item: Token_Of_Wootan
             Amount: 150
@@ -856,7 +856,7 @@ Body:
             Amount: 120
           - Index: 2
             Item: Fragment_Of_Rock
-            Amount: 30
+            Amount: 3
           - Index: 3
             Item: Token_Of_Bigstone
             Amount: 150
@@ -945,4 +945,4 @@ Body:
             Amount: 50
           - Index: 4
             Item: Clay_Doll
-            Amount: 5
+            Amount: 1

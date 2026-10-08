@@ -1833,12 +1833,49 @@ Body:
     AttackMotion: 672
     ClientAttackMotion: 192
     DamageMotion: 384
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
+    # MvpDrops:
+    #   - Item: Enriched_Elunium
+    #     Rate: 10
+    #   - Item: Enriched_Oridecon
+    #     Rate: 10
+    #   - Item: HD_Elunium
+    #     Rate: 5
+    #   - Item: HD_Oridecon
+    #     Rate: 5
+    #   - Item: HD_Carnium
+    #     Rate: 5
+    #   - Item: HD_Bradium
+    #     Rate: 5
+    # #   - Item: Enriched_Elunium
+    # #     Rate: 10
+    # #   - Item: Enriched_Oridecon
+    # #     Rate: 10
+    # #   - Item: HD_Elunium
+    # #     Rate: 5
+    # #   - Item: HD_Oridecon
+    # #     Rate: 5
+    # #   - Item: HD_Carnium
+    # #     Rate: 5
+    # #   - Item: HD_Bradium
+    # #     Rate: 5
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3000
       - Item: Osiris_Doll
@@ -1889,12 +1926,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 600
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Baphomet_Doll
         Rate: 2500
       - Item: Evil_Horn
@@ -2212,12 +2261,24 @@ Body:
     AttackMotion: 480
     ClientAttackMotion: 192
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Cardinal_Jewel_
         Rate: 1500
       - Item: Blue_Potion
@@ -2863,12 +2924,24 @@ Body:
     AttackMotion: 648
     ClientAttackMotion: 504
     DamageMotion: 300
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Royal_Jelly
         Rate: 4000
       - Item: Scarlet_Jewel
@@ -4196,12 +4269,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 720
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 07
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Gold_Ring
         Rate: 2000
       - Item: Ora_Ora
@@ -4254,12 +4339,24 @@ Body:
     AttackMotion: 780
     ClientAttackMotion: 660
     DamageMotion: 648
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Red_Jewel
         Rate: 2000
       - Item: Steel
@@ -5485,12 +5582,24 @@ Body:
     AttackMotion: 420
     ClientAttackMotion: 108
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: White_Potion
         Rate: 5000
       - Item: Violet_Jewel
@@ -5643,12 +5752,24 @@ Body:
     AttackMotion: 1344
     ClientAttackMotion: 408
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Tiger's_Skin
         Rate: 5000
       - Item: Tiger_Footskin
@@ -7202,12 +7323,24 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 624
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Crystal_Jewel
         Rate: 2000
       - Item: Old_Violet_Box
@@ -7356,12 +7489,24 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 120
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Fox_Tail
         Rate: 5000
       - Item: Golden_Jewel
@@ -7695,12 +7840,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 576
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Royal_Jelly
         Rate: 5000
       - Item: Crystal_Jewel__
@@ -7799,12 +7956,24 @@ Body:
     AttackMotion: 1020
     ClientAttackMotion: 324
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Frozen_Heart
         Rate: 500
       - Item: Star_Crumb
@@ -9197,12 +9366,24 @@ Body:
     AttackMotion: 500
     ClientAttackMotion: 624
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Voucher_Of_Orcish_Hero
         Rate: 5500
       - Item: Old_Violet_Box
@@ -12051,12 +12232,24 @@ Body:
     AttackMotion: 468
     ClientAttackMotion: 252
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Skyblue_Jewel
         Rate: 4500
       - Item: Mistic_Frozen
@@ -12108,12 +12301,24 @@ Body:
     AttackMotion: 408
     ClientAttackMotion: 312
     DamageMotion: 336
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Fang_Of_Garm
         Rate: 1000
       - Item: Old_Blue_Box
@@ -13086,12 +13291,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 408
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Skull
         Rate: 6000
       - Item: Blue_Coif_
@@ -14995,12 +15212,24 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 624
     DamageMotion: 500
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 1500
       - Item: Old_Violet_Box
@@ -17555,12 +17784,24 @@ Body:
     AttackMotion: 1296
     ClientAttackMotion: 768
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Crystal_Jewel__
         Rate: 5000
       - Item: Old_Violet_Box
@@ -18315,12 +18556,24 @@ Body:
     AttackMotion: 1140
     ClientAttackMotion: 780
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Crystal_Jewel__
         Rate: 5000
       - Item: Fruit_Of_Mastela
@@ -18724,6 +18977,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5500
       - Item: Royal_Jelly
@@ -19538,12 +19803,24 @@ Body:
     AttackMotion: 816
     ClientAttackMotion: 1440
     DamageMotion: 420
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Elunium
@@ -21816,12 +22093,24 @@ Body:
     AttackMotion: 1344
     ClientAttackMotion: 1152
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3500
       - Item: Elunium
@@ -22224,6 +22513,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Sword_Of_Grave_Keeper
         Rate: 1000
       - Item: Poring__Card
@@ -22665,12 +22966,24 @@ Body:
     AttackMotion: 2016
     ClientAttackMotion: 720
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 10
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3500
       - Item: Crystal_Jewel__
@@ -23000,6 +23313,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5500
       - Item: Celestial_Robe
@@ -25044,12 +25369,24 @@ Body:
     AttackMotion: 288
     ClientAttackMotion: 384
     DamageMotion: 144
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 3000
       - Item: Blue_Potion
@@ -26584,12 +26921,24 @@ Body:
     AttackMotion: 1104
     ClientAttackMotion: 480
     DamageMotion: 240
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Dark_Blindfold
         Rate: 3500
       - Item: Crystal_Jewel__
@@ -26877,12 +27226,24 @@ Body:
     AttackMotion: 960
     ClientAttackMotion: 768
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Celestial_Robe
         Rate: 2000
       - Item: Old_Violet_Box
@@ -27637,6 +27998,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -27698,6 +28071,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -27760,6 +28145,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -27822,6 +28219,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -27884,6 +28293,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -27946,6 +28367,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -28322,6 +28755,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Goast_Chill
@@ -29438,12 +29883,24 @@ Body:
     AttackMotion: 912
     ClientAttackMotion: 528
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Crystal_Jewel__
@@ -29592,12 +30049,24 @@ Body:
     AttackMotion: 432
     ClientAttackMotion: 384
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 10
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Dex_Dish10
         Rate: 5000
       - Item: Crystal_Jewel__
@@ -30531,12 +31000,24 @@ Body:
     AttackMotion: 816
     ClientAttackMotion: 672
     DamageMotion: 504
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Crystal_Jewel__
@@ -31040,12 +31521,24 @@ Body:
     AttackMotion: 936
     ClientAttackMotion: 240
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Crystal_Jewel__
@@ -31549,12 +32042,24 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 384
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Old_Card_Album
@@ -32185,12 +32690,24 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 504
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Old_Card_Album
@@ -32784,6 +33301,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Jellopy
         Index: 0
         Rate: 5000
@@ -32825,6 +33354,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Jellopy
         Index: 0
         Rate: 5000
@@ -32866,12 +33407,24 @@ Body:
     AttackMotion: 2880
     ClientAttackMotion: 288
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -33448,12 +34001,24 @@ Body:
     AttackMotion: 840
     ClientAttackMotion: 660
     DamageMotion: 216
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -33743,12 +34308,24 @@ Body:
     AttackMotion: 600
     ClientAttackMotion: 480
     DamageMotion: 240
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -34801,6 +35378,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -34935,6 +35524,18 @@ Body:
       IgnoreMisc: true
       IgnoreRanged: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Fatty_Chubby_Earthworm
         Index: 0
         Rate: 5000
@@ -34983,6 +35584,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Bloody_Dead_Branch
         Index: 0
         Rate: 5500
@@ -35530,12 +36143,24 @@ Body:
     AttackMotion: 384
     ClientAttackMotion: 288
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Carnium
         Rate: 5000
       - Item: Old_Card_Album
@@ -37176,12 +37801,24 @@ Body:
     AttackMotion: 432
     ClientAttackMotion: 288
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3500
       - Item: Crystal_Jewel__
@@ -37290,12 +37927,24 @@ Body:
     AttackMotion: 504
     ClientAttackMotion: 252
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
       - Item: Box_Of_Grudge
@@ -37388,6 +38037,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Helm_Of_Sun
         Rate: 10000
   - Id: 1877
@@ -37769,12 +38430,24 @@ Body:
     AttackMotion: 864
     ClientAttackMotion: 648
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -38741,12 +39414,24 @@ Body:
     AttackMotion: 624
     ClientAttackMotion: 336
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -40165,6 +40850,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -40216,6 +40913,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -41172,6 +41881,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Pickaxe
         Rate: 10000
     Drops:
@@ -42904,6 +43625,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -43931,6 +44664,18 @@ Body:
       IgnoreMelee: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -44478,6 +45223,18 @@ Body:
       IgnoreMisc: true
       IgnoreRanged: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Mosquito_Coil
         Rate: 10000
     Drops:
@@ -44549,12 +45306,24 @@ Body:
     AttackMotion: 1152
     ClientAttackMotion: 240
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Card_Album
@@ -44898,6 +45667,18 @@ Body:
       IgnoreRanged: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Valhalla_Flower
         Index: 0
         Rate: 10000
@@ -45377,12 +46158,24 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 300
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Index: 1
         Rate: 5000
@@ -45699,6 +46492,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Red_Jewel
         Index: 0
         Rate: 2000
@@ -45761,6 +46566,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Tiger's_Skin
         Index: 0
         Rate: 5000
@@ -45823,6 +46640,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Index: 0
         Rate: 4000
@@ -45885,6 +46714,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -45947,6 +46788,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Cardinal_Jewel_
         Rate: 1500
     Drops:
@@ -46002,6 +46855,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Rough_Wind
         Index: 0
         Rate: 1500
@@ -46064,6 +46929,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 2000
@@ -46125,6 +47002,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -46187,6 +47076,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Skull
         Index: 0
         Rate: 6000
@@ -46249,6 +47150,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -46312,6 +47225,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -46374,6 +47299,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Turtle_Shell
         Index: 0
         Rate: 5500
@@ -46436,6 +47373,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -46499,6 +47448,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -46561,6 +47522,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Index: 0
         Rate: 5500
@@ -46623,6 +47596,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -46685,6 +47670,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -46748,6 +47745,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -46810,6 +47819,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -46869,6 +47890,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5500
@@ -47228,6 +48261,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Index: 0
         Rate: 500
@@ -48129,12 +49174,24 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 432
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -48511,12 +49568,24 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 300
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Card_Album
@@ -49522,6 +50591,18 @@ Body:
       IgnoreRanged: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -49589,6 +50670,18 @@ Body:
       IgnoreMagic: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -49655,6 +50748,18 @@ Body:
       IgnoreMagic: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -49723,6 +50828,18 @@ Body:
       IgnoreRanged: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -49902,6 +51019,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -50238,12 +51367,24 @@ Body:
     AttackMotion: 864
     ClientAttackMotion: 480
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 5000
       - Item: Treasure_Box
@@ -50675,6 +51816,18 @@ Body:
       IgnoreMelee: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -51651,6 +52804,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -51710,6 +52875,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -51771,6 +52948,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -51829,6 +53018,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -51888,6 +53089,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -51947,6 +53160,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -52004,6 +53229,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -52303,12 +53540,24 @@ Body:
     AttackMotion: 1380
     ClientAttackMotion: 324
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -52411,12 +53660,24 @@ Body:
     AttackMotion: 2592
     ClientAttackMotion: 432
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -52519,12 +53780,24 @@ Body:
     AttackMotion: 792
     ClientAttackMotion: 504
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -52628,12 +53901,24 @@ Body:
     AttackMotion: 648
     ClientAttackMotion: 360
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -54175,6 +55460,18 @@ Body:
       IgnoreMagic: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -54747,6 +56044,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -54867,6 +56176,18 @@ Body:
     Ai: 10
     Class: Boss
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -55041,6 +56362,18 @@ Body:
       IgnoreMisc: true
       IgnoreRanged: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -55519,6 +56852,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -55891,6 +57236,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Treasure_Box
         Index: 0
         Rate: 10000
@@ -56345,12 +57702,24 @@ Body:
     AttackMotion: 2016
     ClientAttackMotion: 1140
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 10
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3500
       - Item: Crystal_Jewel__
@@ -58765,6 +60134,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -58817,6 +60198,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -60229,6 +61622,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -60284,6 +61689,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5500
     Drops:
@@ -60564,6 +61981,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 2000
       - Item: Baphomet_Doll
@@ -60837,6 +62266,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -60969,6 +62410,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -61026,6 +62479,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -61083,6 +62548,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -61140,6 +62617,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -62143,6 +63632,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -79640,6 +81141,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -80706,6 +82219,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Index: 0
         Rate: 5000
@@ -80865,6 +82390,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -81873,6 +83410,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 2000
       - Item: Seed_Of_Yggdrasil
@@ -82468,6 +84017,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -82520,12 +84081,24 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 960
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 04
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Key_Of_Twisted_Time
@@ -83224,6 +84797,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -83982,6 +85567,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -84902,6 +86499,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -84977,6 +86586,18 @@ Body:
       IgnoreRanged: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Blue_Box
@@ -86161,6 +87782,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Thief
         Index: 0
         Rate: 5000
@@ -86233,6 +87866,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Acolyte
         Index: 0
         Rate: 5000
@@ -86306,6 +87951,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Archer
         Index: 0
         Rate: 5000
@@ -86379,6 +88036,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Merchant
         Index: 0
         Rate: 5000
@@ -86452,6 +88121,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Magicion
         Index: 0
         Rate: 5000
@@ -86524,6 +88205,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Swordman
         Index: 0
         Rate: 5000
@@ -87222,6 +88915,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Swordman
         Index: 0
         Rate: 5000
@@ -87294,6 +88999,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Merchant
         Index: 0
         Rate: 5000
@@ -87366,6 +89083,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Magicion
         Index: 0
         Rate: 5000
@@ -87438,6 +89167,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Acolyte
         Index: 0
         Rate: 5000
@@ -87510,6 +89251,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Thief
         Index: 0
         Rate: 5000
@@ -87582,6 +89335,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Archer
         Index: 0
         Rate: 5000
@@ -87654,6 +89419,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Soul_Of_Archer
         Index: 0
         Rate: 5000
@@ -88036,6 +89813,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 2000
@@ -90438,6 +92227,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Tiger's_Skin
         Rate: 5000
       - Item: Tiger_Footskin
@@ -90497,6 +92298,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 4000
       - Item: Seed_Of_Yggdrasil
@@ -90556,6 +92369,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Frozen_Heart
         Rate: 500
       - Item: Crystal_Jewel
@@ -90617,6 +92442,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Red_Jewel
         Rate: 2000
       - Item: Yggdrasilberry
@@ -90676,6 +92513,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Oridecon
         Rate: 6000
       - Item: Old_Violet_Box
@@ -91370,6 +93219,18 @@ Body:
       TeleportBlock: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Card_Album
@@ -91638,6 +93499,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Old_Violet_Box
@@ -92949,6 +94822,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Blue_Box
@@ -94108,6 +95993,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Old_Violet_Box
@@ -94419,6 +96316,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Old_Violet_Box
@@ -94633,12 +96542,24 @@ Body:
     AttackMotion: 672
     ClientAttackMotion: 576
     DamageMotion: 360
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Violet_Box
@@ -95600,6 +97521,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -95664,6 +97597,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 0
         Rate: 5000
@@ -96524,12 +98469,24 @@ Body:
     AttackMotion: 1000
     ClientAttackMotion: 960
     DamageMotion: 500
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Index: 1
         Rate: 5000
@@ -96896,6 +98853,8 @@ Body:
     DamageMotion: 384
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Carnium
         Rate: 5000
       - Item: Tooth_Of_Bat
@@ -96904,6 +98863,8 @@ Body:
         Rate: 50
       - Item: Wing_Of_Red_Bat
         Rate: 5000
+      - Item: Short_Bat_Fur
+        Rate: 1500
       - Item: MattDrainliar_Card
         Rate: 1
         StealProtected: true
@@ -96941,8 +98902,14 @@ Body:
     DamageMotion: 288
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Dried_Leaf_Of_Ygg
+        Rate: 2000
       - Item: Cardinal_Jewel_
         Rate: 50
+      - Item: SuspiciousMagicCircle
+        Rate: 2000
       - Item: Skul_Ring_
         Rate: 5
       - Item: Poison_Herb_Rantana
@@ -96986,8 +98953,14 @@ Body:
     DamageMotion: 288
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Dried_Leaf_Of_Ygg
+        Rate: 1500
       - Item: Cardinal_Jewel_
         Rate: 50
+      - Item: SuspiciousMagicCircle
+        Rate: 300
       - Item: Skul_Ring
         Rate: 5
       - Item: LivingDead_Card
@@ -97027,8 +99000,14 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Dried_Leaf_Of_Ygg
+        Rate: 2000
       - Item: Bradium
         Rate: 100
+      - Item: SuspiciousMagicCircle
+        Rate: 400
       - Item: Ghoul_Leg
         Rate: 10
       - Item: Skul_Ring
@@ -97076,12 +99055,16 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Horseshoe
         Rate: 5000
       - Item: Blue_Potion
         Rate: 30
       - Item: Carnium
         Rate: 200
+      - Item: NightmareOfLump
+        Rate: 1500
       - Item: Infiltrator
         Rate: 10
       - Item: Infiltrator_
@@ -97113,6 +99096,8 @@ Body:
     ClientAttackMotion: 576
     Ai: 06
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Alchol
         Rate: 50
       - Item: Detrimindexta
@@ -97121,6 +99106,8 @@ Body:
         Rate: 20
       - Item: Mushroom_Spore
         Rate: 5000
+      - Item: Shining_Spore
+        Rate: 1000
       - Item: Poison_Spore
         Rate: 500
       - Item: IllusoryStone
@@ -97161,10 +99148,14 @@ Body:
     Modes:
       IgnoreMisc: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Dark_Red_Jewel
         Rate: 2000
       - Item: Vampire's_Servant
         Rate: 100
+      - Item: Torn_Diary
+        Rate: 3000
       - Item: Bradium
         Rate: 100
       - Item: Carnium
@@ -97214,13 +99205,27 @@ Body:
       IgnoreMisc: true
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: IllusionStone
-        Rate: 500
+        Rate: 250
     Drops:
       - Item: Yggdrasilberry
         Rate: 5000
+      - Item: Dried_Clover
+        Rate: 2000
       - Item: Balistar_
         Rate: 80
       - Item: Cape_Of_Ancient_Lord_
@@ -97271,12 +99276,24 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Yggdrasilberry
         Rate: 2000
       - Item: IllusionStone
-        Rate: 500
+        Rate: 250
     Drops:
       - Item: Bradium
         Rate: 5000
@@ -97327,6 +99344,8 @@ Body:
     DamageMotion: 480
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Fox_Tail
         Rate: 3000
       - Item: Glass_Bead
@@ -97376,6 +99395,8 @@ Body:
     DamageMotion: 288
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: HazyMooncake
         Index: 0
         Rate: 1000
@@ -97432,6 +99453,8 @@ Body:
     DamageMotion: 420
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: HazyMooncake
         Rate: 1750
       - Item: Old_Portrait
@@ -97483,6 +99506,8 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Bloody_LoveLetter
         Rate: 2000
       - Item: Skirt_Of_Virgin
@@ -97534,6 +99559,8 @@ Body:
     DamageMotion: 576
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: BrokenArrow
         Index: 0
         Rate: 2000
@@ -97593,6 +99620,8 @@ Body:
     DamageMotion: 288
     Ai: 01
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Red_Gemstone
         Rate: 3000
       - Item: Yellow_Gemstone
@@ -97644,6 +99673,10 @@ Body:
     DamageMotion: 288
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: SubjugationFlyer
+        Rate: 2000
       - Item: Light_Granule
         Rate: 200
       - Item: Runstone_Quality
@@ -97868,6 +99901,10 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Frozen_PieceOfRock
+        Rate: 1000
       - Item: Bradium
         Rate: 200
       - Item: Cold_Ice
@@ -97912,6 +99949,10 @@ Body:
     DamageMotion: 420
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Snowball
+        Rate: 1000
       - Item: Ice_Heart
         Rate: 700
       - Item: Mistic_Frozen
@@ -97956,6 +99997,10 @@ Body:
     DamageMotion: 144
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: SpritJewel
+        Rate: 1000
       - Item: Ice_Piece
         Rate: 700
       - Item: Frozen_Rose
@@ -97993,6 +100038,32 @@ Body:
     AttackDelay: 1344
     ClientAttackMotion: 1152
     Ai: 10
+    Drops:
+      - Item: Frozen_PieceOfRock
+        Index: 0
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 1
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 2
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 3
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 4
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 5
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 6
+        Rate: 200
+      - Item: Frozen_PieceOfRock
+        Index: 7
+        Rate: 200
+        StealProtected: true
   - Id: 3796
     AegisName: ILL_KTULLANUX
     Name: Awakened Ktullanux
@@ -98030,6 +100101,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: IllusionStone
         Index: 0
         Rate: 3000
@@ -98040,6 +100123,8 @@ Body:
         Index: 2
         Rate: 5000
     Drops:
+      - Item: KTULLANUXsEye
+        Rate: 4000
       - Item: Clack_Of_Servival
         Rate: 1000
       - Item: Herald_Of_GOD
@@ -98149,6 +100234,14 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: OldShell
+        Rate: 1000
+      - Item: PieceOfBlackSpirit
+        Rate: 600
+      - Item: OldDoll
+        Rate: 300
       - Item: Rough_Wind
         Rate: 50
       - Item: Doram_High_Cape
@@ -98194,6 +100287,14 @@ Body:
     DamageMotion: 528
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: OldShell
+        Rate: 1000
+      - Item: PieceOfBlackSpirit
+        Rate: 600
+      - Item: OldDoll
+        Rate: 300
       - Item: Runstone_Mystic
         Rate: 100
       - Item: Rotten_Meat
@@ -98239,6 +100340,14 @@ Body:
     DamageMotion: 672
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: OldShell
+        Rate: 1000
+      - Item: PieceOfBlackSpirit
+        Rate: 600
+      - Item: OldDoll
+        Rate: 300
       - Item: Rotten_Meat
         Rate: 2800
       - Item: Doram_High_Shoes
@@ -98284,6 +100393,14 @@ Body:
     DamageMotion: 528
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: OldShell
+        Rate: 1000
+      - Item: PieceOfBlackSpirit
+        Rate: 600
+      - Item: OldDoll
+        Rate: 300
       - Item: Great_Nature
         Rate: 50
       - Item: Doram_High_Suit
@@ -98329,6 +100446,14 @@ Body:
     DamageMotion: 528
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: OldShell
+        Rate: 1000
+      - Item: PieceOfBlackSpirit
+        Rate: 600
+      - Item: OldDoll
+        Rate: 300
       - Item: Flame_Heart
         Rate: 50
       - Item: Rotten_Meat
@@ -98378,6 +100503,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: IllusionStone
         Index: 0
         Rate: 2000
@@ -98388,6 +100525,8 @@ Body:
         Index: 2
         Rate: 2000
     Drops:
+      - Item: ShipsLog
+        Rate: 4000
       - Item: Iron_Driver
         Rate: 300
       - Item: War_Axe
@@ -98449,6 +100588,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Seed_Of_Yggdrasil
         Rate: 3000
     Drops:
@@ -99655,10 +101806,16 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: NasariansSoulstone
+        Rate: 1000
       - Item: Iron_Ore
         Rate: 2000
       - Item: Oridecon
         Rate: 500
+      - Item: Bearopy
+        Rate: 1500
       - Item: Boots_
         Rate: 50
       - Item: Colorful_T_Bear_Card
@@ -99695,6 +101852,12 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Bearopy
+        Rate: 1500
+      - Item: NasariansSoulstone
+        Rate: 1000
       - Item: Elunium
         Rate: 500
       - Item: Screw
@@ -99735,6 +101898,14 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Bearopy
+        Rate: 1500
+      - Item: NasariansSoulstone
+        Rate: 1000
+      - Item: Green_Bearopy
+        Rate: 500
       - Item: Green_Herb
         Rate: 2500
       - Item: Colorful_T_Bear_Card
@@ -99771,6 +101942,12 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Bearopy
+        Rate: 2500
+      - Item: NasariansSoulstone
+        Rate: 1500
       - Item: Oridecon_Hammer
         Rate: 500
       - Item: Steel
@@ -99811,12 +101988,18 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Bearopy
+        Rate: 1500
       - Item: Screw
         Rate: 2500
       - Item: Iron
         Rate: 1000
       - Item: Blue_Herb
         Rate: 500
+      - Item: Chonchon_Doll_HQ
+        Rate: 1000
       - Item: Colorful_T_Bear_Card
         Rate: 1
         StealProtected: true
@@ -99851,10 +102034,14 @@ Body:
     DamageMotion: 504
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Elunium
         Rate: 2000
       - Item: Oridecon
         Rate: 2000
+      - Item: Clay_Doll
+        Rate: 1500
       - Item: Counter_Dagger
         Rate: 300
       - Item: Screw
@@ -99891,6 +102078,8 @@ Body:
     DamageMotion: 300
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Old_Pick
         Rate: 1500
       - Item: Old_Steel_Plate
@@ -99935,10 +102124,14 @@ Body:
     DamageMotion: 360
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Fragment_Of_Crystal
         Rate: 2500
       - Item: Golden_Jewel
         Rate: 250
+      - Item: Gothic_China_Doll
+        Rate: 1000
       - Item: Yellow_Gemstone
         Rate: 300
       - Item: Fragment_Of_Soul_Card
@@ -99974,6 +102167,8 @@ Body:
     DamageMotion: 504
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Dark_Crystal_Fragment
         Rate: 1500
       - Item: Crystal_Jewel
@@ -100192,6 +102387,8 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Cyfar
         Rate: 1500
       - Item: Solid_Shell
@@ -100202,6 +102399,10 @@ Body:
         Rate: 80
       - Item: Sparkling_Dust
         Rate: 70
+      - Item: Token_Of_Bigstone
+        Rate: 250
+      - Item: Weak_Worm
+        Rate: 1000
       - Item: Ancient_Trijoint_Card
         Rate: 1
         StealProtected: true
@@ -100239,6 +102440,10 @@ Body:
     DamageMotion: 288
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Hard_Mud
+        Rate: 1000
       - Item: Brigan
         Rate: 2425
       - Item: Star_Crumb
@@ -100249,6 +102454,8 @@ Body:
         Rate: 125
       - Item: Tablet
         Rate: 10
+      - Item: Token_Of_Bigstone
+        Rate: 250
       - Item: Ancient_Sta_Golem_Card
         Rate: 1
         StealProtected: true
@@ -100286,6 +102493,8 @@ Body:
     DamageMotion: 672
     Ai: 10
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Zargon
         Rate: 1500
       - Item: Stone
@@ -100294,6 +102503,10 @@ Body:
         Rate: 104
       - Item: Elunium
         Rate: 31
+      - Item: Token_Of_Bigstone
+        Rate: 250
+      - Item: Pot_Stone
+        Rate: 1000
       - Item: Ancient_Megalith_Card
         Rate: 1
         StealProtected: true
@@ -100334,6 +102547,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Oridecon
         Rate: 6000
       - Item: Old_Violet_Box
@@ -100343,6 +102568,8 @@ Body:
     Drops:
       - Item: Gemstone
         Rate: 2425
+      - Item: Fragment_Of_Rock
+        Rate: 2425
       - Item: Golden_Jewel
         Rate: 500
       - Item: Runstone_Rare
@@ -100351,6 +102578,8 @@ Body:
         Rate: 100
       - Item: Goibne's_Shoulder_Arms
         Rate: 100
+      - Item: Token_Of_Bigstone
+        Rate: 1250
       - Item: Ancient_Tao_Gunka_Card
         Rate: 1
         StealProtected: true
@@ -100388,6 +102617,8 @@ Body:
     DamageMotion: 768
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Solid_Twig
         Rate: 2500
       - Item: Log
@@ -100398,6 +102629,10 @@ Body:
         Rate: 1000
       - Item: Oridecon_Stone
         Rate: 50
+      - Item: Hair_Leaf
+        Rate: 1000
+      - Item: Token_Of_Wootan
+        Rate: 250
       - Item: Ancient_S_Shooter_Card
         Rate: 1
         StealProtected: true
@@ -100435,16 +102670,22 @@ Body:
     DamageMotion: 576
     Ai: 05
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Air_Rifle
         Rate: 2250
       - Item: Flexible_String
         Rate: 1750
+      - Item: Shooting_Stone
+        Rate: 1000
       - Item: Hunter_Bow
         Rate: 10
       - Item: Cacao
         Rate: 750
       - Item: Elder_Branch
         Rate: 50
+      - Item: Token_Of_Wootan
+        Rate: 250
       - Item: Ancient_W_Shooter_Card
         Rate: 1
         StealProtected: true
@@ -100482,6 +102723,10 @@ Body:
     DamageMotion: 480
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
+      - Item: Wootan_F_Fur
+        Rate: 1000
       - Item: Shoulder_Protection
         Rate: 2000
       - Item: Elder_Branch
@@ -100492,6 +102737,8 @@ Body:
         Rate: 500
       - Item: IllusoryStone
         Rate: 10
+      - Item: Token_Of_Wootan
+        Rate: 250
       - Item: Ancient_W_Fighter_Card
         Rate: 1
         StealProtected: true
@@ -100532,6 +102779,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Elunium
         Rate: 6000
       - Item: Old_Violet_Box
@@ -100539,6 +102798,8 @@ Body:
       - Item: Oridecon
         Rate: 6000
     Drops:
+      - Item: Wootan_D_S_Piece
+        Rate: 2250
       - Item: Shoulder_Protection
         Rate: 2250
       - Item: Elder_Branch
@@ -100549,6 +102810,8 @@ Body:
         Rate: 100
       - Item: Goibne's_Helmet
         Rate: 100
+      - Item: Token_Of_Wootan
+        Rate: 1250
       - Item: Ancient_W_Deffend_Card
         Rate: 1
         StealProtected: true
@@ -100795,6 +103058,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -101024,6 +103299,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Seed_Of_Yggdrasil
@@ -102447,12 +104734,24 @@ Body:
     AttackMotion: 144
     ClientAttackMotion: 528
     DamageMotion: 288
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 4000
     Drops:
@@ -102595,12 +104894,24 @@ Body:
     AttackMotion: 408
     ClientAttackMotion: 1056
     DamageMotion: 336
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 1000
       - Item: Flame_Heart
@@ -102701,12 +105012,24 @@ Body:
     AttackMotion: 500
     ClientAttackMotion: 1056
     DamageMotion: 768
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 1000
       - Item: Mistic_Frozen
@@ -102756,12 +105079,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 408
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Blue_Coif_
         Rate: 500
       - Item: Skull
@@ -103509,7 +105844,7 @@ Body:
     AttackMotion: 576
     ClientAttackMotion: 240
     DamageMotion: 420
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
@@ -103639,6 +105974,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Blue_Box
         Rate: 5000
       - Item: Old_Card_Album
@@ -103690,6 +106037,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Card_Album
@@ -104519,6 +106878,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Old_Card_Album
@@ -104774,12 +107145,24 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 288
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Fruit_Basket
         Rate: 5000
       - Item: Yggdrasilberry
@@ -105175,6 +107558,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Fruit_Basket
         Rate: 5000
       - Item: Yggdrasilberry
@@ -105498,6 +107893,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Yggdrasilberry
@@ -105546,6 +107953,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 5000
       - Item: Yggdrasilberry
@@ -106934,14 +109353,23 @@ Body:
     DamageMotion: 576
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Fin
         Rate: 2500
       - Item: Blue_Herb
         Rate: 50
       - Item: Crystal_Arrow_Container
         Rate: 50
+      - Item: E_Abyss1
+        Rate: 250
       - Item: Electric_Eel
         Rate: 25
+      - Item: Deepsea_Fish_Tail
+        Rate: 1000
+      - Item: ILL_Sropho_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20802
     AegisName: ILL_OBEAUNE
     Name: Deep Sea Obeaune
@@ -106974,6 +109402,8 @@ Body:
     DamageMotion: 672
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Heart_Of_Mermaid
         Rate: 2500
       - Item: Fin
@@ -106982,6 +109412,13 @@ Body:
         Rate: 5
       - Item: Saint_Robe
         Rate: 10
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: Rotten_Deepseafish
+        Rate: 1000
+      - Item: ILL_Obeaune_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20803
     AegisName: ILL_DEVIACE
     Name: Deep Sea Deviace
@@ -107014,6 +109451,8 @@ Body:
     DamageMotion: 770
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Mistic_Frozen
         Rate: 10
       - Item: Tooth_Of_Ancient_Fish
@@ -107022,6 +109461,13 @@ Body:
         Rate: 300
       - Item: Katar_Of_Cold_Icicle
         Rate: 5
+      - Item: Abysmal_Clam
+        Rate: 1000
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Deviace_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20804
     AegisName: ILL_MARSE
     Name: Deep Sea Marse
@@ -107054,6 +109500,8 @@ Body:
     DamageMotion: 485
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Chinese_Ink
         Rate: 2500
       - Item: Tentacle
@@ -107064,6 +109512,13 @@ Body:
         Rate: 5
       - Item: Mistic_Frozen
         Rate: 6
+      - Item: Deep_Sea_Starfish
+        Rate: 1000
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Marse_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20805
     AegisName: ILL_MERMAN
     Name: Deep Sea Merman
@@ -107096,14 +109551,23 @@ Body:
     DamageMotion: 675
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Lip_Of_Ancient_Fish
         Rate: 1000
       - Item: Mistic_Frozen
         Rate: 100
       - Item: Yggdrasilberry
         Rate: 80
+      - Item: Deep_Sea_Crab
+        Rate: 1000
       - Item: Zephyrus
         Rate: 5
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Merman_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20806
     AegisName: ILL_SEDORA
     Name: Deep Sea Sedora
@@ -107135,6 +109599,8 @@ Body:
     DamageMotion: 578
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Tentacle
         Rate: 2000
       - Item: Chinese_Ink
@@ -107143,8 +109609,15 @@ Body:
         Rate: 5
       - Item: Crystal_Blue
         Rate: 20
+      - Item: Abysmal_Clam
+        Rate: 2500
       - Item: Electronic_Guitar
         Rate: 5
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Sedora_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20807
     AegisName: ILL_SWORD_FISH
     Name: Deep Sea Swordfish
@@ -107177,16 +109650,25 @@ Body:
     DamageMotion: 384
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sharp_Scale
         Rate: 2000
       - Item: Gill
         Rate: 300
+      - Item: Deepsea_Fish_Tail
+        Rate: 2500
       - Item: Mistic_Frozen
         Rate: 50
       - Item: Morrigane's_Pendant
         Rate: 10
       - Item: Elunium_Stone
         Rate: 25
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Sword_Fish_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20808
     AegisName: ILL_STROUF
     Name: Deep Sea Strouf
@@ -107219,6 +109701,8 @@ Body:
     DamageMotion: 384
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Fin
         Rate: 2000
       - Item: Skyblue_Jewel
@@ -107227,8 +109711,15 @@ Body:
         Rate: 10
       - Item: Mistic_Frozen
         Rate: 20
+      - Item: Deep_Sea_Starfish
+        Rate: 2500
       - Item: Brionac
         Rate: 50
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Strouf_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20809
     AegisName: ILL_PHEN
     Name: Deep Sea Phen
@@ -107261,6 +109752,8 @@ Body:
     DamageMotion: 865
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sharp_Scale
         Rate: 2000
       - Item: Fin
@@ -107269,8 +109762,15 @@ Body:
         Rate: 300
       - Item: Mistic_Frozen
         Rate: 50
+      - Item: Rotten_Deepseafish
+        Rate: 2500
       - Item: Morrigane's_Helm
         Rate: 10
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_Phen_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20810
     AegisName: ILL_KING_DRAMOH
     Name: Deep Sea King Dramoh
@@ -107302,14 +109802,23 @@ Body:
     DamageMotion: 970
     Ai: 04
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Nipper
         Rate: 1500
       - Item: Solid_Shell
         Rate: 1500
+      - Item: Deep_Sea_Crab
+        Rate: 2500
       - Item: Morrigane's_Belt
         Rate: 50
       - Item: Death_Guidance
         Rate: 50
+      - Item: E_Abyss1
+        Rate: 250
+      - Item: ILL_King_Dramoh_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20811
     AegisName: ILL_KRAKEN
     Name: Deep Sea Kraken
@@ -107345,6 +109854,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 4000
       - Item: Magic_Card_Album
@@ -107356,8 +109877,17 @@ Body:
         Rate: 3000
       - Item: Mistic_Frozen
         Rate: 500
+      - Item: Shadowdecon
+        Rate: 50
+      - Item: IL_Kraken_Leg
+        Rate: 3000
       - Item: Morrigane's_Manteau
         Rate: 300
+      - Item: E_Abyss1
+        Rate: 1000
+      - Item: ILL_Kraken_Card
+        Rate: 1
+        StealProtected: true
   - Id: 20834
     AegisName: ABR_BATTLE_WARIOR
     Name: ABR Battle Warrior
@@ -107382,7 +109912,7 @@ Body:
     AttackMotion: 864
     ClientAttackMotion: 648
     DamageMotion: 1440
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: Abr_Offensive
   - Id: 20835
     AegisName: ABR_DUAL_CANNON
@@ -107408,7 +109938,7 @@ Body:
     AttackMotion: 768
     ClientAttackMotion: 576
     DamageMotion: 1008
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: Abr_Offensive
   - Id: 20836
     AegisName: ABR_MOTHER_NET
@@ -107434,7 +109964,7 @@ Body:
     AttackMotion: 1008
     ClientAttackMotion: 672
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: Abr_Passive
   - Id: 20837
     AegisName: ABR_INFINITY
@@ -107460,7 +109990,7 @@ Body:
     AttackMotion: 1728
     ClientAttackMotion: 840
     DamageMotion: 1008
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: Abr_Offensive
 #  - Id: 20838
 #    AegisName: ELEMETAL_MASTER_S1
@@ -107507,6 +110037,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Magic_Card_Album
         Rate: 5000
       - Item: Old_Card_Album
@@ -107604,7 +110146,7 @@ Body:
 #    AttackMotion: 960
 #    ClientAttackMotion: 480
 #    DamageMotion: 576
-#    DamageTaken: 10
+#    #DamageTaken: 10
 #    Ai: 24
 #  - Id: 20849
 #    AegisName: SUMMON_WOODEN_FAIRY
@@ -107628,7 +110170,7 @@ Body:
 #    AttackMotion: 1152
 #    ClientAttackMotion: 864
 #    DamageMotion: 576
-#    DamageTaken: 10
+#    #DamageTaken: 10
 #    Ai: 24
   - Id: 20850
     AegisName: SUMMON_CREEPER
@@ -107652,7 +110194,7 @@ Body:
     AttackMotion: 840
     ClientAttackMotion: 600
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 24
 #  - Id: 20851
 #    AegisName: SUMMON_HELLTREE
@@ -107676,7 +110218,7 @@ Body:
 #    AttackMotion: 1080
 #    ClientAttackMotion: 840
 #    DamageMotion: 480
-#    DamageTaken: 10
+#    #DamageTaken: 10
 #    Ai: 24
 ##  - Id: 20856
 ##    AegisName: MD_N_ARENA_1
@@ -108142,12 +110684,24 @@ Body:
     AttackMotion: 2880
     ClientAttackMotion: 864
     DamageMotion: 576
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 4000
     Drops:
@@ -108378,12 +110932,24 @@ Body:
     AttackMotion: 1344
     ClientAttackMotion: 1056
     DamageMotion: 768
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 4000
     Drops:
@@ -108733,12 +111299,24 @@ Body:
     AttackMotion: 1134
     ClientAttackMotion: 864
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Violet_Box
         Rate: 4000
     Drops:
@@ -110064,12 +112642,24 @@ Body:
     AttackMotion: 840
     ClientAttackMotion: 480
     DamageMotion: 432
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 2000
       - Item: Yggdrasilberry
@@ -110568,12 +113158,24 @@ Body:
     AttackMotion: 1440
     ClientAttackMotion: 2592
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 500
       - Item: Old_Violet_Box
@@ -110606,12 +113208,24 @@ Body:
     AttackMotion: 1104
     ClientAttackMotion: 672
     DamageMotion: 480
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 2500
       - Item: Old_Violet_Box
@@ -110933,6 +113547,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 1500
       - Item: Old_Card_Album
@@ -110973,6 +113599,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Yggdrasilberry
         Rate: 5000
       - Item: Old_Card_Album
@@ -111082,12 +113720,25 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Excalibur
         Rate: 5
+      - Item: IL_Twins_Feeler
+        Rate: 950
+      - Item: IL_Twins_Leg
+        Rate: 850
       - Item: Worm_Peelings
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
+      - Item: Opaque_Liquid
+        Rate: 2000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Andre_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21387
     AegisName: ILL_SOLDIER_ANDR
     Name: Diligent Soldier Andre
@@ -111121,12 +113772,25 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Doom_Slayer
         Rate: 5
+      - Item: IL_Twins_Jaw
+        Rate: 850
+      - Item: IL_Twins_Leg
+        Rate: 750
+      - Item: IL_Twins_Feeler
+        Rate: 650
       - Item: Worm_Peelings
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Andre_soldier_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21388
     AegisName: ILL_ANDRE_LARVA
     Name: Diligent Andre Larva
@@ -111160,6 +113824,8 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sprint_Glove
         Rate: 5
       - Item: Guard
@@ -111168,6 +113834,11 @@ Body:
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Andre_larva_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21389
     AegisName: ILL_DENIRO
     Name: Diligent Deniro
@@ -111201,12 +113872,25 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sprint_Mail
         Rate: 5
+      - Item: IL_Twins_Feeler
+        Rate: 850
+      - Item: IL_Twins_Jaw
+        Rate: 750
       - Item: Worm_Peelings
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
+      - Item: Opaque_Liquid
+        Rate: 2000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Deniro_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21390
     AegisName: ILL_PIERE
     Name: Diligent Piere
@@ -111240,12 +113924,23 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Gelerdria
         Rate: 5
+      - Item: IL_Twins_Jaw
+        Rate: 850
+      - Item: IL_Twins_Leg
+        Rate: 750
       - Item: Worm_Peelings
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Piere_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21391
     AegisName: ILL_ANT_EGG
     Name: Mushy Ant Egg
@@ -111267,6 +113962,8 @@ Body:
     ClientAttackMotion: 672
     Ai: 06
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sprint_Shoes
         Rate: 5
       - Item: Siver_Guard
@@ -111279,6 +113976,11 @@ Body:
         Rate: 500
       - Item: Jellopy
         Rate: 2500
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Ant_egg_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21392
     AegisName: ILL_GIEARTH
     Name: Gutsy Giearth
@@ -111312,12 +114014,25 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Thorn_Staff
         Rate: 5
+      - Item: IL_Twins_Hat
+        Rate: 750
+      - Item: IL_Twins_Shovel
+        Rate: 850
       - Item: Coal
         Rate: 200
       - Item: Elder_Pixie's_Beard
         Rate: 4000
+      - Item: Dry_Sand
+        Rate: 2000
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Giearth_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21393
     AegisName: ILL_FARMILIAR
     Name: Gutsy Familiar
@@ -111349,12 +114064,23 @@ Body:
     DamageMotion: 384
     Ai: 21
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Ancient_Dagger
         Rate: 5
+      - Item: IL_Twins_Fang
+        Rate: 750
+      - Item: IL_Twins_Fur
+        Rate: 850
       - Item: Tooth_Of_Bat
         Rate: 5500
       - Item: Red_Herb
         Rate: 700
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Farmiliar_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21394
     AegisName: ILL_VITATA
     Name: Diligent Vitata
@@ -111388,14 +114114,25 @@ Body:
     Modes:
       Detector: true
     Drops:
+      - Item: IllusionStone
+        Rate: 250
       - Item: Sprint_Ring
         Rate: 5
+      - Item: IL_Twins_Acid
+        Rate: 750
+      - Item: IL_Twins_Jaw
+        Rate: 850
       - Item: Worm_Peelings
         Rate: 4500
       - Item: Sticky_Mucus
         Rate: 1000
       - Item: Scell
         Rate: 300
+      - Item: Shell_Of_Cognition
+        Rate: 2000
+      - Item: ILL_Vitata_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21395
     AegisName: ILL_MAYA
     Name: Silent Maya
@@ -111431,6 +114168,18 @@ Body:
     Modes:
       Mvp: true
     MvpDrops:
+      - Item: Enriched_Elunium
+        Rate: 10
+      - Item: Enriched_Oridecon
+        Rate: 10
+      - Item: HD_Elunium
+        Rate: 5
+      - Item: HD_Oridecon
+        Rate: 5
+      - Item: HD_Carnium
+        Rate: 5
+      - Item: HD_Bradium
+        Rate: 5
       - Item: Old_Card_Album
         Rate: 4000
       - Item: Magic_Card_Album
@@ -111440,8 +114189,21 @@ Body:
     Drops:
       - Item: Dea_Staff
         Rate: 300
+      - Item: IL_Twins_Acid
+        Rate: 10000
+      - Item: IL_Twins_Crown
+        Rate: 3000
+      - Item: IL_Twins_Leg
+        Rate: 10000
+      - Item: Shadowdecon
+        Rate: 100
+      - Item: Shell_Of_Cognition
+        Rate: 2000
       - Item: Mother's_Nightmare
         Rate: 10
+      - Item: ILL_Maya_Card
+        Rate: 1
+        StealProtected: true
   - Id: 21866
     AegisName: HEROS_IN_ORB_1
     Name: Spring Jewel
@@ -112249,7 +115011,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Stone_Piece
@@ -112290,7 +115052,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112333,7 +115095,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112376,7 +115138,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112419,7 +115181,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Ice_Heart
@@ -112460,7 +115222,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112503,7 +115265,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112545,7 +115307,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112588,7 +115350,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Sharp_Leaf
@@ -112629,7 +115391,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112672,7 +115434,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112715,7 +115477,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112758,7 +115520,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Ice_Piece
@@ -112799,7 +115561,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112842,7 +115604,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112885,7 +115647,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112928,7 +115690,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -112968,7 +115730,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113009,7 +115771,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113050,7 +115812,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113091,7 +115853,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113131,7 +115893,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113172,7 +115934,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113213,7 +115975,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113254,7 +116016,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Burning_Heart
@@ -113295,7 +116057,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113338,7 +116100,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113381,7 +116143,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113424,7 +116186,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Great_Leaf
@@ -113465,7 +116227,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113508,7 +116270,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113551,7 +116313,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113594,7 +116356,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Live_Coal
@@ -113635,7 +116397,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113678,7 +116440,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113721,7 +116483,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113764,7 +116526,7 @@ Body:
     AttackDelay: 224
     AttackMotion: 672
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Drops:
       - Item: Stone_Heart
@@ -113805,7 +116567,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113848,7 +116610,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113891,7 +116653,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113934,7 +116696,7 @@ Body:
     AttackDelay: 320
     AttackMotion: 960
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -113974,7 +116736,7 @@ Body:
     AttackDelay: 448
     AttackMotion: 1344
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114015,7 +116777,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114056,7 +116818,7 @@ Body:
     AttackDelay: 512
     AttackMotion: 1536
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114097,7 +116859,7 @@ Body:
     AttackDelay: 288
     AttackMotion: 864
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114137,7 +116899,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114178,7 +116940,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114219,7 +116981,7 @@ Body:
     AttackDelay: 256
     AttackMotion: 768
     DamageMotion: 1000    # (unknown)
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 21
     Class: Boss
     Drops:
@@ -114993,7 +117755,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115014,7 +117776,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115035,7 +117797,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115057,7 +117819,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115079,7 +117841,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115101,7 +117863,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115123,7 +117885,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115145,7 +117907,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115167,7 +117929,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115189,7 +117951,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115211,7 +117973,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115233,7 +117995,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115255,7 +118017,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115277,7 +118039,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115834,7 +118596,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115855,7 +118617,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115876,7 +118638,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115898,7 +118660,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115920,7 +118682,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115942,7 +118704,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115964,7 +118726,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -115986,7 +118748,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116008,7 +118770,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116030,7 +118792,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116052,7 +118814,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116074,7 +118836,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116096,7 +118858,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116118,7 +118880,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116444,7 +119206,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116465,7 +119227,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116486,7 +119248,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116507,7 +119269,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116528,7 +119290,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116549,7 +119311,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116570,7 +119332,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116591,7 +119353,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116612,7 +119374,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116633,7 +119395,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116864,7 +119626,7 @@ Body:
     Element: Neutral
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116885,7 +119647,7 @@ Body:
     Element: Water
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116906,7 +119668,7 @@ Body:
     Element: Earth
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116927,7 +119689,7 @@ Body:
     Element: Fire
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116948,7 +119710,7 @@ Body:
     Element: Wind
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116969,7 +119731,7 @@ Body:
     Element: Poison
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -116990,7 +119752,7 @@ Body:
     Element: Holy
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -117011,7 +119773,7 @@ Body:
     Element: Dark
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -117032,7 +119794,7 @@ Body:
     Element: Ghost
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:
@@ -117053,7 +119815,7 @@ Body:
     Element: Undead
     ElementLevel: 1
     WalkSpeed: 1000
-    DamageTaken: 10
+    #DamageTaken: 10
     Ai: 06
     Class: Boss
     Modes:

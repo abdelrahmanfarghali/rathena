@@ -30,8 +30,8 @@ prontera,170,224,4	duplicate(Illusion Stone Research)	Illusion Exchange Frozen	4
 prontera,172,222,4	duplicate(Equipment Researcher)	Illusion Exchange Turtle	4_TOWER_15
 prontera,146,228,4	duplicate(Village Soap#Lu)	Illusion Exchange Luanda	4_M_ORIENT01
 prontera,144,226,4	duplicate(Horen#Horen)	Illusion Exchange Underwater	4_M_BIBI
-prontera,142,224,4	duplicate(From#iltw)	Illusion Exchange Twins	MECHANIC
-prontera,140,222,4	duplicate(Bear Wanting Illusion Stone#ITB)	Illusion Exchange Teddy	4_NASARIAN
+//prontera,142,224,4	duplicate(From#iltw)	Illusion Exchange Twins	MECHANIC
+prontera,142,224,4	duplicate(Bear Wanting Illusion Stone#ITB)	Illusion Exchange Teddy	4_NASARIAN
 
 // ====================================================================
 // 1. The Zero-Friction Core (Spawn & Instant Deployment)

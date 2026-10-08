@@ -1,41 +1,38 @@
-// ---------------- Reward Function ----------------
+// ---------------- Reward Function ---------------- //
 // Usage: callfunc "F_InstanceCoinReward", <amount>;
 // Call it from the final boss's OnMyMobDead label (killer must be attached).
-//OnMyMobDead:
-//	callfunc "F_InstanceCoinReward", 5;
-//	end;
-
+//
+// OnMyMobDead:
+//     callfunc "F_InstanceCoinReward", 5;
+//     end;
 function	script	F_InstanceCoinReward	{
 	.@amount = getarg(0, 5);
-	.@self   = getcharid(3);
-	.@map$   = strcharinfo(PC_MAP);
-	.@party  = getcharid(1);
+	.@item = 30000;
+	.@flag$ = "'reward_" + getcharid(0); // instance-scoped, per character, resets every new run
 
-	if (.@party) {
-		getpartymember .@party, 2;                 // account IDs of online members
-		.@count = $@partymembercount;
-		copyarray .@aid[0], $@partymemberaid[0], .@count;
-	} else {
-		.@aid[0] = .@self;                         // solo player
-		.@count = 1;
+	if (getd(.@flag$)) {
+		mes "You have already claimed your reward.";
+		return 0;
+	}
+	if (checkweight(.@item, .@amount) == 0) {
+		mes "You are carrying too much. Free some space and talk to me again.";
+		return 0; // flag untouched: can retry
 	}
 
-	for (.@i = 0; .@i < .@count; .@i++) {
-		if (!attachrid(.@aid[.@i]))
-			continue;
-		if (strcharinfo(PC_MAP) != .@map$)         // only players still in the instance
-			continue;
-		if (checkweight(30000, .@amount) == 0) {
-			dispbottom "Instance reward failed: you are carrying too much.";
-			continue;
-		}
-		getitem 30000, .@amount;
-		dispbottom "You received " + .@amount + " Instance Coin(s).";
-	}
-
-	attachrid(.@self);                             // restore original player context
-	return;
+	setd .@flag$, 1; // mark BEFORE giving, so it can't be claimed twice
+	getitem .@item, .@amount;
+	mes "You received " + .@amount + "x " + getitemname(.@item) + ".";
+	return 1;
 }
 
-prontera,146,168,6	itemshop	Instance Shop#coin	117,30000:-1,5374:50,18874:50,5401:20,2202:20,5208:50,18813:75,5359:75,5800:75,5462:75,2589:150
+-	barter	InstanceCoinShop	-1
+
+prontera,146,168,6	script	Instance Shop#coin_touch	117,{
+OnTouch:
+	callshop( "InstanceCoinShop" );
+	end;
+}
+// 4. Shop Definition (Fixed structural separation)
+//prontera,146,168,6	itemshop	Instance Shop#coin_shop	117,30000,6635:50,5286:150,5374:250,5518:250,18874:250,17069:50,13973:50,5401:100,2202:100,5208:250,18813:375,5359:375,5800:375,5462:375,2910:375,2911:375,2907:375,18603:375,18600:375,18601:375,5361:375,28429:375,18878:375,28513:500,18849:500,450179:500,2576:500,2589:650
+//prontera,146,168,6	itemshop	Instance Shop#coin	117,30000:-1,6635:50,5286:150,5374:250,5518:250,18874:250,17069:50,13973:50,5401:100,2202:100,5208:250,18813:375,5359:375,5800:375,5462:375,2910:375,2911:375,2907:375,18603:375,18600:375,18601:375,5361:375,28429:375,18878:375,28513:500,18849:500,450179:500,2576:500,2589:650
 //prontera,146,168,6	itemshop	Instance Shop#coin	117,30000:-1,5374:50,5401:20,2202:20,5208:50,18561:75,18813:75,5359:75,5800:75,5462:75,2589:150,18874:150

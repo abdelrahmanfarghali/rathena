@@ -278,6 +278,16 @@ glast_01,210,270,0	script	Hugin's Craftsman#pa0829	4_F_JOB_BLACKSMITH,{
 		close;
 	}
 	.@equip_id = getequipid(EQI_SHOES);
+	.@is_enchanted = 0;
+	for (.@i = 1; .@i < 4; .@i++) {
+		if (getequipcardid(EQI_SHOES, .@i) != 0)
+			.@is_enchanted = 1;
+	}
+
+	if (.@is_enchanted) {
+		mes "your ^0000ff" + getitemname(.@equip_id) + "^000000 has already been enchanted, and cannot work on it.";
+		close;
+	}
 	switch(.@equip_id) {
 	case 22000:	callsub( S_Slot,22006 );	// Temporal_STR_Boots
 	case 22001:	callsub( S_Slot,22009 );	// Temporal_INT_Boots
@@ -412,7 +422,7 @@ glast_01,184,283,4	script	Dark magic master#pa082	1_F_01,{
 	setarray .@en_amount_polluted[0],1,2,4,7,10;
 
 	// (custom) chances of success (official value unknown)
-	setarray .@chances[0],100,70,70,70,70;
+	setarray .@chances[0],100,100,100,100,100;
 
 	// data of item equipped
 	.@equip_name$ = getequipname(EQI_SHOES);
@@ -547,13 +557,13 @@ glast_01,216,292,5	script	Portrait collector#0002	4_M_OILMAN,{
 		close;
 	case 2:
 		.@reward_id = .@white_card;
-		.@amount_coag = 3000;
-		.@amount_polluted = 70;
+		.@amount_coag = 1000;
+		.@amount_polluted = 30;
 		break;
 	case 3:
 		.@reward_id = .@khalitzburg_card;
-		.@amount_coag = 5000;
-		.@amount_polluted = 100;
+		.@amount_coag = 1500;
+		.@amount_polluted = 50;
 		break;
 	}
 	mes "[Portrait collector]";

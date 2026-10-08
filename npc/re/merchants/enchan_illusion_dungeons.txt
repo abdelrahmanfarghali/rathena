@@ -450,22 +450,26 @@ prontera,90,115,5	script	Illusion Enchanter#0	4_GEFFEN_09,3,3,{
 		close;
 
 	case true:
-		if (!F_IsCharm(.@card[2]) || !F_IsCharm(.@card[3])) {
+		//if (!F_IsCharm(.@card[2]) || !F_IsCharm(.@card[3])) {
+		if (!F_IsCharm(.@card[3])) {
 			mes "[Illusion Enchanter]";
-			mes "Only fully enchanted items can be reset. Please enchant it twice, and if you still want to reset it, then bring it to me.";
+			//mes "Only fully enchanted items can be reset. Please enchant it twice, and if you still want to reset it, then bring it to me.";
+			mes "Only enchanted items can be reset. Please enchant it once, and if you still want to reset it, then bring it to me.";
 			close;
 		}
 		mes "[Illusion Enchanter]";
 		mes "Your resetting chance varies, depending on the amount of Zeny you pay. What would you like to do?";
 		next;
-		.@s = select( "I'll come back later.", "100,000 Zeny (50%)", "200,000 Zeny (60%)", "300,000 Zeny (70%)", "400,000 Zeny (80%)", "500,000 Zeny (90%)" ) - 1;
+		//.@s = select( "I'll come back later.", "100,000 Zeny (50%)", "200,000 Zeny (60%)", "300,000 Zeny (70%)", "400,000 Zeny (80%)", "500,000 Zeny (90%)" ) - 1;
+		.@s = select( "I'll come back later.", "100,000 Zeny (100%)" ) - 1;
 		if (.@s == 0) {
 			mes "[Illusion Enchanter]";
 			mes "No problem. Come back if you change your mind.";
 			close;
 		}
 		.@cost = 100000 * .@s;
-		.@rate = 40 + 10 * .@s;
+		//.@rate = 40 + 10 * .@s;
+		.@rate = 90 + 10 * .@s;
 
 		if (Zeny < .@cost) {
 			mes "[Illusion Enchanter]";
@@ -504,35 +508,35 @@ S_Enchant:
 			case 3:
 				// <item ID>, <rate> (unknown)
 				setarray .@item[0],
-					4700, 1,	// Strength1
-					4701, 1,	// Strength2
-					4702, 1,	// Strength3
-					4703, 1,	// Strength4
-					4720, 1,	// Dexterity1
-					4721, 1,	// Dexterity2
-					4722, 1,	// Dexterity3
-					4723, 1,	// Dexterity4
-					4750, 1,	// Luck1
-					4751, 1,	// Luck2
-					4752, 1,	// Luck3
-					4753, 1,	// Luck4
-					4808, 1,	// Fighting_Spirit4
-					4809, 1,	// Fighting_Spirit3
-					4810, 1,	// Fighting_Spirit2
-					4811, 1,	// Fighting_Spirit1
-					4820, 1,	// Fighting_Spirit5
-					29081, 1,	// Expect1Lv
-					29082, 1,	// Expect2Lv
-					29083, 1,	// Expect3Lv
-					29084, 1,	// Expect4Lv
-					29085, 1,	// Expect5Lv
-					29061, 1,	// Ambition1Lv
-					29062, 1,	// Ambition2Lv
-					29063, 1,	// Ambition3Lv
-					29064, 1,	// Ambition4Lv
-					29065, 1,	// Ambition5Lv
-					4807, 1,	// Atk_Speed1
-					4842, 1;	// Atk_Speed2
+					//4700, 1,	// Strength1
+					//4701, 1,	// Strength2
+					//4702, 1,	// Strength3
+					//4703, 1,	// Strength4
+					//4720, 1,	// Dexterity1
+					4721, 15,	// Dexterity2
+					//4722, 1,	// Dexterity3
+					4723, 10,	// Dexterity4
+					//4750, 1,	// Luck1
+					//4751, 1,	// Luck2
+					//4752, 1,	// Luck3
+					//4753, 1,	// Luck4
+					//4808, 1,	// Fighting_Spirit4
+					4809, 15,	// Fighting_Spirit3
+					//4810, 1,	// Fighting_Spirit2
+					//4811, 1,	// Fighting_Spirit1
+					4820, 10,	// Fighting_Spirit5
+					//29081, 1,	// Expect1Lv
+					//29082, 1,	// Expect2Lv
+					29083, 15,	// Expect3Lv
+					//29084, 1,	// Expect4Lv
+					29085, 10,	// Expect5Lv
+					//29061, 1,	// Ambition1Lv
+					//29062, 1,	// Ambition2Lv
+					29063, 15,	// Ambition3Lv
+					//29064, 1,	// Ambition4Lv
+					29065, 10,	// Ambition5Lv
+					4807, 15,	// Atk_Speed1
+					4842, 10;	// Atk_Speed2
 				break;
 			default:
 				return 0;
@@ -544,35 +548,35 @@ S_Enchant:
 			case 3:
 				// <item ID>, <rate>
 				setarray .@item[0],
-					4730, 1,	// Agility1
-					4731, 1,	// Agility2
-					4732, 1,	// Agility3
-					4733, 1,	// Agility4
-					4720, 1,	// Dexterity1
-					4721, 1,	// Dexterity2
-					4722, 1,	// Dexterity3
-					4723, 1,	// Dexterity4
-					4750, 1,	// Luck1
-					4751, 1,	// Luck2
-					4752, 1,	// Luck3
-					4753, 1,	// Luck4
-					4807, 1,	// Atk_Speed1
-					4842, 1,	// Atk_Speed2
-					4832, 1,	// Expert_Archer1
-					4833, 1,	// Expert_Archer2
-					4834, 1,	// Expert_Archer3
-					4835, 1,	// Expert_Archer4
-					4836, 1,	// Expert_Archer5
-					29091, 1,	// ArchLine1Lv
-					29092, 1,	// ArchLine2Lv
-					29093, 1,	// ArchLine3Lv
-					29094, 1,	// ArchLine4Lv
-					29095, 1,	// ArchLine5Lv
-					29071, 1,	// Tab1Lv
-					29072, 1,	// Tab2Lv
-					29073, 1,	// Tab3Lv
-					29074, 1,	// Tab4Lv
-					29075, 1;	// Tab5Lv
+					//4730, 1,	// Agility1
+					//4731, 1,	// Agility2
+					//4732, 1,	// Agility3
+					//4733, 1,	// Agility4
+					//4720, 1,	// Dexterity1
+					4721, 15,	// Dexterity2
+					//4722, 1,	// Dexterity3
+					4723, 10,	// Dexterity4
+					//4750, 1,	// Luck1
+					//4751, 1,	// Luck2
+					//4752, 1,	// Luck3
+					//4753, 1,	// Luck4
+					4807, 15,	// Atk_Speed1
+					4842, 10,	// Atk_Speed2
+					//4832, 1,	// Expert_Archer1
+					//4833, 1,	// Expert_Archer2
+					4834, 15,	// Expert_Archer3
+					//4835, 1,	// Expert_Archer4
+					4836, 10,	// Expert_Archer5
+					//29091, 1,	// ArchLine1Lv
+					//29092, 1,	// ArchLine2Lv
+					29093, 15,	// ArchLine3Lv
+					//29094, 1,	// ArchLine4Lv
+					29095, 10,	// ArchLine5Lv
+					//29071, 1,	// Tab1Lv
+					//29072, 1,	// Tab2Lv
+					29073, 15,	// Tab3Lv
+					//29074, 1,	// Tab4Lv
+					29075, 10;	// Tab5Lv
 				break;
 			default:
 				return 0;
@@ -584,25 +588,25 @@ S_Enchant:
 			case 3:
 				// <item ID>, <rate>
 				setarray .@item[0],
-					4710, 1,	// Inteligence1
-					4711, 1,	// Inteligence2
-					4712, 1,	// Inteligence3
-					4713, 1,	// Inteligence4
-					4720, 1,	// Dexterity1
-					4721, 1,	// Dexterity2
-					4722, 1,	// Dexterity3
-					4723, 1,	// Dexterity4
-					4750, 1,	// Luck1
-					4751, 1,	// Luck2
-					4752, 1,	// Luck3
-					4753, 1,	// Luck4
-					4812, 1,	// Spell4
-					4813, 1,	// Spell3
-					4814, 1,	// Spell2
-					4815, 1,	// Spell1
-					4826, 1,	// Spell5
-					4805, 1,	// Heal_Amount2
-					4850, 1;	// Heal_Amount3
+					//4710, 1,	// Inteligence1
+					//4711, 1,	// Inteligence2
+					//4712, 1,	// Inteligence3
+					//4713, 1,	// Inteligence4
+					//4720, 1,	// Dexterity1
+					//4721, 1,	// Dexterity2
+					4722, 15,	// Dexterity3
+					4723, 10,	// Dexterity4
+					//4750, 1,	// Luck1
+					//4751, 1,	// Luck2
+					//4752, 1,	// Luck3
+					//4753, 1,	// Luck4
+					//4812, 1,	// Spell4
+					4813, 15,	// Spell3
+					//4814, 1,	// Spell2
+					//4815, 1,	// Spell1
+					4826, 10,	// Spell5
+					4805, 15,	// Heal_Amount2
+					4850, 10;	// Heal_Amount3
 				break;
 			default:
 				return 0;
@@ -622,41 +626,41 @@ S_Enchant:
 		case 3:
 			// <item ID>, <rate>
 			setarray .@item[0],
-				4700, 700,	// Strength1
-				4701, 600,	// Strength2
-				4702, 500,	// Strength3
-				4703, 200,	// Strength4
-				4740, 700,	// Vitality1
-				4741, 600,	// Vitality2
-				4742, 500,	// Vitality3
-				4743, 200,	// Vitality4
-				4710, 700,	// Inteligence1
-				4711, 600,	// Inteligence2
-				4712, 500,	// Inteligence3
-				4713, 200,	// Inteligence4
-				4750, 700,	// Luck1
-				4751, 600,	// Luck2
-				4752, 500,	// Luck3
-				4753, 200,	// Luck4
-				4994, 10,	// Rune of Strength Lv 1
+				//4700, 700,	// Strength1
+				//4701, 600,	// Strength2
+				//4702, 500,	// Strength3
+				//4703, 200,	// Strength4
+				//4740, 700,	// Vitality1
+				//4741, 600,	// Vitality2
+				//4742, 500,	// Vitality3
+				//4743, 200,	// Vitality4
+				//4710, 700,	// Inteligence1
+				//4711, 600,	// Inteligence2
+				//4712, 500,	// Inteligence3
+				//4713, 200,	// Inteligence4
+				//4750, 700,	// Luck1
+				//4751, 600,	// Luck2
+				//4752, 500,	// Luck3
+				//4753, 200,	// Luck4
+				4994, 15,	// Rune of Strength Lv 1
 				4995, 10,	// Rune of Strength Lv 2
-				4997, 10,	// Rune of Agility Lv 1
+				4997, 15,	// Rune of Agility Lv 1
 				4998, 10,	// Rune of Agility Lv 2
-				29009, 10,	// Rune of Vitality Lv 1
+				29009, 15,	// Rune of Vitality Lv 1
 				29010, 10,	// Rune of Vitality Lv 2
-				29000, 10,	// Rune of Intellect Lv 1
+				29000, 15,	// Rune of Intellect Lv 1
 				29001, 10,	// Rune of Intellect Lv 2
-				29003, 10,	// Rune of Dexterity Lv 1
+				29003, 15,	// Rune of Dexterity Lv 1
 				29004, 10,	// Rune of Dexterity Lv 2
-				29006, 10,	// Rune of Luck Lv 1
+				29006, 15,	// Rune of Luck Lv 1
 				29007, 10,	// Rune of Luck Lv 2
-				4861, 700,	// MHP1
-				4862, 600,	// MHP2
-				4867, 440,	// MHP3
-				4868, 100,	// MHP4
+				//4861, 700,	// MHP1
+				//4862, 600,	// MHP2
+				4867, 15,	// MHP3
+				4868, 10,	// MHP4
 				4992, 10,	// HPAbsorb1_Supplement_Reactor
-				4993, 10,	// SPAbsorb1_Supplement_Reactor
-				29208, 10,	// SP_Absorption_2
+				4993, 15,	// SPAbsorb1_Supplement_Reactor
+				29208, 15,	// SP_Absorption_2
 				29210, 10;	// HP_Absorption_23
 			break;
 		default:
@@ -670,40 +674,40 @@ S_Enchant:
 		case 3:
 			// <item ID>, <rate>
 			setarray .@item[0],
-				4700, 576,	// Strength1
-				4701, 460,	// Strength2
-				4702, 115,	// Strength3
-				4703, 11,	// Strength4
-				4730, 576,	// Agility1
-				4731, 460,	// Agility2
-				4732, 115,	// Agility3
-				4733, 11,	// Agility4
-				4740, 576,	// Vitality1
-				4741, 460,	// Vitality2
-				4742, 115,	// Vitality3
-				4743, 11,	// Vitality4
-				4710, 576,	// Inteligence1
-				4711, 460,	// Inteligence2
-				4712, 115,	// Inteligence3
-				4713, 11,	// Inteligence4
-				4720, 576,	// Dexterity1
-				4721, 460,	// Dexterity2
-				4722, 115,	// Dexterity3
-				4723, 11,	// Dexterity4
-				4750, 576,	// Luck1
-				4751, 460,	// Luck2
-				4752, 115,	// Luck3
-				4753, 11,	// Luck4
-				4928, 576,	// SP10
-				4870, 460,	// SP25
-				4800, 345,	// SP50
-				4871, 115,	// SP75
-				4801, 11,	// SP100
-				4795, 576,	// HP100
-				4796, 460,	// HP200
-				4797, 345,	// HP300
-				4798, 115,	// HP400
-				4799, 11;	// HP500
+				//4700, 576,	// Strength1
+				//4701, 460,	// Strength2
+				4702, 15,	// Strength3
+				4703, 10,	// Strength4
+				//4730, 576,	// Agility1
+				//4731, 460,	// Agility2
+				//4732, 115,	// Agility3
+				//4733, 11,	// Agility4
+				//4740, 576,	// Vitality1
+				//4741, 460,	// Vitality2
+				4742, 15,	// Vitality3
+				4743, 10,	// Vitality4
+				//4710, 576,	// Inteligence1
+				//4711, 460,	// Inteligence2
+				4712, 15,	// Inteligence3
+				4713, 10,	// Inteligence4
+				//4720, 576,	// Dexterity1
+				//4721, 460,	// Dexterity2
+				4722, 15,	// Dexterity3
+				4723, 10,	// Dexterity4
+				//4750, 576,	// Luck1
+				//4751, 460,	// Luck2
+				//4752, 115,	// Luck3
+				//4753, 11,	// Luck4
+				//4928, 576,	// SP10
+				//4870, 460,	// SP25
+				4800, 15,	// SP50
+				4871, 15,	// SP75
+				4801, 10,	// SP100
+				//4795, 576,	// HP100
+				//4796, 460,	// HP200
+				4797, 15,	// HP300
+				4798, 15,	// HP400
+				4799, 10;	// HP500
 			break;
 		default:
 			return 0;

@@ -82,3 +82,4 @@ gef_d01_i	monster	Starving Living Dead	3752,20
 gef_d01_i	monster	Living Dead	3753,30
 gef_d01_i	monster	Sweet Nightmare	3754,25
 gef_d01_i	monster	Black Mushroom	3755,15
+gef_d01_i	boss_monster	Dracula of Rage	3757,1,1200000,1100000,1

@@ -13,7 +13,7 @@
 //= 1.1 Aligned coordinates with @go.
 //============================================================
 
-prontera,150,188,4	script	Healer	21317,{
+prontera,150,188,4	script	Healer	616,{
 
 OnTouch:
 	.@Price = 0;	// Zeny required for heal

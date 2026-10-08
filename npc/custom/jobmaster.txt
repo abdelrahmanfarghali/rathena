@@ -17,7 +17,7 @@
 //============================================================
 
 //prontera,153,193,6	script	Job Master	123,{
-prontera,153,193,4	script	Job Master	21360,{
+prontera,153,193,4	script	Job Master	626,{
 function Get_Job_Equip;
 // Checks if the Player has the required level.
 // closes if not, returns if yes

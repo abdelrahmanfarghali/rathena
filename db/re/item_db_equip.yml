@@ -69534,15 +69534,15 @@ Body:
     Weight: 3300
     Defense: 85
     Slots: 1
-    Jobs:
-      Alchemist: true
-      Blacksmith: true
-      Crusader: true
-      Knight: true
-      Merchant: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
+    #Jobs:
+    #  Alchemist: true
+    #  Blacksmith: true
+    #  Crusader: true
+    #  Knight: true
+    #  Merchant: true
+    #  StarGladiator: true
+    #  Swordman: true
+    #  Taekwon: true
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -69560,6 +69560,10 @@ Body:
       if (.@r>8) {
          bonus bMaxHPrate,25;
       }
+      if(.@r>11) {
+         bonus2 bSubRace,RC_Player_Doram,10;
+         bonus2 bSubRace,RC_Player_Human,10;
+      }
   - Id: 15047
     AegisName: Siege_Suits
     Name: Siege Suit
@@ -69567,25 +69571,25 @@ Body:
     Weight: 750
     Defense: 50
     Slots: 1
-    Jobs:
-      Alchemist: true
-      Archer: true
-      Assassin: true
-      BardDancer: true
-      Blacksmith: true
-      Crusader: true
-      Gunslinger: true
-      Hunter: true
-      KagerouOboro: true
-      Knight: true
-      Merchant: true
-      Ninja: true
-      Rebellion: true
-      Rogue: true
-      StarGladiator: true
-      Swordman: true
-      Taekwon: true
-      Thief: true
+    #Jobs:
+    #  Alchemist: true
+    #  Archer: true
+    #  Assassin: true
+    #  BardDancer: true
+    #  Blacksmith: true
+    #  Crusader: true
+    #  Gunslinger: true
+    #  Hunter: true
+    #  KagerouOboro: true
+    #  Knight: true
+    #  Merchant: true
+    #  Ninja: true
+    #  Rebellion: true
+    #  Rogue: true
+    #  StarGladiator: true
+    #  Swordman: true
+    #  Taekwon: true
+    #  Thief: true
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -69603,6 +69607,10 @@ Body:
       if (.@r>8) {
          bonus bMaxHPrate,15;
       }
+      if(.@r>11) {
+         bonus2 bSubRace,RC_Player_Doram,10;
+         bonus2 bSubRace,RC_Player_Human,10;
+      }
   - Id: 15048
     AegisName: Siege_Robe
     Name: Siege Robe
@@ -69610,16 +69618,16 @@ Body:
     Weight: 500
     Defense: 40
     Slots: 1
-    Jobs:
-      Acolyte: true
-      Mage: true
-      Monk: true
-      Novice: true
-      Priest: true
-      Sage: true
-      SoulLinker: true
-      SuperNovice: true
-      Wizard: true
+    #Jobs:
+    #  Acolyte: true
+    #  Mage: true
+    #  Monk: true
+    #  Novice: true
+    #  Priest: true
+    #  Sage: true
+    #  SoulLinker: true
+    #  SuperNovice: true
+    #  Wizard: true
     Locations:
       Armor: true
     ArmorLevel: 1
@@ -69637,6 +69645,10 @@ Body:
       if (.@r>8) {
          bonus bMaxHP,1000;
          bonus bMaxSP,100;
+      }
+      if(.@r>11) {
+         bonus2 bSubRace,RC_Player_Doram,10;
+         bonus2 bSubRace,RC_Player_Human,10;
       }
   - Id: 15049
     AegisName: Armor_Of_Faith
@@ -84480,8 +84492,8 @@ Body:
     View: 678
     Script: |
       bonus bLuk,5;
-      bonus2 bSubRace,RC_Player_Human,10;
-      bonus2 bSubRace,RC_DemiHuman,10;
+      bonus2 bSubRace,RC_Player_Human,15;
+      bonus2 bSubRace,RC_DemiHuman,15;
       bonus2 bAddItemHealRate,501,100;
       bonus2 bAddItemHealRate,504,100;
       bonus bCritical,10;

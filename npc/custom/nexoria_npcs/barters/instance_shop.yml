@@ -1,0 +1,207 @@
+Header:
+  Type: BARTER_DB
+  Version: 2
+
+Body:
+  - Name: InstanceCoinShop
+    Items:
+      - Index: 0
+        Item: Blacksmith_Blessing
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 25
+      - Index: 2
+        Item: L_Magestic_Goat
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 3
+        Item: L_Magestic_Goat2
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 4
+        Item: Acidbomb_Box100
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 5
+        Item: Poison_Bottle_30_Box
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 6
+        Item: Black_Glasses
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 50
+      - Index: 7
+        Item: Rideword_Hat
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 50
+      - Index: 8
+        Item: New_Wave_Sunglasses
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 10
+        Item: J_Captain_Hat
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 11
+        Item: Blush_Of_Groom
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 12
+        Item: Spiked_Scarf
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 125
+      - Index: 13
+        Item: Bakonawa_Tattoo
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 14
+        Item: Bangungot_Tattoo
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 15
+        Item: Buwaya_Tattoo
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 16
+        Item: Black_Devil_Mask_
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 17
+        Item: Cat_Ears_Beret
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 18
+        Item: Red_Bread_Hat
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 19
+        Item: Gang_Scarf
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 20
+        Item: Arquien's_Necklace
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 21
+        Item: Palace_Guard_Cap
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 150
+      - Index: 22
+        Item: Celine_Brooch
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 250
+      - Index: 23
+        Item: Celines_Ribbon
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 250
+      - Index: 24
+        Item: Celine_Dress
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 250
+      - Index: 25
+        Item: Bravery_Bag
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 250
+      - Index: 26
+        Item: Fallen_Angel_Wing
+        RequiredItems:
+          - Index: 0
+            Item: Instance_Coin
+            Amount: 375
+
+  - Name: SpellbookShop
+    Items:
+      - Index: 0
+        Item: WL_MB_SG # ID 100065
+        Zeny: 100000
+      - Index: 1
+        Item: WL_MB_LOV # ID 100066
+        Zeny: 100000
+      - Index: 2
+        Item: WL_MB_MS # ID 100067
+        Zeny: 100000
+      - Index: 3
+        Item: WL_MB_DL # ID 100068
+        Zeny: 500000
+      - Index: 4
+        Item: WL_MB_JF # ID 100069
+        Zeny: 500000
+      - Index: 5
+        Item: WL_MB_ES # ID 100070
+        Zeny: 500000
+      - Index: 6
+        Item: WL_MB_CR # ID 100071
+        Zeny: 500000
+      - Index: 7
+        Item: WL_MB_CL # ID 100072
+        Zeny: 500000
+      - Index: 8
+        Item: WL_MB_CM        # ID 100073
+        Zeny: 1000000
+        RequiredItems:
+          - Index: 0
+            Item: Burning_Heart      
+            Amount: 40
+      - Index: 9
+        Item: WL_MB_TV # ID 100074
+        Zeny: 1000000
+        RequiredItems:
+          - Index: 0
+            Item: Jubilee            # ID 7312
+            Amount: 10
+          - Index: 1
+            Item: Live_Coal          # ID 7098
+            Amount: 10
+          - Index: 2
+            Item: Ice_Heart      # ID 7561
+            Amount: 10
+          - Index: 3
+            Item: Dragon_Fang # ID 7266 (see note)
+            Amount: 10

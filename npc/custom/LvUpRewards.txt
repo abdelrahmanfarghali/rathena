@@ -24,7 +24,7 @@ OnInit:
 	//LevelUpReward(1,<base level>,<job id>,<zeny>,<item id>,<count>,<item id>,<count>,etc)
 	//LevelUpReward(2,<job level>,<job id>,<zeny>,<item id>,<count>)
 	//example:
-	LevelUpReward(1,15,0,30000,598,30,11502,15,14592,2,14592,1,12411,1,12412,1,12208,3,12210,3);	//give 999 zeny 5 1002 and 2 1005 to Swordman (job id 1) when he level up to base level 5
+	//LevelUpReward(1,15,0,30000,598,30,11502,15,14592,2,14592,1,12411,1,12412,1,12208,3,12210,3);	//give 999 zeny 5 1002 and 2 1005 to Swordman (job id 1) when he level up to base level 5
 
 	LevelUpReward(1,20,0,0,598,30,11502,15);	//give 999 zeny 5 1002 and 2 1005 to Swordman (job id 1) when he level up to base level 5
 	LevelUpReward(1,30,0,0,501,15,11502,20);	//give 999 zeny 5 1002 and 2 1005 to Swordman (job id 1) when he level up to base level 5
